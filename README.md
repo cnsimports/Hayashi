@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to Hayashi 👋</h1>
 <p>
-  <a href="https://twitter.com/\_HouseofGiants" target="_blank">
+  <a href="https://twitter.com/_HouseofGiants" target="_blank">
     <img alt="Twitter: \_HouseofGiants" src="https://img.shields.io/twitter/follow/\_HouseofGiants.svg?style=social" />
   </a>
 </p>
