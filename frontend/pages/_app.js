@@ -2,6 +2,8 @@ import App from "next/app";
 import Head from "next/head";
 import { createContext } from "react";
 
+import { Header } from "../components/Header/Header";
+
 import { getStrapiMedia } from "../lib/media";
 import { fetchAPI } from "../lib/api";
 
@@ -19,6 +21,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="stylesheet" href="https://use.typekit.net/wzt1kkc.css" />
       </Head>
       <GlobalContext.Provider value={global.attributes}>
+        <Header />
         <Component {...pageProps} />
       </GlobalContext.Provider>
     </>
