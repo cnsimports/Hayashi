@@ -1,0 +1,95 @@
+.header {
+  border-top: 12px solid var(--c-gold);
+  padding-top: 2rem;
+  position: relative;
+  width: 100%;
+
+  h1 {
+    margin: 0;
+    padding: 0;
+  }
+  
+  & > :global(.container) {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  & .logo {
+    display: flex;
+  }
+}
+
+.menu-activator {
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  font-family: var(--f-heading);
+  letter-spacing: 0.13rem;
+  line-height: 1;
+
+  & svg {
+    margin-left: 0.8rem;
+  }
+}
+
+.menu-container {
+  background-color: var(--c-white);
+  font-family: var(--f-heading);
+  height: calc(100vh - 100% - 12px);
+  inset: 0;
+  position: absolute;
+  top: 100%;
+  z-index: 10;
+
+  @media (min-width: 1024px) {
+    padding: 2.5rem 6rem;
+  }
+
+  & :global .conatiner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  & .primary-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    & li {
+      line-height: 1.5;
+    }
+
+    & a:not(:global .h1) {
+      font-size: var(--fs-1);
+    }
+  }
+
+  & li {
+    margin: 0;
+    padding: 0;
+  }
+
+  & .h1 {
+    margin: 0;
+  }
+}
+
+.menu-footer {
+  display: flex;
+  padding: 2.1875rem 0;
+
+  & p {
+    margin: 0;
+  }
+
+  & > *:not(:last-child) {
+    margin-right: 4.6875rem;
+  }
+
+  & svg {
+    max-width: 16px;
+  }
+}
