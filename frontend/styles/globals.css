@@ -1,9 +1,97 @@
+/* @link https://utopia.fyi/type/calculator?c=320,14,1.2,1140,24,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+
+:root {  
+  --c-black: #000000;
+  --c-gold: #bf9c4c;
+  --c-dark-grey: #676464;
+  --c-light-grey: #b2aea8;
+  --c-cream: #f8f0e6;
+  --c-white: #ffffff;
+
+  --f-heading: freight-text-pro, serif;
+  --f-body: freight-sans-pro, sans-serif;
+
+  --max-w: 1440px;
+
+  --fluid-min-width: 320;
+  --fluid-max-width: 1140;
+
+  --fluid-screen: 100vw;
+  --fluid-bp: calc(
+    (var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) /
+      (var(--fluid-max-width) - var(--fluid-min-width))
+  );
+}
+
+@media screen and (min-width: 1140px) {
+  :root {
+    --fluid-screen: calc(var(--fluid-max-width) * 1px);
+  }
+}
+
+:root {
+  --f--2-min: 9.72;
+  --f--2-max: 13.51;
+  --fs--2: calc(
+    ((var(--f--2-min) / 16) * 1rem) + (var(--f--2-max) - var(--f--2-min)) *
+      var(--fluid-bp)
+  );
+
+  --f--1-min: 11.67;
+  --f--1-max: 18.00;
+  --fs--1: calc(
+    ((var(--f--1-min) / 16) * 1rem) + (var(--f--1-max) - var(--f--1-min)) *
+      var(--fluid-bp)
+  );
+
+  --f-0-min: 14.00;
+  --f-0-max: 24.00;
+  --fs-0: calc(
+    ((var(--f-0-min) / 16) * 1rem) + (var(--f-0-max) - var(--f-0-min)) *
+      var(--fluid-bp)
+  );
+
+  --f-1-min: 16.80;
+  --f-1-max: 31.99;
+  --fs-1: calc(
+    ((var(--f-1-min) / 16) * 1rem) + (var(--f-1-max) - var(--f-1-min)) *
+      var(--fluid-bp)
+  );
+
+  --f-2-min: 20.16;
+  --f-2-max: 42.65;
+  --fs-2: calc(
+    ((var(--f-2-min) / 16) * 1rem) + (var(--f-2-max) - var(--f-2-min)) *
+      var(--fluid-bp)
+  );
+
+  --f-3-min: 24.19;
+  --f-3-max: 56.85;
+  --fs-3: calc(
+    ((var(--f-3-min) / 16) * 1rem) + (var(--f-3-max) - var(--f-3-min)) *
+      var(--fluid-bp)
+  );
+
+  --f-4-min: 29.03;
+  --f-4-max: 75.78;
+  --fs-4: calc(
+    ((var(--f-4-min) / 16) * 1rem) + (var(--f-4-max) - var(--f-4-min)) *
+      var(--fluid-bp)
+  );
+
+  --f-5-min: 34.84;
+  --f-5-max: 101.01;
+  --fs-5: calc(
+    ((var(--f-5-min) / 16) * 1rem) + (var(--f-5-max) - var(--f-5-min)) *
+      var(--fluid-bp)
+  );
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--f-body);
 }
 
 a {
@@ -14,3 +102,17 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+@import './typography.css';
+@import './containers.css';
