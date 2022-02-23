@@ -18,7 +18,11 @@ export const container = {
 export const item = {
   hidden: {
     opacity: 0,
-    x: -30
+    x: -30,
+    transition: {
+      duration: 1.2,
+      ease: [0.165, 0.84, 0.44, 1]
+    }
   },
   show: {
     opacity: 1,
@@ -33,7 +37,6 @@ export const item = {
 export const navContainer = {
   hidden: {
     opacity: 0,
-    y: "-109%",
     transition: {
       when: 'afterChildren',
       ease: 'linear',
@@ -41,7 +44,6 @@ export const navContainer = {
   },
   show: {
     opacity: 1,
-    y: '0',
     transition: {
       ease: 'linear',
       duration: 0.3,

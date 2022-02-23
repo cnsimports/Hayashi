@@ -46,6 +46,25 @@
 
   & svg {
     margin-left: 0.8rem;
+
+    & line {
+      transform-origin: left;
+      transition: 300ms ease transform, 300ms ease opacity;
+    }
+
+    &.-active {
+      & line:first-child {
+        transform: rotate(45deg) translateX(-2.5px);
+      }
+
+      & line:nth-child(2) {
+        opacity: 0;
+      }
+
+      & line:last-child {
+        transform: rotate(-45deg) translateX(-2px);
+      }
+    }
   }
 }
 
@@ -74,6 +93,14 @@
 
     & li {
       line-height: 1.5;
+    }
+
+    & a {
+      transition: color 300ms ease;
+
+      &:hover {
+        color: var(--c-gold);
+      }
     }
 
     & a:not(:global .h1) {

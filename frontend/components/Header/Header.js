@@ -26,7 +26,7 @@ export const Header = () => {
 
         <button className={styles['menu-activator']} onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-controls="menu">
           {menuOpen ? 'Close' : 'Menu'}
-          <Menu width={25} height={14} />
+          <Menu className={menuOpen ? styles['-active'] : ''} width={25} height={14} />
         </button>
       </div>
       <AnimatePresence>
