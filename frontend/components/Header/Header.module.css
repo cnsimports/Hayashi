@@ -1,0 +1,158 @@
+.header {
+  position: relative;
+  width: 100%;
+
+  &::before {
+    background-color: var(--c-gold);
+    content: "";
+    height: 12px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+  }
+  
+  h1 {
+    margin: 0;
+    padding: 0;
+  }
+  
+  & > :global(.container) {
+    align-items: center;
+    background-color: var(--c-white);
+    border-top: 12px solid var(--c-gold);
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2rem;
+    position: relative;
+    z-index: 5;
+  }
+
+  & .logo {
+    display: flex;
+  }
+}
+
+.menu-activator {
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  font-family: var(--f-heading);
+  letter-spacing: 0.13rem;
+  line-height: 1;
+
+  & svg {
+    margin-left: 0.8rem;
+
+    & line {
+      transform-origin: left;
+      transition: 300ms ease transform, 300ms ease opacity;
+    }
+
+    &.-active {
+      & line:first-child {
+        transform: rotate(45deg) translateX(-2.5px);
+      }
+
+      & line:nth-child(2) {
+        opacity: 0;
+      }
+
+      & line:last-child {
+        transform: rotate(-45deg) translateX(-2px);
+      }
+    }
+  }
+}
+
+.menu-container {
+  background-color: var(--c-white);
+  font-family: var(--f-heading);
+  height: calc(100vh - 100% - 12px);
+  inset: 0;
+  position: absolute;
+  top: 100%;
+  z-index: 1;
+
+  @media (min-width: 1024px) {
+    padding: 2.5rem 6rem;
+  }
+
+  & :global .conatiner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  & .primary-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    & li {
+      line-height: 1.5;
+      width: 100%;
+    }
+
+    & a {
+      display: block;
+      transition: color 300ms ease;
+      width: 100%;
+
+      &:hover {
+        color: var(--c-gold);
+      }
+    }
+
+    & a:not(:global .h1) {
+      font-size: var(--fs-1);
+    }
+  }
+
+  & li {
+    margin: 0;
+    padding: 0;
+  }
+
+  & .h1 {
+    margin: 0;
+  }
+}
+
+.menu-footer {
+  display: flex;
+  padding: 2.1875rem 0;
+
+  & p {
+    margin: 0;
+  }
+
+  & > *:not(:last-child) {
+    margin-right: 4.6875rem;
+  }
+
+  & svg {
+    max-width: 16px;
+  }
+}
+
+.image-float {
+  aspect-ratio: 12 / 16;
+  inset: 0;
+  left: 50%;
+  max-height: 600px;
+  pointer-events: none;
+  position: absolute; 
+  z-index: -1;
+
+  & > div {
+    max-height: 600px;
+    width: 100%;
+  }
+
+  & img {
+    object-fit: cover;
+  }
+}

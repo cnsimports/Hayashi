@@ -2,8 +2,12 @@ import App from "next/app";
 import Head from "next/head";
 import { createContext } from "react";
 
-import { getStrapiMedia } from "../lib/media";
-import { fetchAPI } from "../lib/api";
+import { Header } from "@components/Header/Header";
+
+import { getStrapiMedia } from "@lib/media";
+import { fetchAPI } from "@lib/api";
+
+import '@styles/globals.css';
 
 export const GlobalContext = createContext({});
 
@@ -14,8 +18,10 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <link rel="shortcut icon" href={getStrapiMedia(global.attributes.favicon.data.attributes.url)} />
+        <link rel="stylesheet" href="https://use.typekit.net/wzt1kkc.css" />
       </Head>
       <GlobalContext.Provider value={global.attributes}>
+        <Header />
         <Component {...pageProps} />
       </GlobalContext.Provider>
     </>
