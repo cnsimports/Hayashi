@@ -3,6 +3,7 @@ import Head from "next/head";
 import { createContext } from "react";
 
 import { Header } from "@components/Header/Header";
+import { Footer } from "@components/Footer/Footer";
 
 import { getStrapiMedia } from "@lib/media";
 import { fetchAPI } from "@lib/api";
@@ -23,6 +24,7 @@ function MyApp({ Component, pageProps }) {
       <GlobalContext.Provider value={global.attributes}>
         <Header />
         <Component {...pageProps} />
+        <Footer />
       </GlobalContext.Provider>
     </>
   );
