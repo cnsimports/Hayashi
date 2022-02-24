@@ -54,6 +54,7 @@ export const Footer = () => (
       </ul>
 
       <div className={styles.subscribe}>
+        {/* @TODO :: Hook this up to mailchimp, waiting on client to set this up */}
         <label htmlFor="newsletter">Hear more from Hayashi</label>
         <form className={styles.mailchimp}>
           <input id="newsletter" placeholder="Enter e-mail" type="email" />
