@@ -100,9 +100,9 @@ export const Header = () => {
                 {hoverMenu !== '' && (
                   <motion.div className={styles['image-float']} initial={{ opacity: 0 }} animate={{ opacity: 1, x: mousePosition.centerX * 6, y: mousePosition.centerY * 6 }} exit={{ opacity: 0 }}>
                     <AnimatePresence>
-                      {hoverMenu === 'whiskey' && <Image src="/images/whiskey_shelf.jpeg" layout="fill" />}
-                      {hoverMenu === 'craft' && <Image src="/images/craft.jpeg" layout="fill" />}
-                      {hoverMenu === 'blog' && <Image src="/images/blog.jpeg" layout="fill" />}
+                      {hoverMenu === 'whiskey' && <Image src="/images/whiskey_shelf.jpeg" layout="responsive" height={600} width={450} />}
+                      {hoverMenu === 'craft' && <Image src="/images/craft.jpeg" layout="responsive" height={600} width={450} />}
+                      {hoverMenu === 'blog' && <Image src="/images/blog.jpeg" layout="responsive" height={600} width={450} />}
                     </AnimatePresence>
                   </motion.div>
                 )}
