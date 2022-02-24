@@ -93,10 +93,13 @@
 
     & li {
       line-height: 1.5;
+      width: 100%;
     }
 
     & a {
+      display: block;
       transition: color 300ms ease;
+      width: 100%;
 
       &:hover {
         color: var(--c-gold);
@@ -132,5 +135,25 @@
 
   & svg {
     max-width: 16px;
+  }
+}
+
+.image-float {
+  aspect-ratio: 12 / 16;
+  inset: 0;
+  left: 50%;
+  max-height: 600px;
+  pointer-events: none;
+  position: absolute; 
+  z-index: -1;
+
+  & > div {
+    display: relative;
+    max-height: 600px;
+    width: 100%;
+  }
+
+  & img {
+    object-fit: cover;
   }
 }

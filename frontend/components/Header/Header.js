@@ -1,17 +1,28 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import React, { useRef, useState } from 'react';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import Image from 'next/image'
+import { AnimatePresence, motion } from 'framer-motion';
 
-import { Social } from '../Social/Social';
+import { Social } from '@components/Social/Social';
 
-import { Logo } from '../SVG/Logo';
-import { Menu } from '../SVG/Menu';
+import { Logo } from '@svg/Logo';
+import { Menu } from '@svg/Menu';
 
 import styles from './Header.module.css';
 import { container, item, navContainer } from './Header.motion';
 
+import { getRelativeCoordinates } from '@util/getRelativeCoordinates';
+
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hoverMenu, setHoverMenu] = useState('');
+  const [mousePosition, setMousePosition] = useState({});
+  const boxRef = useRef();
+
+  const handleMouseMove = e => {
+    setMousePosition(getRelativeCoordinates(e, boxRef.current));
+  };
+
   return (
     <div className={styles.header}>
       <div className="container">
@@ -31,7 +42,9 @@ export const Header = () => {
       </div>
       <AnimatePresence>
         {menuOpen && (
-          <motion.div  
+          <motion.div
+            ref={boxRef}
+            onMouseMove={e => handleMouseMove(e)}
             variants={navContainer}
             initial="hidden"
             animate="show"
@@ -48,22 +61,34 @@ export const Header = () => {
                 className={styles['primary-nav']}
               >
                 <motion.li variants={item}>
-                  <Link href="/"><a className="h1">Ryukyu Whiskey</a></Link>
+                  <Link href="/">
+                    <a className="h1" onMouseEnter={() => setHoverMenu('whiskey')} onMouseLeave={() => setHoverMenu('')}>Ryukyu Whiskey</a>
+                  </Link>
                 </motion.li>
                 <motion.li variants={item}>
-                  <Link href="/"><a className="h1">Our Craft</a></Link>
+                  <Link href="/">
+                    <a className="h1" onMouseEnter={() => setHoverMenu('craft')} onMouseLeave={() => setHoverMenu('')}>Our Craft</a>
+                  </Link>
                 </motion.li>
                 <motion.li variants={item}>
-                  <Link href="/"><a className="h1">Blog</a></Link>
+                  <Link href="/">
+                    <a className="h1" onMouseEnter={() => setHoverMenu('blog')} onMouseLeave={() => setHoverMenu('')}>Blog</a>
+                  </Link>
                 </motion.li>
                 <motion.li variants={item}>
-                  <Link href="/"><a>Contact</a></Link>
+                  <Link href="/">
+                    <a>Contact</a>
+                  </Link>
                 </motion.li>
                 <motion.li variants={item}>
-                  <Link href="/"><a>Where to buy</a></Link>
+                  <Link href="/">
+                    <a>Where to buy</a>
+                  </Link>
                 </motion.li>
                 <motion.li variants={item}>
-                  <Link href="/"><a>Order online</a></Link>
+                  <Link href="/">
+                    <a>Order online</a>
+                  </Link>
                 </motion.li>
               </motion.ul>
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }} className={styles['menu-footer']}>
@@ -71,6 +96,17 @@ export const Header = () => {
                 <Link href="/"><a>Privacy Policy</a></Link>
                 <Social />
               </motion.div>
+              <AnimatePresence>
+                {hoverMenu !== '' && (
+                  <motion.div className={styles['image-float']} initial={{ opacity: 0 }} animate={{ opacity: 1, x: mousePosition.centerX * 6, y: mousePosition.centerY * 6 }} exit={{ opacity: 0 }}>
+                    <AnimatePresence>
+                      {hoverMenu === 'whiskey' && <Image src="/images/whiskey_shelf.jpeg" layout="fill" />}
+                      {hoverMenu === 'craft' && <Image src="/images/craft.jpeg" layout="fill" />}
+                      {hoverMenu === 'blog' && <Image src="/images/blog.jpeg" layout="fill" />}
+                    </AnimatePresence>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </motion.div>
         )}

@@ -1,6 +1,6 @@
-import { Facebook } from '../SVG/Facebook';
-import { Instagram } from '../SVG/Instagram';
-import { Twitter } from '../SVG/Twitter';
+import { Facebook } from '@svg/Facebook';
+import { Instagram } from '@svg/Instagram';
+import { Twitter } from '@svg/Twitter';
 
 import styles from './Social.module.css';
 

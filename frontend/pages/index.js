@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 import ReactMarkdown from 'react-markdown';
 
-import client from '../lib/apollo';
+import client from '@lib/apollo';
 
 const Home = ({ homepage }) => {
   return (
