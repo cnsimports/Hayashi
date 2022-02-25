@@ -1,0 +1,89 @@
+.footer :global .container {
+  align-items: center;
+  gap: 2rem;
+  display: grid;
+  font-family: var(--f-heading);
+  justify-content: space-between;
+  padding-bottom: 2rem;
+  padding-top: 6rem;
+  
+  @media (min-width: 768px) {
+    column-gap: 4rem;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 8em;
+  }
+
+  & a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.foot-nav {
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @media (min-width: 480px) {
+    flex-direction: row;
+  }
+
+  & ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  & a {
+    color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.subscribe {
+  & .mailchimp {
+    padding-top: 2rem;
+    position: relative;
+  }
+
+  & input {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    font-family: var(--f-heading);
+    font-size: var(--fs-1);
+    padding-bottom: 1rem;
+    width: 100%;
+
+    &:focus {
+      border-bottom-color: var(--c-gold);
+      outline: none;
+    }
+  }
+
+  & button {
+    align-items: center;
+    background-color: var(--c-gold);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-flex;
+    height: 42px;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    width: 42px;
+  }
+}
+
+.copy-social {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}

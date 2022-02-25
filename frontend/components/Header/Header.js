@@ -12,6 +12,7 @@ import styles from './Header.module.css';
 import { container, item, navContainer } from './Header.motion';
 
 import { getRelativeCoordinates } from '@util/getRelativeCoordinates';
+import { CopySocial } from '@components/Footer/CopySocial';
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -92,9 +93,7 @@ export const Header = () => {
                 </motion.li>
               </motion.ul>
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }} className={styles['menu-footer']}>
-                <p>&copy; {new Date().getFullYear()} Hayashi</p>
-                <Link href="/"><a>Privacy Policy</a></Link>
-                <Social />
+                <CopySocial />
               </motion.div>
               <AnimatePresence>
                 {hoverMenu !== '' && (
