@@ -1,16 +1,16 @@
+import { createContext, useEffect, useState } from 'react';
 import App from 'next/app';
 import Head from 'next/head';
-import { createContext, useEffect, useState } from 'react';
+import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 
 import { Header } from '@components/Header/Header';
 import { Footer } from '@components/Footer/Footer';
+import { Gate } from '@components/Gate/Gate';
 
 import { getStrapiMedia } from '@lib/media';
 import { fetchAPI } from '@lib/api';
 
 import '@styles/globals.css';
-import { Gate } from '@components/Gate/Gate';
-import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 
 export const GlobalContext = createContext({});
 
