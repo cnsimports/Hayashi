@@ -1,24 +1,26 @@
 import React, { useRef, useState } from 'react';
+import { Router } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image'
 import { AnimatePresence, motion } from 'framer-motion';
 
-import { Social } from '@components/Social/Social';
+import { getRelativeCoordinates } from '@util/getRelativeCoordinates';
 
 import { Logo } from '@svg/Logo';
 import { Menu } from '@svg/Menu';
+import { CopySocial } from '@components/Footer/CopySocial';
 
 import styles from './Header.module.css';
 import { container, item, navContainer } from './Header.motion';
 
-import { getRelativeCoordinates } from '@util/getRelativeCoordinates';
-import { CopySocial } from '@components/Footer/CopySocial';
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hoverMenu, setHoverMenu] = useState('');
   const [mousePosition, setMousePosition] = useState({});
   const boxRef = useRef();
+
+  Router.events.on('routeChangeStart', (url) => setMenuOpen(false));
 
   const handleMouseMove = e => {
     setMousePosition(getRelativeCoordinates(e, boxRef.current));
@@ -62,12 +64,12 @@ export const Header = () => {
                 className={styles['primary-nav']}
               >
                 <motion.li variants={item}>
-                  <Link href="/">
+                  <Link href="/whiskey">
                     <a className="h1" onMouseEnter={() => setHoverMenu('whiskey')} onMouseLeave={() => setHoverMenu('')}>Ryukyu Whiskey</a>
                   </Link>
                 </motion.li>
                 <motion.li variants={item}>
-                  <Link href="/">
+                  <Link href="/craft">
                     <a className="h1" onMouseEnter={() => setHoverMenu('craft')} onMouseLeave={() => setHoverMenu('')}>Our Craft</a>
                   </Link>
                 </motion.li>
