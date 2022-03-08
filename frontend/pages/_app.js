@@ -17,7 +17,6 @@ export const GlobalContext = createContext({});
 function MyApp({ Component, pageProps, router }) {
   const { global } = pageProps;
   const [isLegal, setIsLegal] = useState('');
-  const controlsBtn = useAnimation();
 
   useEffect(() => {
     setIsLegal(localStorage.getItem('ageVerified'));
@@ -25,7 +24,7 @@ function MyApp({ Component, pageProps, router }) {
 
   useEffect(() => {
     localStorage.setItem('ageVerified', isLegal);
-  }, [controlsBtn, isLegal]);
+  }, [isLegal]);
 
   const MotionGate = motion(Gate);
 
