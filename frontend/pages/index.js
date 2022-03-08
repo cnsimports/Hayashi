@@ -2,12 +2,20 @@ import { gql } from '@apollo/client';
 import ReactMarkdown from 'react-markdown';
 
 import client from '@lib/apollo';
+import withTransition from 'HOC/withTransition';
 
-const Home = ({ homepage }) => {
-  return (
+const Home = ({ homepage }, props) => {
+
+  const HomeContent = () => (
     <main>
       <ReactMarkdown children={homepage.attributes.content} />
     </main>
+  );
+
+  const HomeWithTransition = withTransition(HomeContent);
+
+  return (
+    <HomeWithTransition {...props} />
   );
 };
 
