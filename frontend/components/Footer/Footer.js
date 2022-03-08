@@ -1,6 +1,8 @@
-import { Logo } from "@svg/Logo";
-import Link from "next/link";
-import { CopySocial } from "./CopySocial";
+import React from 'react';
+import Link from 'next/link';
+
+import { Logo } from '@svg/Logo';
+import { CopySocial } from './CopySocial';
 
 import styles from './Footer.module.css';
 

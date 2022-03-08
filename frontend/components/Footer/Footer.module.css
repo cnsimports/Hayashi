@@ -86,4 +86,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 1rem;
+
+  & a {
+    text-decoration: underline;
+  }
 }

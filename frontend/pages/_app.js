@@ -1,19 +1,32 @@
-import App from "next/app";
-import Head from "next/head";
-import { createContext } from "react";
+import { createContext, useEffect, useState } from 'react';
+import App from 'next/app';
+import Head from 'next/head';
+import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 
-import { Header } from "@components/Header/Header";
-import { Footer } from "@components/Footer/Footer";
+import { Header } from '@components/Header/Header';
+import { Footer } from '@components/Footer/Footer';
+import { Gate } from '@components/Gate/Gate';
 
-import { getStrapiMedia } from "@lib/media";
-import { fetchAPI } from "@lib/api";
+import { getStrapiMedia } from '@lib/media';
+import { fetchAPI } from '@lib/api';
 
 import '@styles/globals.css';
 
 export const GlobalContext = createContext({});
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
   const { global } = pageProps;
+  const [isLegal, setIsLegal] = useState('');
+
+  useEffect(() => {
+    setIsLegal(localStorage.getItem('ageVerified'));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('ageVerified', isLegal);
+  }, [isLegal]);
+
+  const MotionGate = motion(Gate);
 
   return (
     <>
@@ -22,9 +35,15 @@ function MyApp({ Component, pageProps }) {
         <link rel="stylesheet" href="https://use.typekit.net/wzt1kkc.css" />
       </Head>
       <GlobalContext.Provider value={global.attributes}>
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
+        {isLegal === 'true' && <Header initial={false} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }} />}
+          {isLegal === 'true' ? (
+            <AnimatePresence exitBeforeEnter>
+              <Component {...pageProps} key={router.route} />
+            </AnimatePresence>
+          ) : (
+            <MotionGate initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1 }} key="gate" setIsLegal={setIsLegal} isLegal={isLegal} />
+          )}
+        {isLegal === 'true' && <Footer initial={false} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }} />}
       </GlobalContext.Provider>
     </>
   );
