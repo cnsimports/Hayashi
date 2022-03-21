@@ -31,11 +31,14 @@ h1,
   font-size: var(--fs-5);
 }
 
-h2 {
+h2,
+.h2 {
   font-size: var(--fs-4);
+  font-weight: 300
 }
 
-h3 {
+h3,
+.h3 {
   font-size: var(--fs-3);
 }
 
@@ -49,4 +52,8 @@ h5 {
 
 small, .text_small {
   font-size: var(--fs--1);
+}
+
+.-center {
+  text-align: center;
 }
