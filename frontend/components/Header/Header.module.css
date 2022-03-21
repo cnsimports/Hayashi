@@ -1,9 +1,17 @@
 .header {
-  position: relative;
+  position: sticky;
+  top: 0;
+  transition: background-color 300ms linear;
   width: 100%;
+  z-index: 10;
+
+  &.-is-open {
+    background-color: var(--c-white);
+  }
 
   &::before {
     background-color: var(--c-gold);
+    background-image: url('/images/gold-foil.jpeg');
     content: "";
     height: 12px;
     left: 0;
@@ -26,7 +34,6 @@
   
   & > :global(.container) {
     align-items: center;
-    background-color: var(--c-white);
     border-top: 12px solid var(--c-gold);
     display: flex;
     justify-content: space-between;
@@ -39,6 +46,7 @@
     display: flex;
 
     & svg {
+      color: var(--c-fade, #000);
       width: 100%;
     }
   }
@@ -48,6 +56,7 @@
   align-items: center;
   background-color: transparent;
   border: none;
+  color: var(--c-fade, #000);
   cursor: pointer;
   display: flex;
   font-family: var(--f-heading);
@@ -81,17 +90,17 @@
 .menu-container {
   background-color: var(--c-white);
   font-family: var(--f-heading);
-  height: calc(100vh - 100% - 12px);
+  height: calc(100vh - 100%);
   inset: 0;
   position: absolute;
   top: 100%;
-  z-index: 1;
+  z-index: 5;
 
   @media (min-width: 1024px) {
     padding: 2.5rem 6rem;
   }
 
-  & :global .conatiner {
+  & :global(.container) {
     display: flex;
     flex-direction: column;
   }
