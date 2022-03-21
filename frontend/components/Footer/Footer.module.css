@@ -3,9 +3,9 @@
 
   & :global(.container) {
     align-items: center;
-    gap: 2rem;
     display: grid;
     font-family: var(--f-heading);
+    gap: 2rem;
     justify-content: space-between;
     padding-bottom: 2rem;
     padding-top: 6rem;
