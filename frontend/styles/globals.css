@@ -2,6 +2,7 @@
 
 :root {  
   --c-black: #000000;
+  --c-dark: #231f20;
   --c-gold: #bf9c4c;
   --c-dark-grey: #676464;
   --c-light-grey: #b2aea8;
@@ -92,6 +93,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: var(--f-body);
+  transition: background-color 300ms ease, color 300ms ease;
 }
 
 a {
@@ -112,6 +114,11 @@ a {
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+.-dark {
+  background-color: var(--c-dark);
+  color: var(--c-white);
 }
 
 @import './typography.css';
