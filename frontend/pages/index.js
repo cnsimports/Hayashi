@@ -128,8 +128,7 @@ const Home = ({ homepage }, props) => {
   const HomeWithTransition = withTransition(HomeContent);
 
   return (
-    // <HomeWithTransition {...props} />
-    <HomeContent />
+    <HomeWithTransition {...props} />
   );
 };
 
