@@ -1,0 +1,26 @@
+.button {
+  font-family: var(--f-heading);
+  font-style: italic;
+
+  &:hover {
+    & :global(.arrow) {
+      transform: scale(1.2);
+    }
+  }
+
+  & :global(.arrow) {
+    align-items: center;
+    background-color: var(--c-gold);
+    border: none;
+    border-radius: 50%;
+    color: var(--c-dark);
+    cursor: pointer;
+    display: inline-flex;
+    height: 47px;
+    justify-content: center;
+    margin-right: 1rem;
+    margin-top: 3rem;
+    transition: transform 300ms ease;
+    width: 47px;
+  }
+}

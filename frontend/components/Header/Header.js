@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Router } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image'
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useTransform, useViewportScroll } from 'framer-motion';
 
 import { getRelativeCoordinates } from '@util/getRelativeCoordinates';
 
@@ -13,12 +13,15 @@ import { CopySocial } from '@components/Footer/CopySocial';
 import styles from './Header.module.css';
 import { container, item, navContainer } from './Header.motion';
 
-
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hoverMenu, setHoverMenu] = useState('');
   const [mousePosition, setMousePosition] = useState({});
   const boxRef = useRef();
+
+  const { scrollYProgress } = useViewportScroll();
+
+  const navAnim = useTransform(scrollYProgress, [0.33, 0.4, 0.44], ["#000", "#fff", "#fff"]);
 
   Router.events.on('routeChangeStart', (url) => setMenuOpen(false));
 
@@ -27,10 +30,10 @@ export const Header = () => {
   };
 
   return (
-    <div className={styles.header}>
+    <motion.div className={`${styles.header} ${menuOpen ? styles['-is-open'] : ''}`} style={{ '--c-fade': navAnim }}>
       <div className="container">
         <h1>
-          <Link href="/">
+          <Link scroll={false} href="/">
             <a className={styles.logo}>
               <span className="screen-reader-text">Hayashi</span>
               <Logo width={147} height={26} />
@@ -64,32 +67,32 @@ export const Header = () => {
                 className={styles['primary-nav']}
               >
                 <motion.li variants={item}>
-                  <Link href="/whiskey">
+                  <Link scroll={false} href="/whiskey">
                     <a className="h1" onMouseEnter={() => setHoverMenu('whiskey')} onMouseLeave={() => setHoverMenu('')}>Ryukyu Whiskey</a>
                   </Link>
                 </motion.li>
                 <motion.li variants={item}>
-                  <Link href="/craft">
+                  <Link scroll={false} href="/craft">
                     <a className="h1" onMouseEnter={() => setHoverMenu('craft')} onMouseLeave={() => setHoverMenu('')}>Our Craft</a>
                   </Link>
                 </motion.li>
                 <motion.li variants={item}>
-                  <Link href="/">
+                  <Link scroll={false} href="/">
                     <a className="h1" onMouseEnter={() => setHoverMenu('blog')} onMouseLeave={() => setHoverMenu('')}>Blog</a>
                   </Link>
                 </motion.li>
                 <motion.li variants={item}>
-                  <Link href="/">
+                  <Link scroll={false} href="/">
                     <a>Contact</a>
                   </Link>
                 </motion.li>
                 <motion.li variants={item}>
-                  <Link href="/">
+                  <Link scroll={false} href="/">
                     <a>Where to buy</a>
                   </Link>
                 </motion.li>
                 <motion.li variants={item}>
-                  <Link href="/">
+                  <Link scroll={false} href="/">
                     <a>Order online</a>
                   </Link>
                 </motion.li>
@@ -112,6 +115,6 @@ export const Header = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 };

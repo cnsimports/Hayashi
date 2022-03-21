@@ -9,6 +9,14 @@
     padding-left: 0;
     padding-right: 0;
   }
+
+  &.-sm {
+    max-width: 1027px;
+  }
+
+  &.-pb-l {
+    padding-bottom: 3rem;
+  }
 }
 
 .overflow-hidden {
