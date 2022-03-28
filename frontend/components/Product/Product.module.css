@@ -1,0 +1,65 @@
+.product {
+  align-items: center;
+  background-image: url('/images/granite.jpeg');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 12px;
+  overflow: clip;
+  padding-top: 4rem;
+  position: relative;
+  
+  @media (min-width: 1024px) {
+    min-height: 80vh;
+  }
+  
+  & :global(.container) {
+    align-items: center;
+    column-gap: 4rem;
+    display: grid;
+    justify-content: center;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: 3fr 2fr;
+    }
+  }
+}
+
+.content {
+  align-items: center;
+  display: grid;
+  gap: 4rem;
+  grid-template-columns: 40px 1fr;
+  padding-bottom: 2rem;
+
+  & h2 {
+    margin: 0;
+  }
+}
+
+.image {
+  align-items: center;
+  background-image: url('/images/stucco.jpeg');
+  display: grid;
+  max-height: 624px;
+  width: 100%;
+  
+  @media (min-width: 1024px) {
+    max-height: none;
+    min-height: 80vh;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 33.33333vw;
+  }
+
+  & span {
+    max-height: 624px;
+  }
+
+  & img {
+    object-fit: contain;
+    height: 100%;
+  }
+}
