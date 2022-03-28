@@ -15,6 +15,7 @@ import '@styles/globals.css';
 export const GlobalContext = createContext({});
 
 function MyApp({ Component, pageProps, router }) {
+  const { route } = router;
   const { global } = pageProps;
   const [isLegal, setIsLegal] = useState('');
 
@@ -35,10 +36,10 @@ function MyApp({ Component, pageProps, router }) {
         <link rel="stylesheet" href="https://use.typekit.net/wzt1kkc.css" />
       </Head>
       <GlobalContext.Provider value={global.attributes}>
-        {isLegal === 'true' && <Header initial={false} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }} />}
+        {isLegal === 'true' && <Header initial={false} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }} navTransition={route === '/' ? true : false} />}
           {isLegal === 'true' ? (
             <AnimatePresence exitBeforeEnter>
-              <Component {...pageProps} key={router.route} />
+              <Component {...pageProps} key={route} />
             </AnimatePresence>
           ) : (
             <MotionGate initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1 }} key="gate" setIsLegal={setIsLegal} isLegal={isLegal} />
