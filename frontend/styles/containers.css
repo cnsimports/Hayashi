@@ -17,6 +17,10 @@
   &.-pb-l {
     padding-bottom: 3rem;
   }
+
+  &.-p-m {
+    padding: 2rem;
+  }
 }
 
 .overflow-hidden {
