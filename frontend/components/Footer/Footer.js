@@ -16,22 +16,22 @@ export const Footer = () => (
           </Link>
         </li>
         <li>
-          <Link href="/">
+          <Link scroll={false} href="/">
             <a>Our Story</a>
           </Link>
         </li>
         <li>
-          <Link href="/craft">
+          <Link scroll={false} href="/craft">
             <a>Our Craft</a>
           </Link>
         </li>
         <li>
-          <Link href="/blog">
+          <Link scroll={false} href="/blog">
             <a>Blog</a>
           </Link>
         </li>
         <li>
-          <Link href="/contact">
+          <Link scroll={false} href="/contact">
             <a>Contact</a>
           </Link>
         </li>
