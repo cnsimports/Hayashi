@@ -34,7 +34,7 @@ h1,
 h2,
 .h2 {
   font-size: var(--fs-4);
-  font-weight: 300
+  font-weight: 300;
 }
 
 h3,
@@ -46,7 +46,8 @@ h4 {
   font-size: var(--fs-2);
 }
 
-h5 {
+h5,
+.h5 {
   font-size: var(--fs-1);
 }
 
@@ -56,4 +57,8 @@ small, .text_small {
 
 .-center {
   text-align: center;
+}
+
+.-uppercase {
+  text-transform: uppercase;
 }
