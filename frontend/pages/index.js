@@ -35,7 +35,7 @@ const Home = ({ homepage }, props) => {
               <h2>The Modern Expression of an Ancient Spirit</h2>
             </div>
             <motion.div className={styles['bottle']}>
-              <Image src="/images/bottle02.png" priority layout="fixed" width={617} height={796} />
+              <Image src="/images/bottle02.png" priority layout="fixed" width={296} height={745} />
             </motion.div>
           </div>
           <div className={styles['bg']}>
@@ -52,7 +52,7 @@ const Home = ({ homepage }, props) => {
               <p>Hayashi Master distillers use only the highest quality local ingredients, with a unique dedication to evolving the awamori rice spirit process that’s been passed down through generations.</p>
             </div>
             <motion.div className={styles['bottle']}>
-              <Image src="/images/bottle02.png" layout="fixed" width={617} height={796} />
+              <Image src="/images/bottle02.png" layout="fixed" width={296} height={745} />
               <motion.div className={styles['bottle-bg']}>
                 <Image src="/images/grass.png" layout="responsive" width={606} height={850} />
               </motion.div>
@@ -69,7 +69,7 @@ const Home = ({ homepage }, props) => {
               <p>An exemplary whisky of the Ryukyu Islands, Hayashi embodies both the quiet intrigue of Okinawa island life and the rich tradition of Japanese patience and perfection.</p>
             </div>
             <motion.div className={styles['bottle']}>
-              <Image src="/images/bottle02.png" layout="fixed" width={617} height={796} />
+              <Image src="/images/bottle02.png" layout="fixed" width={296} height={745} />
               <motion.div className={styles['bottle-bg']}>
                 <Image src="/images/tree.png" layout="responsive" width={1107} height={885} />
               </motion.div>
