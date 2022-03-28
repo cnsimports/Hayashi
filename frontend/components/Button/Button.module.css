@@ -8,6 +8,25 @@
     }
   }
 
+  &[type="submit"] {
+    background-color: var(--c-gold);
+    border: none;
+    border-radius: 10px;
+    color: var(--c-white);
+    cursor: pointer;
+    font-family: var(--f-body);
+    font-size: var(--fs--1);
+    font-style: normal;
+    padding: 1rem;
+    transition: background-color 300ms ease;
+    width: 100%;
+
+    &:hover,
+    &:focus {
+      background-color: var(--c-dark);
+    }
+  }
+
   & :global(.arrow) {
     align-items: center;
     background-color: var(--c-gold);
