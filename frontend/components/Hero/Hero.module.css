@@ -1,0 +1,22 @@
+.hero {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	font-weight: 100;
+	justify-content: center;
+	min-height: 80vh;
+
+	&.narrow {
+		min-height: 40vh;
+	}
+
+	& p {
+		margin: 0;
+	}
+
+	& h1 {
+		font-weight: 100;
+		margin-bottom: 1rem;
+		margin-top: 0;
+	}
+}
