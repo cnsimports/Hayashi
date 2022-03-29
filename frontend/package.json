@@ -14,7 +14,7 @@
     }
   },
   "lint-staged": {
-    "**/*.js": "yarn format:no-path",
+    "**/*.js*": "yarn format:no-path",
     "**/*.css": "yarn prettier --write"
   },
   "dependencies": {

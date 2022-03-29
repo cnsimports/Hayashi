@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { BlogGridItem } from './BlogGridItem';
 
 import styles from './BlogGrid.module.css';
@@ -13,5 +12,5 @@ export const BlogGrid = () => {
 			<BlogGridItem />
 			<BlogGridItem />
 		</div>
-	)
+	);
 };
