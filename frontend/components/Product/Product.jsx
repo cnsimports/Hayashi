@@ -28,7 +28,7 @@ export const Product = () => (
 						<br />
 						Its roots burrow 500 years into the past, Hayashi 24 draws on a rich tradition of master awamori distillers
 						who fermented indica rice with a rare strain of black koji. Hayashi branches this craft into the present,
-						aging 24 years in bourbon casks surrounded by the soft, saltwater air of the pacific. 
+						aging 24 years in bourbon casks surrounded by the soft, saltwater air of the pacific.
 					</p>
 					<p>
 						<strong>Notes:</strong>

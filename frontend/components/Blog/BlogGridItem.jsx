@@ -23,7 +23,7 @@ export const BlogGridItem = ({ count = '1' }) => {
 				<h4>Donec ullamcorper nulla non metus auctor fringilla.</h4>
 			</a>
 		</Link>
-	)
+	);
 };
 
 BlogGridItem.propTypes = {
