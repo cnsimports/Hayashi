@@ -38,12 +38,7 @@ function MyApp({ Component, pageProps, router }) {
 			</Head>
 			<GlobalContext.Provider value={global.attributes}>
 				{isLegal === 'true' && (
-					<Header
-						initial={false}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 1, duration: 1 }}
-						navTransition={route === '/' ? true : false}
-					/>
+					<Header initial={false} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }} />
 				)}
 				{isLegal === 'true' ? (
 					<AnimatePresence exitBeforeEnter>
@@ -69,7 +64,7 @@ function MyApp({ Component, pageProps, router }) {
 }
 
 MyApp.propTypes = {
-	Component: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+	Component: PropTypes.func,
 	pageProps: PropTypes.object,
 	router: PropTypes.object,
 };

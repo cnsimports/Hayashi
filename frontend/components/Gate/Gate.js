@@ -1,4 +1,4 @@
-import React from 'react';
+import { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import Image from 'next/image';
 
@@ -6,7 +6,7 @@ import { Logo } from '@components/SVG/Logo';
 
 import styles from './Gate.module.css';
 
-const Gate = ({ isLegal, setIsLegal }, ref) => (
+const Gate = forwardRef(({ isLegal, setIsLegal }, ref) => (
 	<div className={styles['age-gate']} ref={ref}>
 		<div className={styles.content}>
 			<Logo className={styles.logo} width={267} height={41} />
@@ -26,11 +26,13 @@ const Gate = ({ isLegal, setIsLegal }, ref) => (
 			<Image alt="" src="/images/bottle01.png" priority layout="fill" />
 		</div>
 	</div>
-);
+));
+
+Gate.displayName = 'Gate';
 
 Gate.propTypes = {
 	isLegal: PropTypes.bool,
 	setIsLegal: PropTypes.func,
 };
 
-export default React.forwardRef(Gate);
+export default Gate;

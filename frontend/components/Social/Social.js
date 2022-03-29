@@ -8,17 +8,17 @@ export const Social = () => (
 	<ul className={styles.social}>
 		<li>
 			<a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-				<Facebook width="16" fill="var(--c-gold)" />
+				<Facebook width={16} fill="var(--c-gold)" />
 			</a>
 		</li>
 		<li>
 			<a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-				<Twitter width="16" fill="var(--c-gold)" />
+				<Twitter width={16} fill="var(--c-gold)" />
 			</a>
 		</li>
 		<li>
 			<a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-				<Instagram width="16" fill="var(--c-gold)" />
+				<Instagram width={16} fill="var(--c-gold)" />
 			</a>
 		</li>
 	</ul>

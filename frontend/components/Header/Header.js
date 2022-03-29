@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react';
-import PropTypes from 'prop-types';
-import { Router } from 'next/router';
+import { Router, useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
 import { AnimatePresence, motion, useTransform, useViewportScroll } from 'framer-motion';
@@ -14,8 +13,10 @@ import { CopySocial } from '@components/Footer/CopySocial';
 import styles from './Header.module.css';
 import { container, item, navContainer } from './Header.motion';
 
-export const Header = ({ navTransition }) => {
+export const Header = () => {
+	const router = useRouter();
 	const [menuOpen, setMenuOpen] = useState(false);
+	const [navTransition, setNavTransition] = useState(router.pathname === '/' ? true : false);
 	const [hoverMenu, setHoverMenu] = useState('');
 	const [mousePosition, setMousePosition] = useState({});
 	const boxRef = useRef();
@@ -25,6 +26,14 @@ export const Header = ({ navTransition }) => {
 	const navAnim = useTransform(scrollYProgress, [0.33, 0.4, 0.44], ['#000', '#fff', '#fff']);
 
 	Router.events.on('routeChangeStart', () => setMenuOpen(false));
+
+	Router.events.on('routeChangeComplete', (url) => {
+		if (url === '/') {
+			setNavTransition(true);
+		} else {
+			setNavTransition(false);
+		}
+	});
 
 	const handleMouseMove = (e) => {
 		setMousePosition(getRelativeCoordinates(e, boxRef.current));
@@ -152,8 +161,4 @@ export const Header = ({ navTransition }) => {
 			</AnimatePresence>
 		</motion.div>
 	);
-};
-
-Header.propTypes = {
-	navTransition: PropTypes.bool,
 };
