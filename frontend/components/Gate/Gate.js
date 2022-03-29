@@ -31,7 +31,7 @@ const Gate = forwardRef(({ isLegal, setIsLegal }, ref) => (
 Gate.displayName = 'Gate';
 
 Gate.propTypes = {
-	isLegal: PropTypes.bool,
+	isLegal: PropTypes.string,
 	setIsLegal: PropTypes.func,
 };
 
