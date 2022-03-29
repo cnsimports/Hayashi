@@ -25,7 +25,7 @@ const withTransition = (OriginalComponent) => {
       >
         <Kanji width={0} height={0} />
         <div className={styles.kanji}>
-          <Image src="/images/gold-foil.jpeg" priority layout="intrinsic" width={271} height={231} />
+          <Image alt="" src="/images/gold-foil.jpeg" priority layout="intrinsic" width={271} height={231} />
         </div>
       </motion.div>
       <motion.div
@@ -40,7 +40,7 @@ const withTransition = (OriginalComponent) => {
       >
         <Kanji width={0} height={0} />
         <div className={styles.kanji}>
-          <Image src="/images/gold-foil.jpeg" priority layout="intrinsic" width={271} height={231} />
+          <Image alt="" src="/images/gold-foil.jpeg" priority layout="intrinsic" width={271} height={231} />
         </div>
       </motion.div>
     </>

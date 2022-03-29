@@ -24,39 +24,39 @@ export const HoverLinks = () => {
             {active === 'store' && (
               <>
                 <motion.div key="img1" initial={{ opacity: 0 }} animate={{ opacity: 1, x: mousePosition.centerX * 30, y: mousePosition.centerY * 30 + 50 }} exit={{ opacity: 0 }} transition={{ ease: 'linear' }}>
-                  <Image src="https://source.unsplash.com/random/320x426" layout="intrinsic" width={320} height={426} />
+                  <Image alt="" src="https://source.unsplash.com/random/320x426" layout="intrinsic" width={320} height={426} />
                 </motion.div>
                 <motion.div key="img2" initial={{ opacity: 0 }} animate={{ opacity: 1, x: mousePosition.centerX * 10, y: mousePosition.centerY * 10 }} exit={{ opacity: 0 }} transition={{ ease: 'linear' }}>
-                  <Image src="https://source.unsplash.com/random/320x426" layout="intrinsic" width={320} height={426} />
+                  <Image alt="" src="https://source.unsplash.com/random/320x426" layout="intrinsic" width={320} height={426} />
                 </motion.div>
                 <motion.div key="img3" initial={{ opacity: 0 }} animate={{ opacity: 1, x: mousePosition.centerX * 30, y: mousePosition.centerY * 30  + 50}} exit={{ opacity: 0 }} transition={{ ease: 'linear' }}>
-                  <Image src="https://source.unsplash.com/random/320x426" layout="intrinsic" width={320} height={426} />
+                  <Image alt="" src="https://source.unsplash.com/random/320x426" layout="intrinsic" width={320} height={426} />
                 </motion.div>
               </>
             )}
             {active === 'order' && (
               <>
                 <motion.div key="img4" initial={{ opacity: 0 }} animate={{ opacity: 1, x: mousePosition.centerX * 30, y: mousePosition.centerY * 30 + 50 }} exit={{ opacity: 0 }} transition={{ ease: 'linear' }}>
-                  <Image src="https://source.unsplash.com/random/640x852" layout="intrinsic" width={320} height={426} />
+                  <Image alt="" src="https://source.unsplash.com/random/640x852" layout="intrinsic" width={320} height={426} />
                 </motion.div>
                 <motion.div key="img5" initial={{ opacity: 0 }} animate={{ opacity: 1, x: mousePosition.centerX * 10, y: mousePosition.centerY * 10 }} exit={{ opacity: 0 }} transition={{ ease: 'linear' }}>
-                  <Image src="https://source.unsplash.com/random/640x852" layout="intrinsic" width={320} height={426} />
+                  <Image alt="" src="https://source.unsplash.com/random/640x852" layout="intrinsic" width={320} height={426} />
                 </motion.div>
                 <motion.div key="img6" initial={{ opacity: 0 }} animate={{ opacity: 1, x: mousePosition.centerX * 30, y: mousePosition.centerY * 30 + 50 }} exit={{ opacity: 0 }} transition={{ ease: 'linear' }}>
-                  <Image src="https://source.unsplash.com/random/640x852" layout="intrinsic" width={320} height={426} />
+                  <Image alt="" src="https://source.unsplash.com/random/640x852" layout="intrinsic" width={320} height={426} />
                 </motion.div>
               </>
             )}
             {active === 'products' && (
               <>
                 <motion.div key="img7" initial={{ opacity: 0 }} animate={{ opacity: 1, x: mousePosition.centerX * 30, y: mousePosition.centerY * 30 + 50 }} exit={{ opacity: 0 }} transition={{ ease: 'linear' }}>
-                  <Image src="https://source.unsplash.com/random/320x426" layout="intrinsic" width={320} height={426} />
+                  <Image alt="" src="https://source.unsplash.com/random/320x426" layout="intrinsic" width={320} height={426} />
                 </motion.div>
                 <motion.div key="img8" initial={{ opacity: 0 }} animate={{ opacity: 1, x: mousePosition.centerX * 10, y: mousePosition.centerY * 10 }} exit={{ opacity: 0 }} transition={{ ease: 'linear' }}>
-                  <Image src="https://source.unsplash.com/random/320x426" layout="intrinsic" width={320} height={426} />
+                  <Image alt="" src="https://source.unsplash.com/random/320x426" layout="intrinsic" width={320} height={426} />
                 </motion.div>
                 <motion.div key="img9" initial={{ opacity: 0 }} animate={{ opacity: 1, x: mousePosition.centerX * 30, y: mousePosition.centerY * 30 + 50 }} exit={{ opacity: 0 }} transition={{ ease: 'linear' }}>
-                  <Image src="https://source.unsplash.com/random/320x426" layout="intrinsic" width={320} height={426} />
+                  <Image alt="" src="https://source.unsplash.com/random/320x426" layout="intrinsic" width={320} height={426} />
                 </motion.div>
               </>
             )}

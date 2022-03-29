@@ -11,7 +11,7 @@ export const BlogGridItem = ({ count = '1' }) => {
       <a className={styles['blog-grid-item']}>
         <p>{padCount}</p>
         <div className="img">
-          <Image src="https://source.unsplash.com/collection/928423/480x480" layout="responsive" width={600} height={656} />
+          <Image alt="" src="https://source.unsplash.com/collection/928423/480x480" layout="responsive" width={600} height={656} />
         </div>
         <h4>Donec ullamcorper nulla non metus auctor fringilla.</h4>
       </a>

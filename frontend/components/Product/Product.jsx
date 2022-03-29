@@ -24,7 +24,7 @@ export const Product = () => (
       </div>
     </div>
     <div className={styles.image}>
-      <Image src="/images/bottle01.png" priority layout="responsive" width={502} height={800} />
+      <Image alt="" src="/images/bottle01.png" priority layout="responsive" width={502} height={800} />
     </div>
   </div>
 );
