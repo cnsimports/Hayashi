@@ -1,202 +1,202 @@
 .header {
-  position: sticky;
-  top: 0;
-  transition: background-color 300ms linear;
-  width: 100%;
-  z-index: 10;
+	position: sticky;
+	top: 0;
+	transition: background-color 300ms linear;
+	width: 100%;
+	z-index: 10;
 
-  &.-is-open {
-    background-color: var(--c-white);
-    --c-fade: varc(--c-black) !important;
-  }
+	&.-is-open {
+		background-color: var(--c-white);
+		--c-fade: varc(--c-black) !important;
+	}
 
-  &::before {
-    background-color: var(--c-gold);
-    background-image: url('/images/gold-foil.jpeg');
-    content: "";
-    height: 12px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 10;
-  }
+	&::before {
+		background-color: var(--c-gold);
+		background-image: url('/images/gold-foil.jpeg');
+		content: "";
+		height: 12px;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 10;
+	}
 
-  & h1 {
-    margin: 0;
-    padding: 0;
-  }
-  
-  & :global .h1 {
-    font-size: var(--fs-4);
-    margin: 0;
-    padding: 0;
-  }
-  
-  & > :global(.container) {
-    align-items: center;
-    border-top: 12px solid var(--c-gold);
-    display: flex;
-    justify-content: space-between;
-    padding-top: 2rem;
-    position: relative;
-    z-index: 5;
-  }
+	& h1 {
+		margin: 0;
+		padding: 0;
+	}
+	
+	& :global .h1 {
+		font-size: var(--fs-4);
+		margin: 0;
+		padding: 0;
+	}
+	
+	& > :global(.container) {
+		align-items: center;
+		border-top: 12px solid var(--c-gold);
+		display: flex;
+		justify-content: space-between;
+		padding-top: 2rem;
+		position: relative;
+		z-index: 5;
+	}
 
-  & .logo {
-    display: flex;
+	& .logo {
+		display: flex;
 
-    & svg {
-      color: var(--c-fade, #000);
-      width: 100%;
-    }
-  }
+		& svg {
+			color: var(--c-fade, #000);
+			width: 100%;
+		}
+	}
 }
 
 .menu-activator {
-  align-items: center;
-  background-color: transparent;
-  border: none;
-  color: var(--c-fade, #000);
-  cursor: pointer;
-  display: flex;
-  font-family: var(--f-heading);
-  letter-spacing: 0.13rem;
-  line-height: 1;
+	align-items: center;
+	background-color: transparent;
+	border: none;
+	color: var(--c-fade, #000);
+	cursor: pointer;
+	display: flex;
+	font-family: var(--f-heading);
+	letter-spacing: 0.13rem;
+	line-height: 1;
 
-  & svg {
-    margin-left: 0.8rem;
+	& svg {
+		margin-left: 0.8rem;
 
-    & line {
-      transform-origin: left;
-      transition: 300ms ease transform, 300ms ease opacity;
-    }
+		& line {
+			transform-origin: left;
+			transition: 300ms ease transform, 300ms ease opacity;
+		}
 
-    &.-active {
-      & line:first-child {
-        transform: rotate(45deg) translateX(-2.5px);
-      }
+		&.-active {
+			& line:first-child {
+				transform: rotate(45deg) translateX(-2.5px);
+			}
 
-      & line:nth-child(2) {
-        opacity: 0;
-      }
+			& line:nth-child(2) {
+				opacity: 0;
+			}
 
-      & line:last-child {
-        transform: rotate(-45deg) translateX(-2px);
-      }
-    }
-  }
+			& line:last-child {
+				transform: rotate(-45deg) translateX(-2px);
+			}
+		}
+	}
 }
 
 .menu-container {
-  background-color: var(--c-white);
-  font-family: var(--f-heading);
-  height: calc(100vh - 100%);
-  inset: 0;
-  position: absolute;
-  top: 100%;
-  z-index: 5;
+	background-color: var(--c-white);
+	font-family: var(--f-heading);
+	height: calc(100vh - 100%);
+	inset: 0;
+	position: absolute;
+	top: 100%;
+	z-index: 5;
 
-  @media (min-width: 1024px) {
-    padding: 2.5rem 6rem;
-  }
+	@media (min-width: 1024px) {
+		padding: 2.5rem 6rem;
+	}
 
-  & :global(.container) {
-    display: flex;
-    flex-direction: column;
-  }
+	& :global(.container) {
+		display: flex;
+		flex-direction: column;
+	}
 
-  & .primary-nav {
-    list-style: none;
-    margin: 0;
-    padding: 2rem 0 0 0;
+	& .primary-nav {
+		list-style: none;
+		margin: 0;
+		padding: 2rem 0 0 0;
 
-    @media (min-width: 768px) {
-      padding: 0;
-    }
+		@media (min-width: 768px) {
+			padding: 0;
+		}
 
-    & li {
-      line-height: 1.5;
-      width: 100%;
+		& li {
+			line-height: 1.5;
+			width: 100%;
 
-      &:not(:last-child) {
-        margin-bottom: 1rem;
+			&:not(:last-child) {
+				margin-bottom: 1rem;
 
-        @media (min-width: 768px) {
-          margin-bottom: 0;
-        }
-      }
-    }
+				@media (min-width: 768px) {
+					margin-bottom: 0;
+				}
+			}
+		}
 
-    & a {
-      display: block;
-      transition: color 300ms ease;
-      width: 100%;
+		& a {
+			display: block;
+			transition: color 300ms ease;
+			width: 100%;
 
-      &:hover {
-        color: var(--c-gold);
-      }
-    }
+			&:hover {
+				color: var(--c-gold);
+			}
+		}
 
-    & a:not(:global .h1) {
-      font-size: var(--fs-1);
-    }
-  }
+		& a:not(:global .h1) {
+			font-size: var(--fs-1);
+		}
+	}
 
-  & li {
-    margin: 0;
-    padding: 0;
-  }
+	& li {
+		margin: 0;
+		padding: 0;
+	}
 
-  & .h1 {
-    margin: 0;
-  }
+	& .h1 {
+		margin: 0;
+	}
 }
 
 .menu-footer {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 4rem 0;
-  
-  @media (min-width: 768px) {
-    padding: 2.1875rem 0;
-  }
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	padding: 4rem 0;
+	
+	@media (min-width: 768px) {
+		padding: 2.1875rem 0;
+	}
 
-  & p {
-    margin: 0;
-  }
+	& p {
+		margin: 0;
+	}
 
-  & > *:not(:last-child) {
-    margin-right: 2rem;
-    padding-bottom: 0;
-    
-    @media (min-width: 768px) {
-      margin-right: 4.6875rem;
-    }
-  }
+	& > *:not(:last-child) {
+		margin-right: 2rem;
+		padding-bottom: 0;
+		
+		@media (min-width: 768px) {
+			margin-right: 4.6875rem;
+		}
+	}
 
-  & svg {
-    max-width: 16px;
-  }
+	& svg {
+		max-width: 16px;
+	}
 }
 
 .image-float {
-  aspect-ratio: 12 / 16;
-  inset: 0;
-  left: 50%;
-  max-height: 600px;
-  pointer-events: none;
-  position: absolute; 
-  z-index: -1;
+	aspect-ratio: 12 / 16;
+	inset: 0;
+	left: 50%;
+	max-height: 600px;
+	pointer-events: none;
+	position: absolute; 
+	z-index: -1;
 
-  & > div {
-    max-height: 600px;
-    width: 100%;
-  }
+	& > div {
+		max-height: 600px;
+		width: 100%;
+	}
 
-  & img {
-    object-fit: cover;
-  }
+	& img {
+		object-fit: cover;
+	}
 }
