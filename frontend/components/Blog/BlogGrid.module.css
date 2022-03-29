@@ -1,7 +1,5 @@
 .blog-grid {
   display: grid;
-  /* column-count: 2; */
-  /* justify-content: space-between; */
   gap: 4rem;
   
   @media (min-width: 768px) {
