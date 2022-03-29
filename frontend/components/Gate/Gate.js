@@ -17,10 +17,10 @@ export const Gate = React.forwardRef(({isLegal, setIsLegal}, ref) => (
       {isLegal === 'false' && (
         <p>Your honesty is appreciated. As a reward enjoy <a href="#">these non-alcoholic mocktail recipes</a></p>
       )}
-      <Image className={styles.granite} priority src="/images/granite.jpeg" layout="fill" />
+      <Image alt="" className={styles.granite} priority src="/images/granite.jpeg" layout="fill" />
     </div>
     <div className={styles.bottle}>
-      <Image src="/images/bottle01.png" priority layout="fill" />
+      <Image alt="" src="/images/bottle01.png" priority layout="fill" />
     </div>
   </div>
 ));

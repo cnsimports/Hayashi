@@ -17,7 +17,7 @@ const Craft = () => {
         </div>
       </Hero>
 
-      <Image src="https://source.unsplash.com/1440x920" layout="responsive" width={1440} height={820} />
+      <Image alt="" src="https://source.unsplash.com/1440x920" layout="responsive" width={1440} height={820} />
 
       <Hero>
         <div className="container -p-m">
@@ -27,7 +27,7 @@ const Craft = () => {
         </div>
       </Hero>
 
-      <Image src="https://source.unsplash.com/1440x920" layout="responsive" width={1440} height={820} />
+      <Image alt="" src="https://source.unsplash.com/1440x920" layout="responsive" width={1440} height={820} />
 
       <Hero>
         <div className="container -p-m">
@@ -37,7 +37,7 @@ const Craft = () => {
         </div>
       </Hero>
 
-      <Image src="https://source.unsplash.com/1440x920" layout="responsive" width={1440} height={820} />
+      <Image alt="" src="https://source.unsplash.com/1440x920" layout="responsive" width={1440} height={820} />
 
       <Hero>
         <div className="container -p-m">

@@ -22,7 +22,6 @@ const Home = ({ homepage }, props) => {
   const slide5Anim1 = useTransform(scrollYProgress, [0.77, 0.77, 0.88], [0, 0, -250]);
   const slide5Anim2 = useTransform(scrollYProgress, [0.77, 0.77, 0.88], [0, 0, -70]);
   const slide5Anim3 = useTransform(scrollYProgress, [0.77, 0.77, 0.88], [0, 0, -150]);
-  
 
   const HomeContent = () => (
     <main>
@@ -35,11 +34,11 @@ const Home = ({ homepage }, props) => {
               <h2>The Modern Expression of an Ancient Spirit</h2>
             </div>
             <motion.div className={styles['bottle']}>
-              <Image src="/images/bottle02.png" priority layout="fixed" width={296} height={745} />
+              <Image alt="" src="/images/bottle02.png" priority layout="fixed" width={296} height={745} />
             </motion.div>
           </div>
           <div className={styles['bg']}>
-            <Image src="/images/hills.jpeg" layout="fill" />
+            <Image alt="" src="/images/hills.jpeg" layout="fill" />
           </div>
         </div>
       </Slide>
@@ -52,9 +51,9 @@ const Home = ({ homepage }, props) => {
               <p>Hayashi Master distillers use only the highest quality local ingredients, with a unique dedication to evolving the awamori rice spirit process that’s been passed down through generations.</p>
             </div>
             <motion.div className={styles['bottle']}>
-              <Image src="/images/bottle02.png" layout="fixed" width={296} height={745} />
+              <Image alt="" src="/images/bottle02.png" layout="fixed" width={296} height={745} />
               <motion.div className={styles['bottle-bg']}>
-                <Image src="/images/grass.png" layout="responsive" width={606} height={850} />
+                <Image alt="" src="/images/grass.png" layout="responsive" width={606} height={850} />
               </motion.div>
             </motion.div>
           </div>
@@ -69,9 +68,9 @@ const Home = ({ homepage }, props) => {
               <p>An exemplary whisky of the Ryukyu Islands, Hayashi embodies both the quiet intrigue of Okinawa island life and the rich tradition of Japanese patience and perfection.</p>
             </div>
             <motion.div className={styles['bottle']}>
-              <Image src="/images/bottle02.png" layout="fixed" width={296} height={745} />
+              <Image alt="" src="/images/bottle02.png" layout="fixed" width={296} height={745} />
               <motion.div className={styles['bottle-bg']}>
-                <Image src="/images/tree.png" layout="responsive" width={1107} height={885} />
+                <Image alt="" src="/images/tree.png" layout="responsive" width={1107} height={885} />
               </motion.div>
             </motion.div>
           </div>
@@ -92,7 +91,7 @@ const Home = ({ homepage }, props) => {
 
       <Slide bg="dark">
         <motion.div style={{ y: slide3AnimY, scale: slide3AnimScale }}>
-          <Image src="https://source.unsplash.com/random/1450x750" layout="responsive" width={1450} height={750} />
+          <Image alt="" src="https://source.unsplash.com/random/1450x750" layout="responsive" width={1450} height={750} />
         </motion.div>
       </Slide>
 
@@ -110,13 +109,13 @@ const Home = ({ homepage }, props) => {
       <Slide bg="dark">
         <motion.div className={`${styles['img-grid']} container -sm -pb-l`}>
           <motion.div style={{ y: slide5Anim1 }}>
-            <Image src="https://source.unsplash.com/random/600x750" layout="responsive" width={600} height={750} />
+            <Image alt="" src="https://source.unsplash.com/random/600x750" layout="responsive" width={600} height={750} />
           </motion.div>
           <motion.div style={{ y: slide5Anim2 }}>
-            <Image src="https://source.unsplash.com/random/600x750" layout="responsive" width={600} height={750} />
+            <Image alt="" src="https://source.unsplash.com/random/600x750" layout="responsive" width={600} height={750} />
           </motion.div>
           <motion.div style={{ y: slide5Anim3 }}>
-            <Image src="https://source.unsplash.com/random/600x750" layout="responsive" width={600} height={750} />
+            <Image alt="" src="https://source.unsplash.com/random/600x750" layout="responsive" width={600} height={750} />
           </motion.div>
         </motion.div>
       </Slide>
