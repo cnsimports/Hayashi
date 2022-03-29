@@ -6,7 +6,7 @@ import { Kanji } from '@components/SVG/Kanji';
 import styles from './withTransition.module.css';
 
 function withTransition(OriginalComponent) {
-	return () => (
+	const TransComp = () => (
 		<>
 			<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}>
 				<OriginalComponent />
@@ -39,6 +39,9 @@ function withTransition(OriginalComponent) {
 			</motion.div>
 		</>
 	);
+	TransComp.displayName = 'TransComp';
+
+	return TransComp;
 }
 
 export default withTransition;
