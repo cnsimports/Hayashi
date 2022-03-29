@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Image from 'next/image';
 
 import { Logo } from '@components/SVG/Logo';
@@ -26,5 +27,10 @@ const Gate = ({ isLegal, setIsLegal }, ref) => (
 		</div>
 	</div>
 );
+
+Gate.propTypes = {
+	isLegal: PropTypes.bool,
+	setIsLegal: PropTypes.func,
+};
 
 export default React.forwardRef(Gate);

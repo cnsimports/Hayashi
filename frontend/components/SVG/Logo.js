@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const Logo = ({ width, height, className }) => (
 	<svg
 		className={className}
@@ -26,3 +28,9 @@ export const Logo = ({ width, height, className }) => (
 		/>
 	</svg>
 );
+
+Logo.propTypes = {
+	width: PropTypes.number,
+	height: PropTypes.number,
+	className: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+};

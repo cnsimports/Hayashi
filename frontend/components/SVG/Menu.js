@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const Menu = ({ width, height, stroke = 'currentColor', className }) => (
 	<svg
 		className={className}
@@ -12,3 +14,10 @@ export const Menu = ({ width, height, stroke = 'currentColor', className }) => (
 		<line y1="15" x2="19" y2="15" stroke={stroke} />
 	</svg>
 );
+
+Menu.propTypes = {
+	width: PropTypes.number,
+	height: PropTypes.number,
+	stroke: PropTypes.string,
+	className: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+};

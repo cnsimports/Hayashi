@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const Kanji = ({ width, height, fill = '#000000', className }) => (
 	<svg
 		className={className}
@@ -33,3 +35,10 @@ export const Kanji = ({ width, height, fill = '#000000', className }) => (
 		</defs>
 	</svg>
 );
+
+Kanji.propTypes = {
+	width: PropTypes.number,
+	height: PropTypes.number,
+	fill: PropTypes.string,
+	className: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+};

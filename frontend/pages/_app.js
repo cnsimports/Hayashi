@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import App from 'next/app';
 import Head from 'next/head';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -66,6 +67,12 @@ function MyApp({ Component, pageProps, router }) {
 		</>
 	);
 }
+
+MyApp.propTypes = {
+	Component: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+	pageProps: PropTypes.object,
+	router: PropTypes.object,
+};
 
 MyApp.getInitialProps = async (ctx) => {
 	const appProps = await App.getInitialProps(ctx);

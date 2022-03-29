@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const Twitter = ({ width, height, fill = '#000' }) => (
 	<svg fill="none" width={width} height={height} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 		<path
@@ -6,3 +8,9 @@ export const Twitter = ({ width, height, fill = '#000' }) => (
 		/>
 	</svg>
 );
+
+Twitter.propTypes = {
+	width: PropTypes.number,
+	height: PropTypes.number,
+	fill: PropTypes.string,
+};

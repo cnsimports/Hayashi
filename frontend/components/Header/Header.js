@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 import { Router } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -151,4 +152,8 @@ export const Header = ({ navTransition }) => {
 			</AnimatePresence>
 		</motion.div>
 	);
+};
+
+Header.propTypes = {
+	navTransition: PropTypes.bool,
 };

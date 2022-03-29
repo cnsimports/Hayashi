@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const Instagram = ({ width, height, fill = '#000' }) => (
 	<svg fill="none" width={width} height={height} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 17">
 		<path
@@ -10,3 +12,9 @@ export const Instagram = ({ width, height, fill = '#000' }) => (
 		/>
 	</svg>
 );
+
+Instagram.propTypes = {
+	width: PropTypes.number,
+	height: PropTypes.number,
+	fill: PropTypes.string,
+};
