@@ -13,7 +13,7 @@ import { CopySocial } from '@components/Footer/CopySocial';
 import styles from './Header.module.css';
 import { container, item, navContainer } from './Header.motion';
 
-export const Header = () => {
+export const Header = ({ navTransition }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hoverMenu, setHoverMenu] = useState('');
   const [mousePosition, setMousePosition] = useState({});
@@ -28,9 +28,11 @@ export const Header = () => {
   const handleMouseMove = e => {
     setMousePosition(getRelativeCoordinates(e, boxRef.current));
   };
+  
+  console.log(navTransition)
 
   return (
-    <motion.div className={`${styles.header} ${menuOpen ? styles['-is-open'] : ''}`} style={{ '--c-fade': navAnim }}>
+    <motion.div className={`${styles.header} ${menuOpen ? styles['-is-open'] : ''}`} style={{ '--c-fade': navTransition ? navAnim : 'var(--c-black)' }}>
       <div className="container">
         <h1>
           <Link scroll={false} href="/">
@@ -77,12 +79,12 @@ export const Header = () => {
                   </Link>
                 </motion.li>
                 <motion.li variants={item}>
-                  <Link scroll={false} href="/">
+                  <Link scroll={false} href="/blog">
                     <a className="h1" onMouseEnter={() => setHoverMenu('blog')} onMouseLeave={() => setHoverMenu('')}>Blog</a>
                   </Link>
                 </motion.li>
                 <motion.li variants={item}>
-                  <Link scroll={false} href="/">
+                  <Link scroll={false} href="/contact">
                     <a>Contact</a>
                   </Link>
                 </motion.li>

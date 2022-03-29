@@ -1,0 +1,43 @@
+.form {
+  background-image: url("/images/granite.jpeg");
+  padding-bottom: 4rem;
+  padding-top: 4rem;
+
+  & :global(.container) {
+    display: flex;
+    justify-content: center;
+  }
+
+  & form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--f-heading);
+    justify-content: center;
+    max-width: 540px;
+    width: 100%;
+  }
+
+  & label {
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  & input,
+  & textarea {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--c-black);
+    font-family: var(--f-heading);
+    font-size: var(--fs-1);
+    width: 100%;
+
+    &::placeholder {
+      opacity: 0.5;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+}
