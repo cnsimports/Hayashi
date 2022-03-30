@@ -17,7 +17,7 @@ export const GlobalContext = createContext({});
 
 function MyApp({ Component, pageProps, router }) {
 	const { route } = router;
-	const { global } = pageProps;
+	// const { global } = pageProps;
 	const [isLegal, setIsLegal] = useState('');
 
 	useEffect(() => {
@@ -36,29 +36,25 @@ function MyApp({ Component, pageProps, router }) {
 				{/* <link rel="shortcut icon" href={getStrapiMedia(global.attributes.favicon.data.attributes.url)} /> */}
 				<link rel="stylesheet" href="https://use.typekit.net/wzt1kkc.css" />
 			</Head>
-			<GlobalContext.Provider value={global.attributes}>
-				{isLegal === 'true' && (
-					<Header initial={false} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }} />
-				)}
-				{isLegal === 'true' ? (
-					<AnimatePresence exitBeforeEnter>
-						<Component {...pageProps} key={route} />
-					</AnimatePresence>
-				) : (
-					<MotionGate
-						key="gate"
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 0 }}
-						transition={{ duration: 1 }}
-						setIsLegal={setIsLegal}
-						isLegal={isLegal}
-					/>
-				)}
-				{isLegal === 'true' && (
-					<Footer initial={false} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }} />
-				)}
-			</GlobalContext.Provider>
+			{/* <GlobalContext.Provider value={global.attributes}> */}
+			{isLegal === 'true' && <Header initial={false} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }} />}
+			{isLegal === 'true' ? (
+				<AnimatePresence exitBeforeEnter>
+					<Component {...pageProps} key={route} />
+				</AnimatePresence>
+			) : (
+				<MotionGate
+					key="gate"
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					exit={{ opacity: 0 }}
+					transition={{ duration: 1 }}
+					setIsLegal={setIsLegal}
+					isLegal={isLegal}
+				/>
+			)}
+			{isLegal === 'true' && <Footer initial={false} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }} />}
+			{/* </GlobalContext.Provider> */}
 		</>
 	);
 }
