@@ -70,7 +70,7 @@ MyApp.propTypes = {
 };
 
 // MyApp.getInitialProps = async (ctx) => {
-	const appProps = await App.getInitialProps(ctx);
+// 	const appProps = await App.getInitialProps(ctx);
 // 	// We don't use GraphQL here because by design we cannot pass _all_ global attributes down as context.
 // 	// With that, we'll maintain use of a normal JS fetch call here, and pass the options needed for the favicon.
 // 	const globalRes = await fetchAPI('/global', {
