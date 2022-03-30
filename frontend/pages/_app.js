@@ -69,17 +69,17 @@ MyApp.propTypes = {
 	router: PropTypes.object,
 };
 
-MyApp.getInitialProps = async (ctx) => {
-	const appProps = await App.getInitialProps(ctx);
-	// We don't use GraphQL here because by design we cannot pass _all_ global attributes down as context.
-	// With that, we'll maintain use of a normal JS fetch call here, and pass the options needed for the favicon.
-	const globalRes = await fetchAPI('/global', {
-		populate: {
-			favicon: '*',
-		},
-	});
+// MyApp.getInitialProps = async (ctx) => {
+// 	const appProps = await App.getInitialProps(ctx);
+// 	// We don't use GraphQL here because by design we cannot pass _all_ global attributes down as context.
+// 	// With that, we'll maintain use of a normal JS fetch call here, and pass the options needed for the favicon.
+// 	const globalRes = await fetchAPI('/global', {
+// 		populate: {
+// 			favicon: '*',
+// 		},
+// 	});
 
-	return { ...appProps, pageProps: { global: globalRes.data } };
-};
+// 	return { ...appProps, pageProps: { global: globalRes.data } };
+// };
 
 export default MyApp;
