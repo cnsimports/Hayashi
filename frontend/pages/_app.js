@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import App from 'next/app';
+// import App from 'next/app';
 import Head from 'next/head';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -9,7 +9,7 @@ import { Footer } from '@components/Footer/Footer';
 import Gate from '@components/Gate/Gate';
 
 // import { getStrapiMedia } from '@lib/media';
-import { fetchAPI } from '@lib/api';
+// import { fetchAPI } from '@lib/api';
 
 import '@styles/globals.css';
 
@@ -70,7 +70,7 @@ MyApp.propTypes = {
 };
 
 // MyApp.getInitialProps = async (ctx) => {
-// 	const appProps = await App.getInitialProps(ctx);
+	const appProps = await App.getInitialProps(ctx);
 // 	// We don't use GraphQL here because by design we cannot pass _all_ global attributes down as context.
 // 	// With that, we'll maintain use of a normal JS fetch call here, and pass the options needed for the favicon.
 // 	const globalRes = await fetchAPI('/global', {
