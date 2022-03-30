@@ -8,7 +8,7 @@ import { Header } from '@components/Header/Header';
 import { Footer } from '@components/Footer/Footer';
 import Gate from '@components/Gate/Gate';
 
-import { getStrapiMedia } from '@lib/media';
+// import { getStrapiMedia } from '@lib/media';
 import { fetchAPI } from '@lib/api';
 
 import '@styles/globals.css';
