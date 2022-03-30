@@ -1,8 +1,8 @@
-import { gql } from '@apollo/client';
+// import { gql } from '@apollo/client';
 // import ReactMarkdown from 'react-markdown';
 import { motion, useTransform, useViewportScroll } from 'framer-motion';
 
-import client from '@lib/apollo';
+// import client from '@lib/apollo';
 import withTransition from 'HOC/withTransition';
 import Image from 'next/image';
 
@@ -132,27 +132,27 @@ const Home = (props) => {
 	);
 };
 
-export async function getStaticProps() {
-	const { data: homepageRes } = await client.query({
-		query: gql`
-			query getHomepage {
-				homepage {
-					data {
-						attributes {
-							content
-						}
-					}
-				}
-			}
-		`,
-	});
+// export async function getStaticProps() {
+// 	const { data: homepageRes } = await client.query({
+// 		query: gql`
+// 			query getHomepage {
+// 				homepage {
+// 					data {
+// 						attributes {
+// 							content
+// 						}
+// 					}
+// 				}
+// 			}
+// 		`,
+// 	});
 
-	return {
-		props: {
-			homepage: homepageRes.homepage.data,
-		},
-		revalidate: 1,
-	};
-}
+// 	return {
+// 		props: {
+// 			homepage: homepageRes.homepage.data,
+// 		},
+// 		revalidate: 1,
+// 	};
+// }
 
 export default Home;
