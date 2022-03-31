@@ -46,7 +46,7 @@
 .first {
   & :global(.container) {
     align-items: flex-start;
-    z-index: 0;
+    z-index: 1;
   }
 
   & .content {
