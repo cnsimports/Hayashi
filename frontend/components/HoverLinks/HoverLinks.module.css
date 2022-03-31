@@ -1,60 +1,60 @@
 .cta {
-  background-color: var(--c-black);
-  color: var(--c-white);
-  overflow: clip;
+	background-color: var(--c-black);
+	color: var(--c-white);
+	overflow: clip;
 
-  & :global(.container) {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    font-family: var(--f-heading);
-    justify-content: center;
-    min-height: 100vh;
-    position: relative;
-    text-align: center;
-  }
+	& :global(.container) {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		font-family: var(--f-heading);
+		justify-content: center;
+		min-height: 100vh;
+		position: relative;
+		text-align: center;
+	}
 }
 
 .hover-link-images {
-  display: grid;
-  align-items: center;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-  inset: 0;
-  opacity: 0.4;
-  position: absolute;
-  top: -25%;
-  z-index: 0;
+	display: grid;
+	align-items: center;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 3rem;
+	inset: 0;
+	opacity: 0.4;
+	position: absolute;
+	top: -25%;
+	z-index: 0;
 
-  & img {
-    object-fit: contain;
-  }
+	& img {
+		object-fit: contain;
+	}
 
-  & *:first-child,
-  & *:last-child {
-    transform: translateY(10%);
-  }
+	& *:first-child,
+	& *:last-child {
+		transform: translateY(10%);
+	}
 }
 
 .hover-links {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  z-index: 1;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	z-index: 1;
 
-  & p {
-    margin: 0;
-    font-size: var(--fs-0);
-  }
+	& p {
+		margin: 0;
+		font-size: var(--fs-0);
+	}
 
-  & a {
-    color: var(--c-dark-grey);
-    font-weight: 100;
-    transition: color 300ms ease;
+	& a {
+		color: var(--c-dark-grey);
+		font-weight: 100;
+		transition: color 300ms ease;
 
-    &:hover {
-      color: var(--c-white);
-    }
-  }
+		&:hover {
+			color: var(--c-white);
+		}
+	}
 }

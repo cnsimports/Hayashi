@@ -1,77 +1,77 @@
 .age-gate {
-  background-color: var(--c-white);
-  position: fixed;
-  inset: 0;
-  z-index: 10;
+	background-color: var(--c-white);
+	position: fixed;
+	inset: 0;
+	z-index: 10;
 
-  & img {
-    height: 100%;
-    object-fit: cover;
-    width: 100%;
-  }
+	& img {
+		height: 100%;
+		object-fit: cover;
+		width: 100%;
+	}
 }
 
 .logo {
-  position: absolute;
-  top: 4rem;
+	position: absolute;
+	top: 4rem;
 }
 
 .granite {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
 }
 
 .bottle {
-  height: 100vh;
-  max-width: 30vw;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
+	height: 100vh;
+	max-width: 30vw;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100%;
 }
 
 .content {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: center;
-  max-width: 70vw;
-  position: relative;
-  text-align: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	justify-content: center;
+	max-width: 70vw;
+	position: relative;
+	text-align: center;
 
-  & h1 {
-    font-weight: 400;
-  }
+	& h1 {
+		font-weight: 400;
+	}
 
-  & span {
-    pointer-events: none;
-  }
+	& span {
+		pointer-events: none;
+	}
 
-  & button {
-    background-color: transparent;
-    border: 1px solid var(--c-black);
-    cursor: pointer;
-    font-family: var(--f-heading);
-    font-size: var(--fs-0);
-    font-weight: 500;
-    padding: 0.5rem 4rem;
+	& button {
+		background-color: transparent;
+		border: 1px solid var(--c-black);
+		cursor: pointer;
+		font-family: var(--f-heading);
+		font-size: var(--fs-0);
+		font-weight: 500;
+		padding: 0.5rem 4rem;
 
-    &:hover,
-    &:focus {
-      border-color: var(--c-gold);
-      color: var(--c-gold);
-    }
+		&:hover,
+		&:focus {
+			border-color: var(--c-gold);
+			color: var(--c-gold);
+		}
 
-    & + button {
-      margin-left: 1.5rem;
-    }
+		& + button {
+			margin-left: 1.5rem;
+		}
 
-  }
+	}
 }
 
 .actions {
-  display: flex;
+	display: flex;
 }

@@ -1,25 +1,25 @@
 .slide {
-  min-height: 100vh;
-  height: 100%;
-  position: relative;
+	min-height: 100vh;
+	height: 100%;
+	position: relative;
 
-  &:global(.first) {
-    background: linear-gradient(transparent, var(--c-dark) 40%);
-  }
+	&:global(.first) {
+		background: linear-gradient(transparent, var(--c-dark) 40%);
+	}
 
-  & :global(.container) {
-    position: sticky;
-    top: 33.3333%;
-    z-index: 1;
-  }
+	& :global(.container) {
+		position: sticky;
+		top: 33.3333%;
+		z-index: 1;
+	}
 
-  & h3 {
-    font-weight: 100;
-    margin: 0;
-  }
+	& h3 {
+		font-weight: 100;
+		margin: 0;
+	}
 }
 
 .dark {
-  background-color: var(--c-dark);
-  color: var(--c-white);
+	background-color: var(--c-dark);
+	color: var(--c-white);
 }

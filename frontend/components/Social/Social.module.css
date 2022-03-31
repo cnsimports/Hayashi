@@ -1,12 +1,12 @@
 .social {
-  align-items: center;
-  display: flex;
-  line-height: 0;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+	align-items: center;
+	display: flex;
+	line-height: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 
-  & li:not(:last-child) {
-    margin-right: 1rem;
-  }
+	& li:not(:last-child) {
+		margin-right: 1rem;
+	}
 }

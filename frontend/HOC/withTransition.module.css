@@ -1,56 +1,56 @@
 .slide-in,
 .slide-out {
-  & img {
-    clip-path: url(#svgPath);
-  }
+	& img {
+		clip-path: url(#svgPath);
+	}
 }
 
 .slide-in {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  background-color: var(--c-white);
-  transform-origin: bottom;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 100vh;
+	width: 100%;
+	background-color: var(--c-white);
+	transform-origin: bottom;
+	z-index: 20;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
 }
 
 .slide-out {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  background-color: var(--c-white);
-  transform-origin: top;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 100vh;
+	width: 100%;
+	background-color: var(--c-white);
+	transform-origin: top;
+	z-index: 20;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
 
-  & .kanji {
-    position: relative;
+	& .kanji {
+		position: relative;
 
-    &::after {
-      animation: 1000ms infinite shimmer alternate;
-      animation-fill-mode: forwards;
-      content: "";
-      width: 200%;
-      background: linear-gradient(transparent, white, transparent);
-      height: 25%;
-      position: absolute;
-      inset: 0;
-      opacity: 0.8;
-      mix-blend-mode: overlay;
-      transform: rotate(-45deg) translateX(-50%);
-    }
-  }
+		&::after {
+			animation: 1000ms infinite shimmer alternate;
+			animation-fill-mode: forwards;
+			content: "";
+			width: 200%;
+			background: linear-gradient(transparent, white, transparent);
+			height: 25%;
+			position: absolute;
+			inset: 0;
+			opacity: 0.8;
+			mix-blend-mode: overlay;
+			transform: rotate(-45deg) translateX(-50%);
+		}
+	}
 }
 
 @keyframes shimmer {
