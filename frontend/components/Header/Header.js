@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Router, useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -16,7 +16,7 @@ import { container, item, navContainer } from './Header.motion';
 export const Header = () => {
 	const router = useRouter();
 	const [menuOpen, setMenuOpen] = useState(false);
-	const [navTransition, setNavTransition] = useState(router.pathname === '/' ? true : false);
+	const [navTransition, setNavTransition] = useState(false);
 	const [hoverMenu, setHoverMenu] = useState('');
 	const [mousePosition, setMousePosition] = useState({});
 	const boxRef = useRef();
@@ -34,6 +34,10 @@ export const Header = () => {
 			setNavTransition(false);
 		}
 	});
+
+	useEffect(() => {
+		setNavTransition(router.pathname === '/' ? true : false);
+	}, []);
 
 	const handleMouseMove = (e) => {
 		setMousePosition(getRelativeCoordinates(e, boxRef.current));
