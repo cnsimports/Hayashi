@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Hero } from '@components/Hero/Hero';
 import { heroMotion } from '@components/Hero/Hero.motion';
 
-import withTransition from 'HOC/withTransition';
 import Image from 'next/image';
 import { Button } from '@components/Button/Button';
 
@@ -82,4 +81,4 @@ const Craft = () => {
 	);
 };
 
-export default withTransition(Craft);
+export default Craft;

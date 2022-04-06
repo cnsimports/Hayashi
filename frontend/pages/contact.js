@@ -1,12 +1,10 @@
 import { motion } from 'framer-motion';
 
+import { Button } from '@components/Button/Button';
 import { Hero } from '@components/Hero/Hero';
 import { heroMotion } from '@components/Hero/Hero.motion';
 
-import withTransition from 'HOC/withTransition';
-
 import styles from '@styles/pages/Contact.module.css';
-import { Button } from '@components/Button/Button';
 
 const Contact = () => {
 	return (
@@ -49,4 +47,4 @@ const Contact = () => {
 	);
 };
 
-export default withTransition(Contact);
+export default Contact;

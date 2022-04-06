@@ -1,10 +1,8 @@
 import { motion } from 'framer-motion';
 
+import { BlogGrid } from '@components/Blog/BlogGrid';
 import { Hero } from '@components/Hero/Hero';
 import { heroMotion } from '@components/Hero/Hero.motion';
-
-import withTransition from 'HOC/withTransition';
-import { BlogGrid } from '@components/Blog/BlogGrid';
 
 const Blog = () => {
 	return (
@@ -34,4 +32,4 @@ const Blog = () => {
 	);
 };
 
-export default withTransition(Blog);
+export default Blog;

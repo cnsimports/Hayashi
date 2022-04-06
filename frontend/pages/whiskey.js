@@ -1,12 +1,13 @@
+import { gql } from '@apollo/client';
 import { motion } from 'framer-motion';
+
+import client from '@lib/apollo';
 
 import { Hero } from '@components/Hero/Hero';
 import { heroMotion } from '@components/Hero/Hero.motion';
 import { Product } from '@components/Product/Product';
 
-import withTransition from 'HOC/withTransition';
-
-const Whiskey = () => {
+const Whiskey = (props) => {
 	return (
 		<main>
 			<Hero>
@@ -27,4 +28,36 @@ const Whiskey = () => {
 	);
 };
 
-export default withTransition(Whiskey);
+export async function getStaticProps() {
+	const { data: productsRes } = await client.query({
+		query: gql`
+			query {
+				products {
+					data {
+						attributes {
+							ProductName
+							ProductBlurb
+							ProductDescription
+							product_notes {
+								data {
+									attributes {
+										ProductNote
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		`,
+	});
+
+	return {
+		props: {
+			products: productsRes.products.data,
+		},
+		revalidate: 1,
+	};
+}
+
+export default Whiskey;
