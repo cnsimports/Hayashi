@@ -50,7 +50,7 @@ export const Header = () => {
 		>
 			<div className="container">
 				<h1>
-					<Link scroll={false} href="/">
+					<Link href="/">
 						<a className={styles.logo}>
 							<span className="screen-reader-text">Hayashi</span>
 							<Logo width={147} height={26} />
@@ -89,7 +89,7 @@ export const Header = () => {
 								className={styles['primary-nav']}
 							>
 								<motion.li variants={item}>
-									<Link scroll={false} href="/whiskey">
+									<Link href="/whiskey">
 										<a
 											className="h1"
 											onMouseEnter={() => setHoverMenu('whiskey')}
@@ -100,31 +100,31 @@ export const Header = () => {
 									</Link>
 								</motion.li>
 								<motion.li variants={item}>
-									<Link scroll={false} href="/craft">
+									<Link href="/craft">
 										<a className="h1" onMouseEnter={() => setHoverMenu('craft')} onMouseLeave={() => setHoverMenu('')}>
 											Our Craft
 										</a>
 									</Link>
 								</motion.li>
 								<motion.li variants={item}>
-									<Link scroll={false} href="/blog">
+									<Link href="/blog">
 										<a className="h1" onMouseEnter={() => setHoverMenu('blog')} onMouseLeave={() => setHoverMenu('')}>
 											Blog
 										</a>
 									</Link>
 								</motion.li>
 								<motion.li variants={item}>
-									<Link scroll={false} href="/contact">
+									<Link href="/contact">
 										<a>Contact</a>
 									</Link>
 								</motion.li>
 								<motion.li variants={item}>
-									<Link scroll={false} href="/">
+									<Link href="/">
 										<a>Where to buy</a>
 									</Link>
 								</motion.li>
 								<motion.li variants={item}>
-									<Link scroll={false} href="/">
+									<Link href="/">
 										<a>Order online</a>
 									</Link>
 								</motion.li>

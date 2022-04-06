@@ -6,7 +6,7 @@ import styles from './Button.module.css';
 export const Button = ({ children, href, className = '', onClick, type }, props) => (
 	<>
 		{href ? (
-			<Link scroll={false} href={href} onClick={onClick} {...props}>
+			<Link href={href} onClick={onClick} {...props}>
 				<a className={`${styles.button} ${className}`}>{children}</a>
 			</Link>
 		) : (

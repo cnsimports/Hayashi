@@ -172,17 +172,17 @@ export const HoverLinks = () => {
 				</div>
 				<div ref={hoverLinkRef} className={styles['hover-links']} onMouseMove={(e) => handleMouseMove(e)}>
 					<p>It starts with one sip.</p>
-					<Link scroll={false} href="/whiskey">
+					<Link href="/whiskey">
 						<a className="h3" onMouseEnter={() => setActive('store')} onMouseLeave={() => setActive('')}>
 							Find a Store
 						</a>
 					</Link>
-					<Link scroll={false} href="/whiskey">
+					<Link href="/whiskey">
 						<a className="h3" onMouseEnter={() => setActive('order')} onMouseLeave={() => setActive('')}>
 							Order Online
 						</a>
 					</Link>
-					<Link scroll={false} href="/whiskey">
+					<Link href="/whiskey">
 						<a className="h3" onMouseEnter={() => setActive('products')} onMouseLeave={() => setActive('')}>
 							View Products
 						</a>

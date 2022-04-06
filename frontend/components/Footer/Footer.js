@@ -10,27 +10,27 @@ export const Footer = () => (
 		<div className="container">
 			<ul className={styles['foot-nav']}>
 				<li>
-					<Link scroll={false} href="/whiskey">
+					<Link href="/whiskey">
 						<a>Hayashi Products</a>
 					</Link>
 				</li>
 				<li>
-					<Link scroll={false} href="/">
+					<Link href="/">
 						<a>Our Story</a>
 					</Link>
 				</li>
 				<li>
-					<Link scroll={false} href="/craft">
+					<Link href="/craft">
 						<a>Our Craft</a>
 					</Link>
 				</li>
 				<li>
-					<Link scroll={false} href="/blog">
+					<Link href="/blog">
 						<a>Blog</a>
 					</Link>
 				</li>
 				<li>
-					<Link scroll={false} href="/contact">
+					<Link href="/contact">
 						<a>Contact</a>
 					</Link>
 				</li>
