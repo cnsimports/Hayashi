@@ -10,6 +10,33 @@
 		min-height: 40vh;
 	}
 
+	&.blog {
+		& h1 {
+			color: var(--c-white);
+		}
+	}
+
+	& :global(.featured-image) {
+		inset: 0;
+		margin-bottom: 4rem;
+		max-height: 80vh;
+		overflow: hidden;
+		position: absolute;
+		z-index: -1;
+
+		&::after {
+			content: "";
+			background-color: var(--c-black);
+			opacity: 0.4;
+			position: absolute;
+			inset: 0;
+		}
+
+		& img {
+			object-fit: cover;
+		}
+	}
+
 	& p {
 		margin: 0;
 	}
