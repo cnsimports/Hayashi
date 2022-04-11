@@ -23,9 +23,11 @@ export const Header = () => {
 
 	const { scrollYProgress } = useViewportScroll();
 
-	const navAnim = router.query.slug ? useTransform(scrollYProgress, [0, 0.4, 0.44], ['#fff', '#000', '#000']) : useTransform(scrollYProgress, [0.33, 0.4, 0.44], ['#000', '#fff', '#fff']);
+	const navAnim = router.query.slug
+		? useTransform(scrollYProgress, [0, 0.4, 0.44], ['#fff', '#000', '#000'])
+		: useTransform(scrollYProgress, [0.33, 0.4, 0.44], ['#000', '#fff', '#fff']);
 
-	Router.events.on('routeChangeStart', () => setMenuOpen(false));	
+	Router.events.on('routeChangeStart', () => setMenuOpen(false));
 
 	Router.events.on('routeChangeComplete', (url) => {
 		if (url === '/' || router.query.slug) {

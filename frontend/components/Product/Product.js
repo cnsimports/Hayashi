@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import PropTypes from 'prop-types';
 
 import styles from './Product.module.css';
 
@@ -18,9 +19,7 @@ export const Product = ({ name, blurb, desc, notes }) => (
 					<h2>{name}</h2>
 					<p>
 						<strong>
-							<i>
-								{blurb}
-							</i>
+							<i>{blurb}</i>
 						</strong>
 					</p>
 					<p>
@@ -45,3 +44,10 @@ export const Product = ({ name, blurb, desc, notes }) => (
 		</div>
 	</div>
 );
+
+Product.propTypes = {
+	name: PropTypes.string.isRequired,
+	blurb: PropTypes.string,
+	desc: PropTypes.string,
+	notes: PropTypes.arrayOf(PropTypes.object),
+};

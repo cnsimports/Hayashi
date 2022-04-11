@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 import { motion } from 'framer-motion';
+import PropTypes from 'prop-types';
 
 import client from '@lib/apollo';
 
@@ -37,6 +38,11 @@ const Blog = ({ hero, posts }) => {
 	);
 };
 
+Blog.propTypes = {
+	hero: PropTypes.object,
+	posts: PropTypes.arrayOf(PropTypes.object),
+};
+
 export async function getStaticProps() {
 	const { data: blogRes } = await client.query({
 		query: gql`
@@ -71,11 +77,11 @@ export async function getStaticProps() {
 			}
 		`,
 	});
-	
+
 	return {
 		props: {
 			hero: blogRes.blog.data.attributes.Hero,
-			posts: blogRes.posts
+			posts: blogRes.posts,
 		},
 		revalidate: 10,
 	};

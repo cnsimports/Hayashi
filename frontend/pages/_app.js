@@ -45,7 +45,12 @@ function MyApp({ Component, pageProps, router }) {
 			{isLegal === 'true' ? (
 				<LazyMotion features={domAnimation}>
 					<AnimatePresence exitBeforeEnter>
-						<m.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }} key={route.concat('fade')}>
+						<m.div
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							transition={{ delay: 1.5 }}
+							key={route.concat('fade')}
+						>
 							<Component {...pageProps} />
 						</m.div>
 						<m.div

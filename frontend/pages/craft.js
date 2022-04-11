@@ -1,6 +1,7 @@
 import React from 'react';
 import { gql } from '@apollo/client';
 import { motion } from 'framer-motion';
+import PropTypes from 'prop-types';
 
 import client from '@lib/apollo';
 
@@ -51,6 +52,11 @@ const Craft = ({ heroes, bottomCTA }) => {
 	);
 };
 
+Craft.propTypes = {
+	heroes: PropTypes.arrayOf(PropTypes.object),
+	bottomCTA: PropTypes.object,
+};
+
 export async function getStaticProps() {
 	const { data: craftRes } = await client.query({
 		query: gql`
@@ -71,14 +77,14 @@ export async function getStaticProps() {
 			}
 		`,
 	});
-	
+
 	return {
 		props: {
 			heroes: craftRes.ourCraft.data.attributes.Hero,
 			bottomCTA: {
 				title: craftRes.ourCraft.data.attributes.BottomCTA,
-				linkText: craftRes.ourCraft.data.attributes.BottomCTALinkText
-			}
+				linkText: craftRes.ourCraft.data.attributes.BottomCTALinkText,
+			},
 		},
 		revalidate: 10,
 	};

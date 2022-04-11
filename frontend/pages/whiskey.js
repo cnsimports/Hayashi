@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 import { motion } from 'framer-motion';
+import PropTypes from 'prop-types';
 
 import client from '@lib/apollo';
 
@@ -22,11 +23,22 @@ const Whiskey = ({ products, hero }) => {
 					{HeroBottomLine}
 				</motion.p>
 			</Hero>
-			{products.map(({attributes: { ProductName, ProductBlurb, ProductDescription, product_notes }}) => (
-				<Product key={ProductName} name={ProductName} blurb={ProductBlurb} desc={ProductDescription} notes={product_notes} />
+			{products.map(({ attributes: { ProductName, ProductBlurb, ProductDescription, product_notes } }) => (
+				<Product
+					key={ProductName}
+					name={ProductName}
+					blurb={ProductBlurb}
+					desc={ProductDescription}
+					notes={product_notes}
+				/>
 			))}
 		</main>
 	);
+};
+
+Whiskey.propTypes = {
+	products: PropTypes.object,
+	hero: PropTypes.object,
 };
 
 export async function getStaticProps() {
