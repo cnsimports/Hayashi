@@ -1,0 +1,23 @@
+.share-post {
+  background-image: url('/images/granite.jpeg');
+  background-size: cover;
+  display: inline-flex;
+  padding: 1.5rem 3rem;
+
+  & p {
+    margin: 0;
+    padding: 0;
+  }
+
+  & ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 3rem;
+  }
+
+  & li {
+    display: inline;
+  }
+}
