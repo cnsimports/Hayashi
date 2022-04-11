@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_hero_heroes",
+  "info": {
+    "displayName": "Hero",
+    "icon": "trophy"
+  },
+  "options": {},
+  "attributes": {
+    "HeroTopLine": {
+      "type": "string"
+    },
+    "HeroMain": {
+      "type": "string"
+    },
+    "HeroBottomLine": {
+      "type": "string"
+    }
+  }
+}
