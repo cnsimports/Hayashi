@@ -55,6 +55,18 @@ small, .text_small {
   font-size: var(--fs--1);
 }
 
+.-light {
+  color: var(--c-white);
+}
+
+.-serif {
+  font-family: var(--f-heading);
+}
+
+.-text-md {
+  font-size: var(--fs-0);
+}
+
 .-center {
   text-align: center;
 }
