@@ -7,23 +7,24 @@ import { Hero } from '@components/Hero/Hero';
 import { heroMotion } from '@components/Hero/Hero.motion';
 import { Product } from '@components/Product/Product';
 
-const Whiskey = (props) => {
+const Whiskey = ({ products, hero }) => {
+	const { HeroTopLine, HeroMain, HeroBottomLine } = hero.attributes.Hero;
 	return (
 		<main>
 			<Hero>
 				<motion.p variants={heroMotion} initial="hidden" animate="fade" className="h5">
-					Our Whiskey
+					{HeroTopLine}
 				</motion.p>
 				<motion.h1 variants={heroMotion} initial="hidden" animate="fade" className="h2">
-					Earned excellence in every expression.
+					{HeroMain}
 				</motion.h1>
 				<motion.p variants={heroMotion} initial="hidden" animate="fade" className="h5">
-					Discover the Hayashi family of Ryukyu whisky made from pure indica rice.
+					{HeroBottomLine}
 				</motion.p>
 			</Hero>
-			<Product />
-			<Product />
-			<Product />
+			{products.map(({attributes: { ProductName, ProductBlurb, ProductDescription, product_notes }}) => (
+				<Product key={ProductName} name={ProductName} blurb={ProductBlurb} desc={ProductDescription} notes={product_notes} />
+			))}
 		</main>
 	);
 };
@@ -52,8 +53,27 @@ export async function getStaticProps() {
 		`,
 	});
 
+	const { data: heroRes } = await client.query({
+		query: gql`
+			query {
+				ryukyuWhiskey {
+					data {
+						attributes {
+							Hero {
+								HeroTopLine
+								HeroMain
+								HeroBottomLine
+							}
+						}
+					}
+				}
+			}
+		`,
+	});
+
 	return {
 		props: {
+			hero: heroRes.ryukyuWhiskey.data,
 			products: productsRes.products.data,
 		},
 		revalidate: 1,
