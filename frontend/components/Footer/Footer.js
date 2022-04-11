@@ -11,12 +11,7 @@ export const Footer = () => (
 			<ul className={styles['foot-nav']}>
 				<li>
 					<Link href="/whiskey">
-						<a>Hayashi Products</a>
-					</Link>
-				</li>
-				<li>
-					<Link href="/">
-						<a>Our Story</a>
+						<a>Rykyu Whiskey</a>
 					</Link>
 				</li>
 				<li>

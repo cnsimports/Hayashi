@@ -23,12 +23,12 @@ export const Header = () => {
 
 	const { scrollYProgress } = useViewportScroll();
 
-	const navAnim = useTransform(scrollYProgress, [0.33, 0.4, 0.44], ['#000', '#fff', '#fff']);
+	const navAnim = router.query.slug ? useTransform(scrollYProgress, [0, 0.4, 0.44], ['#fff', '#000', '#000']) : useTransform(scrollYProgress, [0.33, 0.4, 0.44], ['#000', '#fff', '#fff']);
 
-	Router.events.on('routeChangeStart', () => setMenuOpen(false));
+	Router.events.on('routeChangeStart', () => setMenuOpen(false));	
 
 	Router.events.on('routeChangeComplete', (url) => {
-		if (url === '/') {
+		if (url === '/' || router.query.slug) {
 			setNavTransition(true);
 		} else {
 			setNavTransition(false);
@@ -36,7 +36,11 @@ export const Header = () => {
 	});
 
 	useEffect(() => {
-		setNavTransition(router.pathname === '/' ? true : false);
+		if (router.pathname === '/' || router.query.slug) {
+			setNavTransition(true);
+		} else {
+			setNavTransition(false);
+		}
 	}, []);
 
 	const handleMouseMove = (e) => {
@@ -116,11 +120,6 @@ export const Header = () => {
 								<motion.li variants={item}>
 									<Link href="/contact">
 										<a>Contact</a>
-									</Link>
-								</motion.li>
-								<motion.li variants={item}>
-									<Link href="/">
-										<a>Where to buy</a>
 									</Link>
 								</motion.li>
 								<motion.li variants={item}>
