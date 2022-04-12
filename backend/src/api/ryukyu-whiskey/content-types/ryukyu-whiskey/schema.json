@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "ryukyu_whiskeys",
+  "info": {
+    "singularName": "ryukyu-whiskey",
+    "pluralName": "ryukyu-whiskeys",
+    "displayName": "Ryukyu Whiskey",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "hero.hero"
+    }
+  }
+}

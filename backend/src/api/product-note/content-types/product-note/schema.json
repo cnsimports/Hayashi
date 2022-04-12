@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_notes",
+  "info": {
+    "singularName": "product-note",
+    "pluralName": "product-notes",
+    "displayName": "Product Notes"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ProductNote": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

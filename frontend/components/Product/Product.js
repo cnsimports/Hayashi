@@ -1,8 +1,9 @@
 import Image from 'next/image';
+import PropTypes from 'prop-types';
 
 import styles from './Product.module.css';
 
-export const Product = () => (
+export const Product = ({ name, blurb, desc, notes }) => (
 	<div className={styles.product}>
 		<div className="container">
 			<div className={styles.content}>
@@ -15,31 +16,38 @@ export const Product = () => (
 					</svg>
 				</div>
 				<div>
-					<h2>Hayashi 24 yr</h2>
+					<h2>{name}</h2>
 					<p>
 						<strong>
-							<i>
-								When you&apos;re toasting a special occasion or seeking a superior gift, Hayashi 24 is your selection.
-							</i>
+							<i>{blurb}</i>
 						</strong>
 					</p>
 					<p>
 						<strong>Description:</strong>
 						<br />
-						Its roots burrow 500 years into the past, Hayashi 24 draws on a rich tradition of master awamori distillers
-						who fermented indica rice with a rare strain of black koji. Hayashi branches this craft into the present,
-						aging 24 years in bourbon casks surrounded by the soft, saltwater air of the pacific.
+						{desc}
 					</p>
 					<p>
 						<strong>Notes:</strong>
-						<br />
-						Robust Radiant Refined
 					</p>
+					<ul className={styles.notes}>
+						{notes.data.map(({ attributes }) => (
+							<li key={attributes.ProductNote}>{attributes.ProductNote}</li>
+						))}
+					</ul>
 				</div>
 			</div>
 		</div>
 		<div className={styles.image}>
+			{/* @TODO :: Pull image from Strapi */}
 			<Image alt="" src="/images/bottle01.png" priority layout="responsive" width={502} height={800} />
 		</div>
 	</div>
 );
+
+Product.propTypes = {
+	name: PropTypes.string.isRequired,
+	blurb: PropTypes.string,
+	desc: PropTypes.string,
+	notes: PropTypes.arrayOf(PropTypes.object),
+};

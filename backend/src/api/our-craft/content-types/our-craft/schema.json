@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "our_crafts",
+  "info": {
+    "singularName": "our-craft",
+    "pluralName": "our-crafts",
+    "displayName": "Our Craft",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Hero": {
+      "type": "component",
+      "repeatable": true,
+      "component": "hero.hero"
+    },
+    "BottomCTA": {
+      "type": "string"
+    },
+    "BottomCTALinkText": {
+      "type": "string"
+    }
+  }
+}

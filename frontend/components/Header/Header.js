@@ -23,12 +23,14 @@ export const Header = () => {
 
 	const { scrollYProgress } = useViewportScroll();
 
-	const navAnim = useTransform(scrollYProgress, [0.33, 0.4, 0.44], ['#000', '#fff', '#fff']);
+	const navAnim = router.query.slug
+		? useTransform(scrollYProgress, [0, 0.4, 0.44], ['#fff', '#000', '#000'])
+		: useTransform(scrollYProgress, [0.33, 0.4, 0.44], ['#000', '#fff', '#fff']);
 
 	Router.events.on('routeChangeStart', () => setMenuOpen(false));
 
 	Router.events.on('routeChangeComplete', (url) => {
-		if (url === '/') {
+		if (url === '/' || router.query.slug) {
 			setNavTransition(true);
 		} else {
 			setNavTransition(false);
@@ -36,7 +38,11 @@ export const Header = () => {
 	});
 
 	useEffect(() => {
-		setNavTransition(router.pathname === '/' ? true : false);
+		if (router.pathname === '/' || router.query.slug) {
+			setNavTransition(true);
+		} else {
+			setNavTransition(false);
+		}
 	}, []);
 
 	const handleMouseMove = (e) => {
@@ -50,7 +56,7 @@ export const Header = () => {
 		>
 			<div className="container">
 				<h1>
-					<Link scroll={false} href="/">
+					<Link href="/">
 						<a className={styles.logo}>
 							<span className="screen-reader-text">Hayashi</span>
 							<Logo width={147} height={26} />
@@ -89,7 +95,7 @@ export const Header = () => {
 								className={styles['primary-nav']}
 							>
 								<motion.li variants={item}>
-									<Link scroll={false} href="/whiskey">
+									<Link href="/whiskey">
 										<a
 											className="h1"
 											onMouseEnter={() => setHoverMenu('whiskey')}
@@ -100,31 +106,26 @@ export const Header = () => {
 									</Link>
 								</motion.li>
 								<motion.li variants={item}>
-									<Link scroll={false} href="/craft">
+									<Link href="/craft">
 										<a className="h1" onMouseEnter={() => setHoverMenu('craft')} onMouseLeave={() => setHoverMenu('')}>
 											Our Craft
 										</a>
 									</Link>
 								</motion.li>
 								<motion.li variants={item}>
-									<Link scroll={false} href="/blog">
+									<Link href="/blog">
 										<a className="h1" onMouseEnter={() => setHoverMenu('blog')} onMouseLeave={() => setHoverMenu('')}>
 											Blog
 										</a>
 									</Link>
 								</motion.li>
 								<motion.li variants={item}>
-									<Link scroll={false} href="/contact">
+									<Link href="/contact">
 										<a>Contact</a>
 									</Link>
 								</motion.li>
 								<motion.li variants={item}>
-									<Link scroll={false} href="/">
-										<a>Where to buy</a>
-									</Link>
-								</motion.li>
-								<motion.li variants={item}>
-									<Link scroll={false} href="/">
+									<Link href="/">
 										<a>Order online</a>
 									</Link>
 								</motion.li>

@@ -3,7 +3,6 @@
 import { motion, useTransform, useViewportScroll } from 'framer-motion';
 
 // import client from '@lib/apollo';
-import withTransition from 'HOC/withTransition';
 import Image from 'next/image';
 
 import styles from '@styles/pages/Home.module.css';
@@ -125,7 +124,7 @@ const Home = (props) => {
 		</main>
 	);
 
-	const HomeWithTransition = withTransition(HomeContent);
+	const HomeWithTransition = HomeContent;
 
 	return (
 		<HomeWithTransition {...props} />
