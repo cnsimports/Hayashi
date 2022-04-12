@@ -12,16 +12,18 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Hero": {
-      "type": "component",
-      "repeatable": true,
-      "component": "hero.hero"
-    },
     "BottomCTA": {
       "type": "string"
     },
     "BottomCTALinkText": {
       "type": "string"
+    },
+    "Content": {
+      "type": "dynamiczone",
+      "components": [
+        "images.cover-image",
+        "hero.hero"
+      ]
     }
   }
 }
