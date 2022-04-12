@@ -11,25 +11,7 @@ import { heroMotion } from '@components/Hero/Hero.motion';
 const Blog = ({ hero, posts }) => {
 	return (
 		<main>
-			<Hero narrow className="-pt-m">
-				<div className="container">
-					{hero.HeroTopLine && (
-						<motion.p variants={heroMotion} initial="hidden" animate="fade" className="h5">
-							{hero.HeroTopLine}
-						</motion.p>
-					)}
-					<motion.h1 variants={heroMotion} initial="hidden" animate="fade" className="h2">
-						{hero.HeroMain}
-					</motion.h1>
-				</div>
-				{hero.HeroBottomLine && (
-					<div className="container -sm">
-						<motion.p variants={heroMotion} initial="hidden" animate="fade" className="h5">
-							{hero.HeroBottomLine}
-						</motion.p>
-					</div>
-				)}
-			</Hero>
+			<Hero narrow className="-pt-m" HeroTopLine={hero.HeroTopLine} HeroMain={hero.HeroMain} HeroBottomLine={hero.HeroBottomLine} />
 
 			<div className="container">
 				<BlogGrid posts={posts} />
@@ -40,7 +22,7 @@ const Blog = ({ hero, posts }) => {
 
 Blog.propTypes = {
 	hero: PropTypes.object,
-	posts: PropTypes.arrayOf(PropTypes.object),
+	posts: PropTypes.object,
 };
 
 export async function getStaticProps() {

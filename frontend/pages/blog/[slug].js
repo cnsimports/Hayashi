@@ -14,22 +14,18 @@ const Post = ({ post }) => {
 
 	return (
 		<>
-			<Hero>
-				<div className="container -sm">
-					<h1 className="-light">{Title}</h1>
-				</div>
+			<Hero containerClasses="container -sm" HeroMain={Title} lightText>
 				{FeaturedImage.data && (
 					<div className="featured-image">
 						<Image
 							alt=""
 							src={getStrapiMedia(FeaturedImage.data.attributes.url)}
 							layout="fill"
-							width={1439}
-							height={797}
 						/>
 					</div>
 				)}
 			</Hero>
+
 			<div className="container -sm -text-md">
 				<ReactMarkdown>{Content}</ReactMarkdown>
 			</div>
@@ -42,7 +38,7 @@ const Post = ({ post }) => {
 };
 
 Post.propTypes = {
-	post: PropTypes.object,
+	post: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export async function getStaticPaths() {

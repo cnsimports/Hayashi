@@ -1,28 +1,17 @@
-import { motion } from 'framer-motion';
+import { gql } from '@apollo/client';
+import PropTypes from 'prop-types';
+
+import client from '@lib/apollo';
 
 import { Button } from '@components/Button/Button';
 import { Hero } from '@components/Hero/Hero';
-import { heroMotion } from '@components/Hero/Hero.motion';
 
 import styles from '@styles/pages/Contact.module.css';
 
-const Contact = () => {
+const Contact = ({ hero }) => {
 	return (
 		<main>
-			<Hero>
-				<div className="container -sm -p-m">
-					<motion.p variants={heroMotion} initial="hidden" animate="fade" className="h5">
-						Contact
-					</motion.p>
-					<motion.h1 variants={heroMotion} initial="hidden" animate="fade" className="h2">
-						How can Hayashi help?
-					</motion.h1>
-					<motion.p variants={heroMotion} initial="hidden" animate="fade" className="h5">
-						The Hayashi brand is growing and our team is always open to new opportunities and partners. Let&apos;s see
-						how we can work together, bringing refined Japanese Ryukyu whisky to all those who seek it.
-					</motion.p>
-				</div>
-			</Hero>
+			<Hero HeroTopLine={hero.HeroTopLine} HeroMain={hero.HeroMain} HeroBottomLine={hero.HeroBottomLine} />
 
 			<div className={styles.form}>
 				<div className="container -p-m">
@@ -46,5 +35,37 @@ const Contact = () => {
 		</main>
 	);
 };
+
+
+Contact.propTypes = {
+	hero: PropTypes.object,
+};
+
+export async function getStaticProps() {
+	const { data: contactRes } = await client.query({
+		query: gql`
+			query {
+				contact {
+					data {
+						attributes {
+							Hero {
+								HeroTopLine
+								HeroMain
+								HeroBottomLine
+							}
+						}
+					}
+				}
+			}
+		`,
+	});
+
+	return {
+		props: {
+			hero: contactRes.contact.data.attributes.Hero,
+		},
+		revalidate: 10,
+	};
+}
 
 export default Contact;

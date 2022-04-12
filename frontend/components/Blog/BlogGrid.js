@@ -22,5 +22,5 @@ export const BlogGrid = ({ posts }) => {
 };
 
 BlogGrid.propTypes = {
-	posts: PropTypes.arrayOf(PropTypes.object),
+	posts: PropTypes.object,
 };
