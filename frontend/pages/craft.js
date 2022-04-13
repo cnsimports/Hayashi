@@ -1,60 +1,31 @@
-import React from 'react';
 import { gql } from '@apollo/client';
-import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 
 import client from '@lib/apollo';
 
 import { Hero } from '@components/Hero/Hero';
-import { heroMotion } from '@components/Hero/Hero.motion';
 
-import Image from 'next/image';
 import { Button } from '@components/Button/Button';
+import BlockManager from '@components/shared/BlockManager';
 
-const Craft = ({ heroes, bottomCTA }) => {
+const Craft = ({ content, bottomCTA }) => {
 	return (
 		<main>
-			{heroes.map((hero) => (
-				<React.Fragment key={hero.HeroTopLine}>
-					<Hero>
-						<div className="container -p-m">
-							{hero.HeroTopLine && (
-								<motion.p variants={heroMotion} initial="hidden" animate="fade" className="h5">
-									{hero.HeroTopLine}
-								</motion.p>
-							)}
-							<motion.h1 variants={heroMotion} initial="hidden" animate="fade" className="h2">
-								{hero.HeroMain}
-							</motion.h1>
-							{hero.HeroBottomLine && (
-								<motion.p variants={heroMotion} initial="hidden" animate="fade" className="h5">
-									{hero.HeroBottomLine}
-								</motion.p>
-							)}
-						</div>
-					</Hero>
-					{/* @TODO :: Pull image from Strapi */}
-					<Image alt="" src="https://source.unsplash.com/1440x920" layout="responsive" width={1440} height={820} />
-				</React.Fragment>
-			))}
-
-			<Hero>
-				<div className="container -p-m">
-					<h1 className="h2">{bottomCTA.title}</h1>
-					<Button href="/whiskey">
-						<>
-							<span className="arrow">&rarr;</span> {bottomCTA.linkText}
-						</>
-					</Button>
-				</div>
+			<BlockManager blocks={content} />
+			<Hero HeroMain={bottomCTA.title}>
+				<Button href="/whiskey">
+					<>
+						<span className="arrow">&rarr;</span> {bottomCTA.linkText}
+					</>
+				</Button>
 			</Hero>
 		</main>
 	);
 };
 
 Craft.propTypes = {
-	heroes: PropTypes.arrayOf(PropTypes.object),
 	bottomCTA: PropTypes.object,
+	content: PropTypes.arrayOf(PropTypes.object),
 };
 
 export async function getStaticProps() {
@@ -64,10 +35,22 @@ export async function getStaticProps() {
 				ourCraft {
 					data {
 						attributes {
-							Hero {
-								HeroTopLine
-								HeroMain
-								HeroBottomLine
+							Content {
+								... on ComponentHeroHero {
+									HeroTopLine
+									HeroMain
+									HeroBottomLine
+								}
+								... on ComponentImagesCoverImage {
+									CoverImage {
+										data {
+											attributes {
+												alternativeText
+												url
+											}
+										}
+									}
+								}
 							}
 							BottomCTA
 							BottomCTALinkText
@@ -80,7 +63,7 @@ export async function getStaticProps() {
 
 	return {
 		props: {
-			heroes: craftRes.ourCraft.data.attributes.Hero,
+			content: craftRes.ourCraft.data.attributes.Content,
 			bottomCTA: {
 				title: craftRes.ourCraft.data.attributes.BottomCTA,
 				linkText: craftRes.ourCraft.data.attributes.BottomCTALinkText,

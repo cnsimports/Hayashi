@@ -2,18 +2,19 @@
   "collectionName": "components_hero_heroes",
   "info": {
     "displayName": "Hero",
-    "icon": "trophy"
+    "icon": "trophy",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "HeroTopLine": {
-      "type": "string"
+      "type": "text"
     },
     "HeroMain": {
-      "type": "string"
+      "type": "text"
     },
     "HeroBottomLine": {
-      "type": "string"
+      "type": "text"
     }
   }
 }

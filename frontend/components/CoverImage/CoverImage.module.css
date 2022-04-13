@@ -1,0 +1,9 @@
+.cover-image {
+  position: relative;
+  max-height: 880px;
+  height: 80vh;
+
+  & img {
+    object-fit: cover;
+  }
+}
