@@ -1,17 +1,21 @@
 import { gql } from '@apollo/client';
-import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 
 import client from '@lib/apollo';
 
 import { BlogGrid } from '@components/Blog/BlogGrid';
 import { Hero } from '@components/Hero/Hero';
-import { heroMotion } from '@components/Hero/Hero.motion';
 
 const Blog = ({ hero, posts }) => {
 	return (
 		<main>
-			<Hero narrow className="-pt-m" HeroTopLine={hero.HeroTopLine} HeroMain={hero.HeroMain} HeroBottomLine={hero.HeroBottomLine} />
+			<Hero
+				narrow
+				className="-pt-m"
+				HeroTopLine={hero.HeroTopLine}
+				HeroMain={hero.HeroMain}
+				HeroBottomLine={hero.HeroBottomLine}
+			/>
 
 			<div className="container">
 				<BlogGrid posts={posts} />

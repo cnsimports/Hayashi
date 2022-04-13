@@ -1,15 +1,17 @@
-import { CoverImage } from "@components/CoverImage/CoverImage";
-import { Hero } from "@components/Hero/Hero";
+import PropTypes from 'prop-types';
+
+import { CoverImage } from '@components/CoverImage/CoverImage';
+import { Hero } from '@components/Hero/Hero';
 
 const getBlockComponent = ({ __typename, ...rest }, index) => {
 	let Block;
 
 	switch (__typename) {
 		case 'ComponentHeroHero':
-			Block = Hero
+			Block = Hero;
 			break;
 		case 'ComponentImagesCoverImage':
-			Block = CoverImage
+			Block = CoverImage;
 			break;
 	}
 
@@ -22,6 +24,10 @@ const BlockManager = ({ blocks }) => {
 
 BlockManager.defaultProps = {
 	blocks: [],
+};
+
+BlockManager.propTypes = {
+	blocks: PropTypes.array,
 };
 
 export default BlockManager;

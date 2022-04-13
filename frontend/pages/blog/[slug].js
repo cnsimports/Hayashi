@@ -18,7 +18,7 @@ const Post = ({ post }) => {
 				{FeaturedImage.data && (
 					<div className="featured-image">
 						<Image
-							alt=""
+							alt={FeaturedImage.data.attributes.alternativeText}
 							src={getStrapiMedia(FeaturedImage.data.attributes.url)}
 							layout="fill"
 						/>

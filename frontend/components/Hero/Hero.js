@@ -5,7 +5,15 @@ import { heroMotion } from '@components/Hero/Hero.motion';
 
 import styles from './Hero.module.css';
 
-export const Hero = ({ HeroTopLine, HeroMain, HeroBottomLine, lightText, containerClasses = 'container -p-m', narrow, children }) => (
+export const Hero = ({
+	HeroTopLine,
+	HeroMain,
+	HeroBottomLine,
+	lightText,
+	containerClasses = 'container -p-m',
+	narrow,
+	children,
+}) => (
 	<div className={`${styles.hero} ${narrow ? styles.narrow : ''} -center`}>
 		<div className={containerClasses}>
 			{HeroTopLine && (

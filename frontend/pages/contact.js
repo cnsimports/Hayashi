@@ -36,7 +36,6 @@ const Contact = ({ hero }) => {
 	);
 };
 
-
 Contact.propTypes = {
 	hero: PropTypes.object,
 };

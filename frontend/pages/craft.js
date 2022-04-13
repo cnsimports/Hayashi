@@ -1,4 +1,3 @@
-import React from 'react';
 import { gql } from '@apollo/client';
 import PropTypes from 'prop-types';
 
@@ -26,6 +25,7 @@ const Craft = ({ content, bottomCTA }) => {
 
 Craft.propTypes = {
 	bottomCTA: PropTypes.object,
+	content: PropTypes.arrayOf(PropTypes.object),
 };
 
 export async function getStaticProps() {
