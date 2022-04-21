@@ -10,20 +10,13 @@
 .blog-grid-item {
 	&:first-child {
 		@media (min-width: 768px) {
-			margin-top: 60%;
+			grid-column-start: 2;
 		}
 	}
 
-	&:nth-child(2n + 4) {
+	&:nth-child(2n + 2) {
 		@media (min-width: 768px) {
-			margin-top: -60%;
-		}
-	}
-
-	&:last-child:nth-child(odd) {
-		@media (min-width: 768px) {
-			grid-column: 2; 
-			margin-top: -56%;
+			margin-top: -100%;
 		}
 	}
 

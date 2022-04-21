@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -10,8 +11,14 @@ export const BlogGridItem = ({ title, thumbnail, count, slug }) => {
 	const { url, alternativeText } = thumbnail.data.attributes;
 
 	return (
-		<Link href={`/blog/${slug}`}>
-			<a className={styles['blog-grid-item']}>
+		<Link href={`/blog/${slug}`} passHref>
+			<motion.a
+				layout
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				exit={{ opacity: 0 }}
+				className={styles['blog-grid-item']}
+			>
 				<p>{padCount}</p>
 				<div className="img">
 					<Image
@@ -24,7 +31,7 @@ export const BlogGridItem = ({ title, thumbnail, count, slug }) => {
 					/>
 				</div>
 				<h4>{title}</h4>
-			</a>
+			</motion.a>
 		</Link>
 	);
 };
