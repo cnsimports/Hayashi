@@ -23,15 +23,18 @@ const Whiskey = ({ products, hero }) => {
 					{HeroBottomLine}
 				</motion.p>
 			</Hero>
-			{products.map(({ attributes: { ProductName, ProductBlurb, ProductDescription, product_notes } }) => (
-				<Product
-					key={ProductName}
-					name={ProductName}
-					blurb={ProductBlurb}
-					desc={ProductDescription}
-					notes={product_notes}
-				/>
-			))}
+			{products.map(
+				({ attributes: { ProductImage, ProductName, ProductBlurb, ProductDescription, product_notes } }) => (
+					<Product
+						key={ProductName}
+						name={ProductName}
+						blurb={ProductBlurb}
+						desc={ProductDescription}
+						notes={product_notes}
+						image={ProductImage.data.attributes}
+					/>
+				)
+			)}
 		</main>
 	);
 };
@@ -51,6 +54,14 @@ export async function getStaticProps() {
 							ProductName
 							ProductBlurb
 							ProductDescription
+							ProductImage {
+								data {
+									attributes {
+										alternativeText
+										url
+									}
+								}
+							}
 							product_notes {
 								data {
 									attributes {
@@ -88,7 +99,7 @@ export async function getStaticProps() {
 			hero: heroRes.ryukyuWhiskey.data,
 			products: productsRes.products.data,
 		},
-		revalidate: 1,
+		revalidate: 10,
 	};
 }
 
