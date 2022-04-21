@@ -33,6 +33,11 @@
       "type": "uid",
       "targetField": "Title",
       "required": true
+    },
+    "post_tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::post-tag.post-tag"
     }
   }
 }
