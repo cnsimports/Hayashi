@@ -9,26 +9,30 @@
     padding-left: 0;
     padding-right: 0;
   }
+}
 
-  &.-sm {
-    max-width: 1027px;
-  }
+.-sm {
+  max-width: 1027px;
+}
 
-  &.-pt-m {
-    padding-top: 2rem;
-  }
+.-pt-m {
+  padding-top: 2rem;
+}
 
-  &.-pb-l {
-    padding-bottom: 3rem;
-  }
+.-pb-l {
+  padding-bottom: 3rem;
+}
 
-  &.-p-m {
-    padding: 2rem;
-  }
+.-p-m {
+  padding: 2rem;
+}
 
-  &.-py-2xl {
-    padding: 6rem 0;
-  }
+.-py-2xl {
+  padding: 6rem 0;
+}
+
+.-granite {
+  background-image: url('/images/granite.jpeg');
 }
 
 .overflow-hidden {
