@@ -27,6 +27,13 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product-note.product-note"
+    },
+    "ProductImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

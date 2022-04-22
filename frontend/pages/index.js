@@ -5,10 +5,11 @@ import { motion, useTransform, useViewportScroll } from 'framer-motion';
 // import client from '@lib/apollo';
 import Image from 'next/image';
 
-import styles from '@styles/pages/Home.module.css';
 import { Slide } from '@components/Slide/Slide';
 import { Button } from '@components/Button/Button';
 import { HoverLinks } from '@components/HoverLinks/HoverLinks';
+
+import styles from '@styles/pages/Home.module.css';
 
 // prettier-ignore
 const Home = (props) => {

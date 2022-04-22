@@ -1,0 +1,26 @@
+.filters {
+  & :global(.-granite) {
+    display: inline-block;
+  }
+
+  & button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: var(--f-heading);
+    font-size: var(--fs--1);
+
+    &:hover,
+    &:focus {
+      color: var(--c-gold);
+    }
+
+    &:not(:last-child) {
+      &::after {
+        content: "|";
+        color: var(--c-black);
+        padding-left: 1rem;
+      }
+    }
+  }
+}

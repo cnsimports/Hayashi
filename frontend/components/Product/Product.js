@@ -1,9 +1,10 @@
+import { getStrapiMedia } from '@lib/media';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
 
 import styles from './Product.module.css';
 
-export const Product = ({ name, blurb, desc, notes }) => (
+export const Product = ({ image, name, blurb, desc, notes }) => (
 	<div className={styles.product}>
 		<div className="container">
 			<div className={styles.content}>
@@ -40,7 +41,14 @@ export const Product = ({ name, blurb, desc, notes }) => (
 		</div>
 		<div className={styles.image}>
 			{/* @TODO :: Pull image from Strapi */}
-			<Image alt="" src="/images/bottle01.png" priority layout="responsive" width={502} height={800} />
+			<Image
+				alt={image.alternativeText}
+				src={getStrapiMedia(image.url)}
+				priority
+				layout="responsive"
+				width={502}
+				height={800}
+			/>
 		</div>
 	</div>
 );
@@ -50,4 +58,5 @@ Product.propTypes = {
 	blurb: PropTypes.string,
 	desc: PropTypes.string,
 	notes: PropTypes.arrayOf(PropTypes.object),
+	image: PropTypes.object,
 };
