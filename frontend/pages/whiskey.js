@@ -14,16 +14,16 @@ const Whiskey = ({ products, hero }) => {
 		<main>
 			<Hero>
 				<motion.p variants={heroMotion} initial="hidden" animate="fade" className="h5">
-					{HeroTopLine}
+					{HeroTopLine ? HeroTopLine : ''}
 				</motion.p>
 				<motion.h1 variants={heroMotion} initial="hidden" animate="fade" className="h2">
-					{HeroMain}
+					{HeroMain ? HeroMain : ''}
 				</motion.h1>
 				<motion.p variants={heroMotion} initial="hidden" animate="fade" className="h5">
-					{HeroBottomLine}
+					{HeroBottomLine ? HeroBottomLine : ''}
 				</motion.p>
 			</Hero>
-			{products.map(
+			{products?.map(
 				({ attributes: { ProductImage, ProductName, ProductBlurb, ProductDescription, product_notes } }) => (
 					<Product
 						key={ProductName}

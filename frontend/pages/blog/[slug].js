@@ -14,21 +14,21 @@ const Post = ({ post }) => {
 
 	return (
 		<>
-			<Hero containerClasses="container -sm" HeroMain={Title} lightText>
-				{FeaturedImage.data && (
-					<div className="featured-image">
-						<Image
-							alt={FeaturedImage.data.attributes.alternativeText}
-							src={getStrapiMedia(FeaturedImage.data.attributes.url)}
-							layout="fill"
-						/>
-					</div>
-				)}
-			</Hero>
+			{Title && Content && (
+				<Hero containerClasses="container -sm" HeroMain={Title} lightText>
+					{FeaturedImage.data && (
+						<div className="featured-image">
+							<Image
+								alt={FeaturedImage.data.attributes.alternativeText}
+								src={getStrapiMedia(FeaturedImage.data.attributes.url)}
+								layout="fill"
+							/>
+						</div>
+					)}
+				</Hero>
+			)}
 
-			<div className="container -sm -text-md">
-				<ReactMarkdown>{Content}</ReactMarkdown>
-			</div>
+			<div className="container -sm -text-md">{Content && <ReactMarkdown>{Content}</ReactMarkdown>}</div>
 
 			<div className="container -sm -py-2xl -center">
 				<SharePost />
@@ -62,7 +62,7 @@ export async function getStaticPaths() {
 				slug: article.attributes.slug,
 			},
 		})),
-		fallback: false,
+		fallback: true,
 	};
 }
 

@@ -11,11 +11,11 @@ import BlockManager from '@components/shared/BlockManager';
 const Craft = ({ content, bottomCTA }) => {
 	return (
 		<main>
-			<BlockManager blocks={content} />
-			<Hero HeroMain={bottomCTA.title}>
+			{content && <BlockManager blocks={content} />}
+			<Hero HeroMain={bottomCTA?.title}>
 				<Button href="/whiskey">
 					<>
-						<span className="arrow">&rarr;</span> {bottomCTA.linkText}
+						<span className="arrow">&rarr;</span> {bottomCTA?.linkText}
 					</>
 				</Button>
 			</Hero>

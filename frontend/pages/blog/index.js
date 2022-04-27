@@ -17,9 +17,9 @@ const Blog = ({ hero }) => {
 			<Hero
 				narrow
 				className="-pt-m"
-				HeroTopLine={hero.HeroTopLine}
-				HeroMain={hero.HeroMain}
-				HeroBottomLine={hero.HeroBottomLine}
+				HeroTopLine={hero?.HeroTopLine}
+				HeroMain={hero?.HeroMain}
+				HeroBottomLine={hero?.HeroBottomLine}
 			/>
 
 			<div className={`container -sm -py-2xl -center ${styles.filters}`}>

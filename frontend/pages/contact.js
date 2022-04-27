@@ -11,7 +11,7 @@ import styles from '@styles/pages/Contact.module.css';
 const Contact = ({ hero }) => {
 	return (
 		<main>
-			<Hero HeroTopLine={hero.HeroTopLine} HeroMain={hero.HeroMain} HeroBottomLine={hero.HeroBottomLine} />
+			{hero && <Hero HeroTopLine={hero?.HeroTopLine} HeroMain={hero?.HeroMain} HeroBottomLine={hero?.HeroBottomLine} />}
 
 			<div className={styles.form}>
 				<div className="container -p-m">
