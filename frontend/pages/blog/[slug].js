@@ -28,7 +28,11 @@ const Post = ({ post }) => {
 				</Hero>
 			)}
 
-			<div className="container -sm -text-md">{Content && <ReactMarkdown>{Content}</ReactMarkdown>}</div>
+			{Content && (
+				<div className="container -sm -text-md">
+					<ReactMarkdown>{Content}</ReactMarkdown>
+				</div>
+			)}
 
 			<div className="container -sm -py-2xl -center">
 				<SharePost />
@@ -62,7 +66,7 @@ export async function getStaticPaths() {
 				slug: article.attributes.slug,
 			},
 		})),
-		fallback: true,
+		fallback: false,
 	};
 }
 

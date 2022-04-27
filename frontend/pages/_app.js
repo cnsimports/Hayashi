@@ -10,8 +10,8 @@ import { Footer } from '@components/Footer/Footer';
 import Gate from '@components/Gate/Gate';
 import { Kanji } from '@components/SVG/Kanji';
 
-import { getStrapiMedia } from '@lib/media';
-import { fetchAPI } from '@lib/api';
+// import { getStrapiMedia } from '@lib/media';
+// import { fetchAPI } from '@lib/api';
 
 import styles from '@styles/pageTransition/pageTransition.module.css';
 
@@ -21,7 +21,7 @@ export const GlobalContext = createContext({});
 
 function MyApp({ Component, pageProps, router }) {
 	const { route } = router;
-	const { global } = pageProps;
+	// const { global } = pageProps;
 	const [isLegal, setIsLegal] = useState('');
 
 	useEffect(() => {
@@ -37,10 +37,10 @@ function MyApp({ Component, pageProps, router }) {
 	return (
 		<>
 			<Head>
-				<link rel="shortcut icon" href={getStrapiMedia(global.attributes.favicon.data.attributes.url)} />
+				{/* <link rel="shortcut icon" href={getStrapiMedia(global.attributes.favicon.data.attributes.url)} /> */}
 				<link rel="stylesheet" href="https://use.typekit.net/wzt1kkc.css" />
 			</Head>
-			<GlobalContext.Provider value={global.attributes}>
+			<GlobalContext.Provider>
 				{isLegal === 'true' && (
 					<Header initial={false} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }} />
 				)}
@@ -102,15 +102,15 @@ function MyApp({ Component, pageProps, router }) {
 	);
 }
 
-MyApp.getInitialProps = async (ctx) => {
-	const appProps = await App.getInitialProps(ctx);
-	const globalRes = await fetchAPI('/global', {
-		populate: {
-			favicon: '*',
-		},
-	});
+MyApp.getInitialProps = async (appContext) => {
+	const appProps = await App.getInitialProps(appContext);
+	// const globalRes = await fetchAPI('/global', {
+	// 	populate: {
+	// 		favicon: '*',
+	// 	},
+	// });
 
-	return { ...appProps, pageProps: { global: globalRes.data } };
+	return { ...appProps, };
 };
 
 MyApp.propTypes = {
