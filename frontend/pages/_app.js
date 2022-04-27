@@ -110,7 +110,7 @@ MyApp.getInitialProps = async (appContext) => {
 	// 	},
 	// });
 
-	return { ...appProps, };
+	return { ...appProps };
 };
 
 MyApp.propTypes = {
