@@ -1,0 +1,1 @@
+start: strapi start
