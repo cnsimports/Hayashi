@@ -45,6 +45,7 @@ export async function getStaticProps() {
 									CoverImage {
 										data {
 											attributes {
+												mime
 												alternativeText
 												url
 											}
