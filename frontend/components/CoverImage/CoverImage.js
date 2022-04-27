@@ -12,13 +12,8 @@ export const CoverImage = ({ CoverImage }) => {
 				<video muted={true} controls={false} autoPlay={true} loop={true}>
 					<source src={getStrapiMedia(url)} />
 				</video>
-			): (
-				<Image
-					priority
-					alt={alternativeText}
-					src={getStrapiMedia(url)}
-					layout="fill"
-				/>
+			) : (
+				<Image priority alt={alternativeText} src={getStrapiMedia(url)} layout="fill" />
 			)}
 		</div>
 	);
