@@ -40,7 +40,7 @@ function MyApp({ Component, pageProps, router }) {
 				{/* <link rel="shortcut icon" href={getStrapiMedia(global.attributes.favicon.data.attributes.url)} /> */}
 				<link rel="stylesheet" href="https://use.typekit.net/wzt1kkc.css" />
 			</Head>
-			<GlobalContext.Provider>
+			<GlobalContext.Provider value={pageProps}>
 				{isLegal === 'true' && (
 					<Header initial={false} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }} />
 				)}

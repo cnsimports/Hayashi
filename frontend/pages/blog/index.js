@@ -7,7 +7,8 @@ import { BlogGrid } from '@components/Blog/BlogGrid';
 import { Hero } from '@components/Hero/Hero';
 
 import styles from '@styles/pages/Blog.module.css';
-import { QUERY_BLOG } from '@components/Blog/blogQueries';
+
+import { QUERY_BLOG } from '@lib/queries';
 
 const Blog = ({ hero }) => {
 	const [tag, setTag] = useState('All');
