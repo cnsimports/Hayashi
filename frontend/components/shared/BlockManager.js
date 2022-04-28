@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 
 import { CoverImage } from '@components/CoverImage/CoverImage';
 import { Hero } from '@components/Hero/Hero';
+import { ProductList } from '@components/Product/ProductList';
+import { ContactForm } from '@components/ContactForm/ContactForm';
 
 const getBlockComponent = ({ __typename, ...rest }, index) => {
 	let Block;
@@ -12,6 +14,12 @@ const getBlockComponent = ({ __typename, ...rest }, index) => {
 			break;
 		case 'ComponentImagesCoverImage':
 			Block = CoverImage;
+			break;
+		case 'ComponentProductsProductList':
+			Block = ProductList;
+			break;
+		case 'ComponentContactContactForm':
+			Block = ContactForm;
 			break;
 	}
 
