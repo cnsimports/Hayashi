@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_products_product_lists",
+  "info": {
+    "displayName": "Product List",
+    "icon": "wine-glass"
+  },
+  "options": {},
+  "attributes": {
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    }
+  }
+}

@@ -12,10 +12,12 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Hero": {
-      "type": "component",
-      "repeatable": false,
-      "component": "hero.hero"
+    "Content": {
+      "type": "dynamiczone",
+      "components": [
+        "hero.hero",
+        "images.cover-image"
+      ]
     }
   }
 }

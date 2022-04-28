@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * our-craft service.
+ * page service.
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::our-craft.our-craft');
+module.exports = createCoreService('api::page.page');
