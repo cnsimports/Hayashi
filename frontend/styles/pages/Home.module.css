@@ -7,7 +7,7 @@
   & :global(.container) {
     align-items: center;
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 65% 35%;
   }
 
   & h2 {
@@ -17,7 +17,7 @@
 
   &.-swap {
     & :global(.container) {
-      grid-template-columns: 40% 60%;
+      grid-template-columns: 35% 65%;
     }
 
     & .content {
