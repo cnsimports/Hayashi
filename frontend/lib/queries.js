@@ -1,4 +1,3 @@
-
 import { gql } from '@apollo/client';
 
 export const QUERY_PAGE_SLUGS = gql`
@@ -19,42 +18,42 @@ export const QUERY_PAGES_BY_SLUG = gql`
 			data {
 				attributes {
 					Content {
-            ... on ComponentContactContactForm {
-              Recipient
-            }
-            ... on ComponentProductsProductList {
-              products {
-                data {
-                  attributes {
-                    ProductName
-                    ProductBlurb
-                    ProductImage {
-                      data {
-                        attributes {
-                          url
-                          alternativeText
-                        }
-                      }
-                    }
-                    product_notes {
-                      data {
-                        attributes {
-                          ProductNote
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
+						... on ComponentContactContactForm {
+							Recipient
+						}
+						... on ComponentProductsProductList {
+							products {
+								data {
+									attributes {
+										ProductName
+										ProductBlurb
+										ProductImage {
+											data {
+												attributes {
+													url
+													alternativeText
+												}
+											}
+										}
+										product_notes {
+											data {
+												attributes {
+													ProductNote
+												}
+											}
+										}
+									}
+								}
+							}
+						}
 						... on ComponentHeroHero {
 							HeroTopLine
 							HeroMain
 							HeroBottomLine
-              Button {
-              	Text
-                URL
-              }
+							Button {
+								Text
+								URL
+							}
 						}
 						... on ComponentImagesCoverImage {
 							Parallax

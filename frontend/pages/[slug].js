@@ -6,11 +6,7 @@ import { QUERY_PAGES_BY_SLUG, QUERY_PAGE_SLUGS } from '@lib/queries';
 import BlockManager from '@components/shared/BlockManager';
 
 const Page = ({ content }) => {
-	return (
-		<main>
-			{content && <BlockManager blocks={content} />}
-		</main>
-	);
+	return <main>{content && <BlockManager blocks={content} />}</main>;
 };
 
 Page.propTypes = {
