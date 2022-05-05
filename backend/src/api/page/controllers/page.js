@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- *  our-craft controller
+ *  page controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::our-craft.our-craft');
+module.exports = createCoreController('api::page.page');

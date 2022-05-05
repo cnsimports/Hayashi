@@ -5,6 +5,11 @@ import { motion, useTransform, useViewportScroll } from 'framer-motion';
 // import client from '@lib/apollo';
 import Image from 'next/image';
 
+import hillImg from '../public/images/hills.jpeg';
+import bottle02Img from '../public/images/bottle02.png';
+import treeImg from '../public/images/tree.png';
+import grassImg from '../public/images/grass.png';
+
 import { Slide } from '@components/Slide/Slide';
 import { Button } from '@components/Button/Button';
 import { HoverLinks } from '@components/HoverLinks/HoverLinks';
@@ -35,11 +40,11 @@ const Home = (props) => {
 							<h2>The Modern Expression of an Ancient Spirit</h2>
 						</div>
 						<motion.div className={styles['bottle']}>
-							<Image alt="" src="/images/bottle02.png" priority layout="fixed" width={296} height={745} />
+							<Image alt="" src={bottle02Img} priority layout="fixed" width={296} height={745} />
 						</motion.div>
 					</div>
 					<div className={styles['bg']}>
-						<Image alt="" src="/images/hills.jpeg" layout="fill" />
+						<Image alt="" src={hillImg} layout="fill" />
 					</div>
 				</div>
 			</Slide>
@@ -52,9 +57,9 @@ const Home = (props) => {
 							<p>Hayashi Master distillers use only the highest quality local ingredients, with a unique dedication to evolving the awamori rice spirit process that’s been passed down through generations.</p>
 						</div>
 						<motion.div className={styles['bottle']}>
-							<Image alt="" src="/images/bottle02.png" layout="fixed" width={296} height={745} />
+							<Image alt="" src={bottle02Img} layout="fixed" width={296} height={745} />
 							<motion.div className={styles['bottle-bg']}>
-								<Image alt="" src="/images/grass.png" layout="responsive" width={606} height={850} />
+								<Image alt="" src={grassImg} layout="responsive" width={606} height={850} />
 							</motion.div>
 						</motion.div>
 					</div>
@@ -69,9 +74,9 @@ const Home = (props) => {
 							<p>An exemplary whisky of the Ryukyu Islands, Hayashi embodies both the quiet intrigue of Okinawa island life and the rich tradition of Japanese patience and perfection.</p>
 						</div>
 						<motion.div className={styles['bottle']}>
-							<Image alt="" src="/images/bottle02.png" layout="fixed" width={296} height={745} />
+							<Image alt="" src={bottle02Img} layout="fixed" width={296} height={745} />
 							<motion.div className={styles['bottle-bg']}>
-								<Image alt="" src="/images/tree.png" layout="responsive" width={1107} height={885} />
+								<Image alt="" src={treeImg} layout="responsive" width={1107} height={885} />
 							</motion.div>
 						</motion.div>
 					</div>

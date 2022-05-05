@@ -57,6 +57,6 @@ Product.propTypes = {
 	name: PropTypes.string.isRequired,
 	blurb: PropTypes.string,
 	desc: PropTypes.string,
-	notes: PropTypes.arrayOf(PropTypes.object),
+	notes: PropTypes.object,
 	image: PropTypes.object,
 };

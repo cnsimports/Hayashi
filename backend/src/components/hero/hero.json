@@ -15,6 +15,12 @@
     },
     "HeroBottomLine": {
       "type": "text"
+    },
+    "Button": {
+      "displayName": "Button",
+      "type": "component",
+      "repeatable": false,
+      "component": "button.button"
     }
   }
 }

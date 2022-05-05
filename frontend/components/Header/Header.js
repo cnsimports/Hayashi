@@ -4,10 +4,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { AnimatePresence, motion, useTransform, useViewportScroll } from 'framer-motion';
 
+import shelfImg from '../../public/images/whiskey_shelf.jpeg';
+import craftImg from '../../public/images/craft.jpeg';
+import blogImg from '../../public/images/blog.jpeg';
+
 import { getRelativeCoordinates } from '@util/getRelativeCoordinates';
 
 import { Logo } from '@svg/Logo';
 import { Menu } from '@svg/Menu';
+
 import { CopySocial } from '@components/Footer/CopySocial';
 
 import styles from './Header.module.css';
@@ -15,6 +20,7 @@ import { container, item, navContainer } from './Header.motion';
 
 export const Header = () => {
 	const router = useRouter();
+	const [src, setSrc] = useState(null);
 	const [menuOpen, setMenuOpen] = useState(false);
 	const [navTransition, setNavTransition] = useState(false);
 	const [hoverMenu, setHoverMenu] = useState('');
@@ -23,14 +29,14 @@ export const Header = () => {
 
 	const { scrollYProgress } = useViewportScroll();
 
-	const navAnim = router.query.slug
+	const navAnim = router.pathname.includes('/blog/')
 		? useTransform(scrollYProgress, [0, 0.4, 0.44], ['#fff', '#000', '#000'])
 		: useTransform(scrollYProgress, [0.33, 0.4, 0.44], ['#000', '#fff', '#fff']);
 
 	Router.events.on('routeChangeStart', () => setMenuOpen(false));
 
 	Router.events.on('routeChangeComplete', (url) => {
-		if (url === '/' || router.query.slug) {
+		if (url === '/' || router.pathname.includes('/blog/')) {
 			setNavTransition(true);
 		} else {
 			setNavTransition(false);
@@ -38,7 +44,7 @@ export const Header = () => {
 	});
 
 	useEffect(() => {
-		if (router.pathname === '/' || router.query.slug) {
+		if (router.pathname === '/' || router.pathname.includes('/blog/')) {
 			setNavTransition(true);
 		} else {
 			setNavTransition(false);
@@ -98,7 +104,10 @@ export const Header = () => {
 									<Link href="/whiskey">
 										<a
 											className="h1"
-											onMouseEnter={() => setHoverMenu('whiskey')}
+											onMouseEnter={() => {
+												setHoverMenu('whiskey');
+												setSrc(shelfImg);
+											}}
 											onMouseLeave={() => setHoverMenu('')}
 										>
 											Ryukyu Whiskey
@@ -107,14 +116,28 @@ export const Header = () => {
 								</motion.li>
 								<motion.li variants={item}>
 									<Link href="/craft">
-										<a className="h1" onMouseEnter={() => setHoverMenu('craft')} onMouseLeave={() => setHoverMenu('')}>
+										<a
+											className="h1"
+											onMouseEnter={() => {
+												setHoverMenu('craft');
+												setSrc(craftImg);
+											}}
+											onMouseLeave={() => setHoverMenu('')}
+										>
 											Our Craft
 										</a>
 									</Link>
 								</motion.li>
 								<motion.li variants={item}>
 									<Link href="/blog">
-										<a className="h1" onMouseEnter={() => setHoverMenu('blog')} onMouseLeave={() => setHoverMenu('')}>
+										<a
+											className="h1"
+											onMouseEnter={() => {
+												setHoverMenu('blog');
+												setSrc(blogImg);
+											}}
+											onMouseLeave={() => setHoverMenu('')}
+										>
 											Blog
 										</a>
 									</Link>
@@ -146,17 +169,7 @@ export const Header = () => {
 										animate={{ opacity: 1, x: mousePosition.centerX * 6, y: mousePosition.centerY * 6 }}
 										exit={{ opacity: 0 }}
 									>
-										<AnimatePresence>
-											{hoverMenu === 'whiskey' && (
-												<Image alt="" src="/images/whiskey_shelf.jpeg" layout="responsive" height={600} width={450} />
-											)}
-											{hoverMenu === 'craft' && (
-												<Image alt="" src="/images/craft.jpeg" layout="responsive" height={600} width={450} />
-											)}
-											{hoverMenu === 'blog' && (
-												<Image alt="" src="/images/blog.jpeg" layout="responsive" height={600} width={450} />
-											)}
-										</AnimatePresence>
+										<Image alt="" src={src} layout="responsive" height={600} width={450} />
 									</motion.div>
 								)}
 							</AnimatePresence>

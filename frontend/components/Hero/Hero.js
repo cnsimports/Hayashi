@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 
+import { Button } from '@components/Button/Button';
 import { heroMotion } from '@components/Hero/Hero.motion';
 
 import styles from './Hero.module.css';
@@ -9,6 +10,7 @@ export const Hero = ({
 	HeroTopLine,
 	HeroMain,
 	HeroBottomLine,
+	Button: Btn,
 	lightText,
 	containerClasses = 'container -p-m',
 	narrow,
@@ -32,6 +34,13 @@ export const Hero = ({
 				</motion.p>
 			)}
 			{children}
+			{Btn && (
+				<Button href={Btn?.URL}>
+					<>
+						<span className="arrow">&rarr;</span> {Btn.Text}
+					</>
+				</Button>
+			)}
 		</div>
 	</div>
 );
@@ -40,6 +49,7 @@ Hero.propTypes = {
 	HeroTopLine: PropTypes.string,
 	HeroMain: PropTypes.string.isRequired,
 	HeroBottomLine: PropTypes.string,
+	Button: PropTypes.object,
 	lightText: PropTypes.bool,
 	narrow: PropTypes.bool,
 	containerClasses: PropTypes.string,

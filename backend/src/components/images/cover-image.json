@@ -15,6 +15,10 @@
         "images",
         "videos"
       ]
+    },
+    "Parallax": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
