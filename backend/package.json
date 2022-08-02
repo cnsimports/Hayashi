@@ -9,12 +9,11 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
   "dependencies": {
-    "@strapi/plugin-graphql": "^4.1.8",
-    "@strapi/plugin-i18n": "4.1.8",
-    "@strapi/plugin-users-permissions": "^4.1.8",
-    "@strapi/strapi": "^4.1.8",
+    "@strapi/plugin-graphql": "^4.1.9",
+    "@strapi/plugin-i18n": "4.1.9",
+    "@strapi/plugin-users-permissions": "^4.1.9",
+    "@strapi/strapi": "^4.1.9",
     "pg": "^8.7.3",
     "pg-connection-string": "^2.5.0",
     "sqlite3": "^5.0.4"

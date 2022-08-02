@@ -12,8 +12,14 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "content": {
-      "type": "richtext"
+    "Content": {
+      "type": "dynamiczone",
+      "components": [
+        "button.button",
+        "contact.contact-form",
+        "hero.hero",
+        "home.slide"
+      ]
     }
   }
 }
