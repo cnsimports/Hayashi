@@ -56,10 +56,7 @@ export const Header = () => {
 	};
 
 	return (
-		<motion.div
-			className={`${styles.header} ${menuOpen ? styles['-is-open'] : ''}`}
-			style={{ '--c-fade': navTransition ? navAnim : 'var(--c-black)' }}
-		>
+		<div className={`${styles.header} ${menuOpen ? styles['-is-open'] : ''}`}>
 			<div className="container">
 				<h1>
 					<Link href="/">
@@ -177,6 +174,6 @@ export const Header = () => {
 					</motion.div>
 				)}
 			</AnimatePresence>
-		</motion.div>
+		</div>
 	);
 };
