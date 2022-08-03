@@ -58,7 +58,7 @@ const Home = (props) => {
 					{ currentTime: videoRef.current.duration, duration: 2.75 },
 					0
 				)
-				.to(videoRef.current, { x: '-50%', y: 0, rotate: 0, delay: 1.5 }, 1);
+				.to(videoRef.current, { x: '-50%', y: 0, rotate: 0, delay: 1 }, 1);
 
 			ScrollTrigger.create({
 				trigger: slidesRef.current,
@@ -93,11 +93,12 @@ const Home = (props) => {
 				.from(title, { autoAlpha:  i === 0 ? 1 : 0, filter: 'blur(6px)', yPercent: i === 0 ? 0 : -100, ease: 'power2.out', duration: 2 })
 				.from(content, { autoAlpha: 0, filter: 'blur(6px)', yPercent: -25, ease: 'power2.out', duration: 2 })
 				.from(bottleBg, { autoAlpha: 0, filter: 'blur(6px)', ease: 'power2.out', duration: 2 })
-				.to(slide, { autoAlpha: i === slides.length - 1 ? 1 : 0, filter: i === slides.length - 1 ? '' : 'blur(6px)', duration: 2, delay: 2})
+				.to(slide, { autoAlpha: i === slides.length - 1 ? 1 : 0, filter: i === slides.length - 1 ? '' : 'blur(6px)', duration: 2 })
 			
 			ScrollTrigger.create({
 				trigger: slide,
 				start: 'top top+=70',
+				end: '+=500%',
 				pin: slide,
 				scrub: true,
 				animation: slideTl,
