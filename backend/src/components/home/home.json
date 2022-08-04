@@ -1,0 +1,80 @@
+{
+  "collectionName": "components_home_homes",
+  "info": {
+    "displayName": "Home",
+    "icon": "house-damage"
+  },
+  "options": {},
+  "attributes": {
+    "slide_1_title": {
+      "type": "string"
+    },
+    "slide_2_title": {
+      "type": "string"
+    },
+    "slide_2_content": {
+      "type": "richtext"
+    },
+    "slide_2_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "slide_3_title": {
+      "type": "string"
+    },
+    "slide_3_content": {
+      "type": "richtext"
+    },
+    "slide_3_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "slide_4_title": {
+      "type": "string"
+    },
+    "slide_5_title": {
+      "type": "string"
+    },
+    "slide_6_title": {
+      "type": "string"
+    },
+    "slide_7_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "slide_8_title": {
+      "type": "string"
+    },
+    "slide_8_button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "button.button"
+    },
+    "slide_9_image": {
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

@@ -12,14 +12,15 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Content": {
-      "type": "dynamiczone",
-      "components": [
-        "button.button",
-        "contact.contact-form",
-        "hero.hero",
-        "home.slide"
-      ]
+    "link_hover": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.link-hover"
+    },
+    "home_fields": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.home"
     }
   }
 }
