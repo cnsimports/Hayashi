@@ -1,11 +1,11 @@
-// import { gql } from '@apollo/client';
-// import ReactMarkdown from 'react-markdown';
 import { useEffect, useRef } from 'react';
 import { gsap } from '@gsap/business';
 import { ScrollTrigger } from '@gsap/business/dist/ScrollTrigger';
-
-// import client from '@lib/apollo';
 import Image from 'next/image';
+
+import client from '@lib/apollo';
+import { QUERY_HOME } from '@lib/queries';
+import { getStrapiMedia } from '@lib/media';
 
 import { Slide } from '@components/Slide/Slide';
 import { Button } from '@components/Button/Button';
@@ -36,14 +36,18 @@ const Home = (props) => {
 	}
 
 	useEffect(() => {
+		const mql = window.matchMedia('(max-width: 1023px)');
+
 		if (typeof window !== "undefined") {
 			gsap.registerPlugin(ScrollTrigger);
 		}
 
 		const slides = gsap.utils.toArray('.slide');
-		const omegaTl = gsap.timeline();
-		const bottleScrubTl = gsap.timeline();
+		const darkSlides = gsap.utils.toArray('.ds');
+		const bodyTl = gsap.timeline();
 		const cloudTl = gsap.timeline();
+		const bottleScrubTl = gsap.timeline();
+		const omegaTl = gsap.timeline();
 
 		once(document.documentElement, 'touchstart', () => {
 			videoRef.current.play();
@@ -63,13 +67,38 @@ const Home = (props) => {
 			ScrollTrigger.create({
 				trigger: slidesRef.current,
 				start: 'top top+=70',
-				end: 'bottom bottom-=198',
+				end: 'bottom bottom-=10%',
 				pin: videoRef.current,
 				pinSpacing: false,
 				scrub: true,
 				animation: bottleScrubTl
 			});
 		});
+
+		if (mql.matches) {
+			const bottleWrapTlOut = gsap.timeline();
+			const bottleWrapTlIn = gsap.timeline();
+
+			bottleWrapTlOut
+				.to(bottleRef.current, { autoAlpha: 0 });
+
+			ScrollTrigger.create({
+				trigger: slidesRef.current,
+				start: 'bottom center',
+				animation: bottleWrapTlOut,
+				onLeave: () => {
+					bottleWrapTlIn
+					.fromTo(bottleRef.current, { autoAlpha: 0, }, { autoAlpha: 1 });
+
+					ScrollTrigger.create({
+						trigger: slides[slides.length - 1],
+						start: 'top bottom',
+						animation: bottleWrapTlIn,
+						toggleActions: 'play none none reverse'
+					});
+				}
+			});
+		}
 
 		cloudTl.to(oneCloudsRef.current, { autoAlpha: 0 });
 
@@ -87,14 +116,13 @@ const Home = (props) => {
 			const content = slide.querySelector('.content');
 			const bottleBg = slide.querySelector('.bottle-bg');
 			const slideTl = gsap.timeline();
-			const tlDelay = i === 0 ? 2 : i;
 
 			slideTl
 				.from(title, { autoAlpha:  i === 0 ? 1 : 0, filter: 'blur(6px)', yPercent: i === 0 ? 0 : -100, ease: 'power2.out', duration: 2 })
 				.from(content, { autoAlpha: 0, filter: 'blur(6px)', yPercent: -25, ease: 'power2.out', duration: 2 })
 				.from(bottleBg, { autoAlpha: 0, filter: 'blur(6px)', ease: 'power2.out', duration: 2 })
 				.to(slide, { autoAlpha: i === slides.length - 1 ? 1 : 0, filter: i === slides.length - 1 ? '' : 'blur(6px)', duration: 2 })
-			
+
 			ScrollTrigger.create({
 				trigger: slide,
 				start: 'top top+=70',
@@ -104,8 +132,6 @@ const Home = (props) => {
 				animation: slideTl,
 			});
 		});
-
-		// slideWrapTl.to('body', { backgroundColor: 'var(--c-dark)', ease: 'power2.out' });
 
 		omegaTl
 			.to(omegawrapRef.current, { filter: 'blur(100px)', autoAlpha: 0 });
@@ -117,7 +143,6 @@ const Home = (props) => {
 			scrub: true,
 		});
 
-		const bodyTl = gsap.timeline();
 		bodyTl.to('body', { backgroundColor: '#231f20', ease: 'linear' });
 
 		ScrollTrigger.create({
@@ -127,114 +152,127 @@ const Home = (props) => {
 			end: 'center center',
 			scrub: true,
 		});
+
+		darkSlides.forEach((darkSlide) => {
+			const title = darkSlide.querySelector('.title');
+			const darkSlideTl = gsap.timeline();
+			
+			darkSlideTl
+				.from(title, { autoAlpha: 0, filter: 'blur(6px)', ease: 'power2.out', duration: 4 })
+				.to(title, { autoAlpha: 0, filter: 'blur(6px)', ease: 'power2.out', duration: 4 })
+			
+			ScrollTrigger.create({
+				trigger: darkSlide,
+				pin: title,
+				scrub: true,
+				animation: darkSlideTl,
+			});
+		});
 	}, []);
 
-	const HomeContent = () => (
-		<main>
-			{/* <ReactMarkdown children={homepage.attributes.content} /> */}
+	const HomeContent = ({ home }) => {
+		const { home_fields, link_hover } = home.attributes;
+		return (
+			<main>
+				<div ref={oneCloudsRef} className={styles['cloud']}></div>
 
-			<div ref={oneCloudsRef}  className={styles['cloud']}></div>
+				<div ref={omegawrapRef} className="omegawrap">
+					<div ref={bottleRef} className={`${styles['bottle-scrub']} bottle-scrub`}>
+						<video ref={videoRef} loop muted controls={false}>
+							{/* ffmpeg -i Transparent-Final_1.mov -c:v libvpx-vp9 -b:v 2M -crf 20 -g 1 -auto-alt-ref 0 output.webm */}
+							<source src="/images/bottle_spin.webm" />
+						</video>
+					</div>
 
-			<div ref={omegawrapRef} className="omegawrap">
-				<div ref={bottleRef} className={`${styles['bottle-scrub']} bottle-scrub`}>
-					<video ref={videoRef} loop muted controls={false}>
-						{/* ffmpeg -i Transparent-Final_1.mov -c:v libvpx-vp9 -b:v 2M -crf 20 -g 1 -auto-alt-ref 0 output.webm */}
-						<source src="/images/bottle_spin.webm" />
-					</video>
-				</div>
-
-				<div className={styles['slides']} ref={slidesRef}>
-					<Slide ref={slideOneRef} className="slide">
-						<div className={`${styles['first']}`}>
-							<div className="container">
-								<div ref={oneTitleRef} className={styles['content']}>
-									<h2 className="title">The Modern Expression of an Ancient Spirit</h2>
+					<div className={styles['slides']} ref={slidesRef}>
+						<Slide ref={slideOneRef} className="slide">
+							<div className={`${styles['first']}`}>
+								<div className="container">
+									<div ref={oneTitleRef} className={styles['content']}>
+										<h2 className="title">{home_fields.slide_1_title}</h2>
+									</div>
+								</div>
+								<div ref={oneBgRef} className={styles['bg']}>
+									<Image priority alt="" src="/images/hills.jpeg" layout="fill" />
 								</div>
 							</div>
-							<div ref={oneBgRef} className={styles['bg']}>
-								<Image priority alt="" src="/images/hills.jpeg" layout="fill" />
+						</Slide>
+
+						<Slide className="slide">
+							<div className="container">
+								<div className={styles['content']}>
+									<h2 className="title">{home_fields.slide_2_title}</h2>
+									<p className="content">{home_fields.slide_2_content}</p>
+								</div>
+								<div className="bottle-bg">
+									<Image alt={home_fields.slide_2_image.data.attributes.alternativeText} src={getStrapiMedia(home_fields.slide_2_image.data.attributes.url)} layout="intrinsic" width={396} height={634} />
+								</div>
 							</div>
-						</div>
-					</Slide>
+						</Slide>
 
-					<Slide className="slide">
-						<div className="container">
-							<div className={styles['content']}>
-								<h2 className="title">Artfully made.</h2>
-								<p className="content">Hayashi Master distillers use only the highest quality local ingredients, with a unique dedication to evolving the awamori rice spirit process that’s been passed down through generations.</p>
+						<Slide className={`slide ${styles['-swap']}`}>
+							<div className="container">
+								<div className={styles['content']}>
+									<h2 className="title">{home_fields.slide_3_title}</h2>
+									<p className="content">{home_fields.slide_3_content}</p>
+								</div>
+								<div className="bottle-bg">
+									<Image alt={home_fields.slide_3_image.data.attributes.alternativeText} src={getStrapiMedia(home_fields.slide_3_image.data.attributes.url)} layout="intrinsic" width={688} height={497} />
+								</div>
 							</div>
-							<div className="bottle-bg">
-								<Image alt="" src="/images/grass.png" layout="responsive" width={606} height={850} />
+						</Slide>
+
+						<Slide full className="slide">
+							<div className="container">
+								<div className={`${styles['content']} ${styles['-bottle-land']}`}>
+									<h2 className="title">{home_fields.slide_4_title}</h2>
+								</div>
 							</div>
-						</div>
-					</Slide>
-
-					<Slide className={`slide ${styles['-swap']}`}>
-						<div className="container">
-							<div className={styles['content']}>
-								<h2 className="title">Historically defined.</h2>
-								<p className="content">An exemplary whisky of the Ryukyu Islands, Hayashi embodies both the quiet intrigue of Okinawa island life and the rich tradition of Japanese patience and perfection.</p>
-							</div>
-							<div className="bottle-bg">
-								<Image alt="" src="/images/tree.png" layout="responsive" width={1107} height={885} />
-							</div>
-						</div>
-					</Slide>
-
-					<Slide full className="slide">
-						<div className="container">
-							<div className={`${styles['content']} ${styles['-bottle-land']}`}>
-								<h2 className="title">An exemplary triad of Ryukyu tradition.</h2>
-							</div>
-						</div>
-					</Slide>
-				</div>
-			</div>
-			
-			{/* <div ref={darkCoverRef} className="dark-cover"></div> */}
-
-			<Slide bg="dark" className="first">
-				<div className="container -sm">
-					<h3 className="-center">18 generations of mastery, and counting.</h3>
-				</div>
-			</Slide>
-
-			<Slide bg="dark">
-				<div className="container -sm">
-					<h3 className="-center">Established in 1883, Masahiro Distillery was among the first distilleries in the Okinawa region of Japan.</h3>
-				</div>
-			</Slide>
-
-			<Image alt="" src="https://source.unsplash.com/random/1450x750" layout="responsive" width={1450} height={750} />
-
-			<Slide bg="dark">
-				<div className="container -sm -center -pb-l">
-					<h3> Two centuries later, Hayashi lengthens the legend.</h3>
-					<Button href="/whiskey">
-						<>
-							<span className="arrow">&rarr;</span> See Our Story
-						</>
-					</Button>
-				</div>
-			</Slide>
-
-			<Slide bg="dark">
-				<div className={`${styles['img-grid']} container -sm -pb-l`}>
-					<div>
-						<Image alt="" src="https://source.unsplash.com/random/600x750" layout="responsive" width={600} height={750} />
-					</div>
-					<div>
-						<Image alt="" src="https://source.unsplash.com/random/600x750" layout="responsive" width={600} height={750} />
-					</div>
-					<div>
-						<Image alt="" src="https://source.unsplash.com/random/600x750" layout="responsive" width={600} height={750} />
+						</Slide>
 					</div>
 				</div>
-			</Slide>
 
-			<HoverLinks />
-		</main>
-	);
+				<div className={`${styles['dark-slides']} js-dark-slides`}>
+					<Slide bg="dark" className="first ds">
+						<div className="container -sm">
+							<h3 className="-center title">{home_fields.slide_5_title}</h3>
+						</div>
+					</Slide>
+
+					<Slide bg="dark" className="ds">
+						<div className="container -sm">
+							<h3 className="-center title">{home_fields.slide_6_title}</h3>
+						</div>
+					</Slide>
+				</div>
+
+				<Image alt={home_fields.slide_7_image.data.attributes.alternativeText} src={getStrapiMedia(home_fields.slide_7_image.data.attributes.url)} layout="responsive" width={home_fields.slide_7_image.data.attributes.width} height={home_fields.slide_7_image.data.attributes.height} />
+
+				<Slide bg="dark">
+					<div className="container -sm -center -pb-l">
+						<h3>{home_fields.slide_8_title}</h3>
+						<Button href={home_fields.slide_8_button.URL}>
+							<>
+								<span className="arrow">&rarr;</span> {home_fields.slide_8_button.Text}
+							</>
+						</Button>
+					</div>
+				</Slide>
+
+				<Slide bg="dark">
+					<div className={`${styles['img-grid']} container -sm -pb-l`}>
+						{home_fields.slide_9_image.data.map((image) => (
+							<div key={image.id}>
+								<Image alt={image.attributes.alternativeText} src={getStrapiMedia(image.attributes.url)} layout="responsive" width={600} height={750} />
+							</div>
+						))}
+					</div>
+				</Slide>
+
+				<HoverLinks title={link_hover.title} links={link_hover.link_hover_item} />
+			</main>
+		);
+	}
 
 	const HomeWithTransition = HomeContent;
 
@@ -243,27 +281,17 @@ const Home = (props) => {
 	);
 };
 
-// export async function getStaticProps() {
-// 	const { data: homepageRes } = await client.query({
-// 		query: gql`
-// 			query getHomepage {
-// 				homepage {
-// 					data {
-// 						attributes {
-// 							content
-// 						}
-// 					}
-// 				}
-// 			}
-// 		`,
-// 	});
+export async function getStaticProps() {
+	const { data: homepageRes } = await client.query({
+		query: QUERY_HOME
+	});
 
-// 	return {
-// 		props: {
-// 			homepage: homepageRes.homepage.data,
-// 		},
-// 		revalidate: 1,
-// 	};
-// }
+	return {
+		props: {
+			home: homepageRes.homepage.data,
+		},
+		revalidate: 1,
+	};
+}
 
 export default Home;

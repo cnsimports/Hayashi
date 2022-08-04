@@ -51,7 +51,7 @@ export async function getStaticProps() {
 		props: {
 			hero: blogRes.blog.data.attributes.Hero,
 		},
-		revalidate: 10,
+		revalidate: 1,
 	};
 }
 
