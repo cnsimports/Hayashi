@@ -111,6 +111,92 @@ export const QUERY_BLOG = gql`
 	}
 `;
 
+export const QUERY_HOME = gql`
+	query {
+		homepage {
+			data {
+				attributes {
+					home_fields {
+						slide_1_title
+						slide_2_title
+						slide_2_content
+						slide_2_image {
+							data {
+								attributes {
+									alternativeText
+									url
+									width
+									height
+								}
+							}
+						}
+						slide_3_title
+						slide_3_content
+						slide_3_image {
+							data {
+								attributes {
+									alternativeText
+									url
+									width
+									height
+								}
+							}
+						}
+						slide_4_title
+						slide_5_title
+						slide_6_title
+						slide_7_image {
+							data {
+								attributes {
+									alternativeText
+									url
+									width
+									height
+								}
+							}
+						}
+						slide_8_title
+						slide_8_button {
+							Text
+							URL
+						}
+						slide_9_image {
+							data {
+								id
+								attributes {
+									alternativeText
+									url
+									width
+									height
+								}
+							}
+						}
+					}
+					link_hover {
+						title
+						link_hover_item {
+							id
+							link_content
+							link_url
+							link_images {
+								data {
+									id
+									attributes {
+										alternativeText
+										url
+										width
+										height
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+`;
+
 export const QUERY_ALL_POSTS = gql`
 	query {
 		posts(sort: "id:desc") {
