@@ -37,8 +37,29 @@
 		background: transparent;
 	}
 
+	& :global(.bottle-bg) {
+		grid-column: -1;
+		grid-row: -1;
+
+		@media (min-width: 1024px) {
+			grid-column: auto;
+			grid-row: auto;
+		}
+		/* bottom: 0;
+		object-fit: contain;
+		position: absolute;
+		width: 100%;
+		right: 0;
+		transform: translate(20%, -50%);
+		z-index: -1; */
+	}
+
 	& h3 {
 		font-weight: 100;
+		margin: 0;
+	}
+
+	& h2 {
 		margin: 0;
 	}
 }
