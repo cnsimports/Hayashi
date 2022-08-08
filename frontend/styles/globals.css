@@ -125,12 +125,12 @@ a {
 
 .dark-cover {
   background-color: var(--c-dark);
-  height: 100vh;
-  width: 100vw;
   filter: blur(100px);
-  position: fixed;
+  height: 100vh;
   inset: 0;
   pointer-events: none;
+  position: fixed;
+  width: 100vw;
 }
 
 @import './typography.css';

@@ -45,13 +45,6 @@
 			grid-column: auto;
 			grid-row: auto;
 		}
-		/* bottom: 0;
-		object-fit: contain;
-		position: absolute;
-		width: 100%;
-		right: 0;
-		transform: translate(20%, -50%);
-		z-index: -1; */
 	}
 
 	& h3 {
