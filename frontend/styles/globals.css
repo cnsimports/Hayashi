@@ -94,6 +94,7 @@ body {
   margin: 0;
   font-family: var(--f-body);
   transition: background-color 300ms ease, color 300ms ease;
+  --c-fade: var(--c-black);
 }
 
 a {
@@ -117,8 +118,19 @@ a {
 }
 
 .-dark {
+  --c-fade: var(--c-white);
   background-color: var(--c-dark);
   color: var(--c-white);
+}
+
+.dark-cover {
+  background-color: var(--c-dark);
+  filter: blur(100px);
+  height: 100vh;
+  inset: 0;
+  pointer-events: none;
+  position: fixed;
+  width: 100vw;
 }
 
 @import './typography.css';

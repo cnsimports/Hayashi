@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_content_link_hovers",
+  "info": {
+    "displayName": "Link Hover",
+    "icon": "laptop-medical",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "link_hover_item": {
+      "displayName": "Link Hover Item",
+      "type": "component",
+      "repeatable": true,
+      "component": "content.link-hover-item"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

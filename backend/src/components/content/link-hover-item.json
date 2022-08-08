@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_content_link_hover_items",
+  "info": {
+    "displayName": "Link Hover Item",
+    "icon": "plus-circle"
+  },
+  "options": {},
+  "attributes": {
+    "link_content": {
+      "type": "string"
+    },
+    "link_url": {
+      "type": "string"
+    },
+    "link_images": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

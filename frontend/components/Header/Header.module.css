@@ -7,7 +7,6 @@
 
 	&.-is-open {
 		background-color: var(--c-white);
-		--c-fade: varc(--c-black) !important;
 	}
 
 	&::before {

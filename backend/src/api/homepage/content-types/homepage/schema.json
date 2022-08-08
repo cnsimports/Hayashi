@@ -12,8 +12,15 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "content": {
-      "type": "richtext"
+    "link_hover": {
+      "type": "component",
+      "repeatable": false,
+      "component": "content.link-hover"
+    },
+    "home_fields": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.home"
     }
   }
 }

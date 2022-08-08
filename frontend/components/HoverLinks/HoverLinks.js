@@ -5,9 +5,11 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import { getRelativeCoordinates } from '@util/getRelativeCoordinates';
 
+import { getStrapiMedia } from '@lib/media';
+
 import styles from './HoverLinks.module.css';
 
-export const HoverLinks = () => {
+export const HoverLinks = ({ title, links }) => {
 	const [mousePosition, setMousePosition] = useState({});
 	const [active, setActive] = useState('');
 	const hoverLinkRef = useRef(null);
@@ -21,172 +23,34 @@ export const HoverLinks = () => {
 			<div className="container">
 				<div className={styles['hover-link-images']}>
 					<AnimatePresence exitBeforeEnter>
-						{active === 'store' && (
-							<>
-								<motion.div
-									key="img1"
-									initial={{ opacity: 0 }}
-									animate={{ opacity: 1, x: mousePosition.centerX * 30, y: mousePosition.centerY * 30 + 50 }}
-									exit={{ opacity: 0 }}
-									transition={{ ease: 'linear' }}
-								>
-									<Image
-										alt=""
-										src="https://source.unsplash.com/random/320x426"
-										layout="intrinsic"
-										width={320}
-										height={426}
-									/>
-								</motion.div>
-								<motion.div
-									key="img2"
-									initial={{ opacity: 0 }}
-									animate={{ opacity: 1, x: mousePosition.centerX * 10, y: mousePosition.centerY * 10 }}
-									exit={{ opacity: 0 }}
-									transition={{ ease: 'linear' }}
-								>
-									<Image
-										alt=""
-										src="https://source.unsplash.com/random/320x426"
-										layout="intrinsic"
-										width={320}
-										height={426}
-									/>
-								</motion.div>
-								<motion.div
-									key="img3"
-									initial={{ opacity: 0 }}
-									animate={{ opacity: 1, x: mousePosition.centerX * 30, y: mousePosition.centerY * 30 + 50 }}
-									exit={{ opacity: 0 }}
-									transition={{ ease: 'linear' }}
-								>
-									<Image
-										alt=""
-										src="https://source.unsplash.com/random/320x426"
-										layout="intrinsic"
-										width={320}
-										height={426}
-									/>
-								</motion.div>
-							</>
-						)}
-						{active === 'order' && (
-							<>
-								<motion.div
-									key="img4"
-									initial={{ opacity: 0 }}
-									animate={{ opacity: 1, x: mousePosition.centerX * 30, y: mousePosition.centerY * 30 + 50 }}
-									exit={{ opacity: 0 }}
-									transition={{ ease: 'linear' }}
-								>
-									<Image
-										alt=""
-										src="https://source.unsplash.com/random/640x852"
-										layout="intrinsic"
-										width={320}
-										height={426}
-									/>
-								</motion.div>
-								<motion.div
-									key="img5"
-									initial={{ opacity: 0 }}
-									animate={{ opacity: 1, x: mousePosition.centerX * 10, y: mousePosition.centerY * 10 }}
-									exit={{ opacity: 0 }}
-									transition={{ ease: 'linear' }}
-								>
-									<Image
-										alt=""
-										src="https://source.unsplash.com/random/640x852"
-										layout="intrinsic"
-										width={320}
-										height={426}
-									/>
-								</motion.div>
-								<motion.div
-									key="img6"
-									initial={{ opacity: 0 }}
-									animate={{ opacity: 1, x: mousePosition.centerX * 30, y: mousePosition.centerY * 30 + 50 }}
-									exit={{ opacity: 0 }}
-									transition={{ ease: 'linear' }}
-								>
-									<Image
-										alt=""
-										src="https://source.unsplash.com/random/640x852"
-										layout="intrinsic"
-										width={320}
-										height={426}
-									/>
-								</motion.div>
-							</>
-						)}
-						{active === 'products' && (
-							<>
-								<motion.div
-									key="img7"
-									initial={{ opacity: 0 }}
-									animate={{ opacity: 1, x: mousePosition.centerX * 30, y: mousePosition.centerY * 30 + 50 }}
-									exit={{ opacity: 0 }}
-									transition={{ ease: 'linear' }}
-								>
-									<Image
-										alt=""
-										src="https://source.unsplash.com/random/320x426"
-										layout="intrinsic"
-										width={320}
-										height={426}
-									/>
-								</motion.div>
-								<motion.div
-									key="img8"
-									initial={{ opacity: 0 }}
-									animate={{ opacity: 1, x: mousePosition.centerX * 10, y: mousePosition.centerY * 10 }}
-									exit={{ opacity: 0 }}
-									transition={{ ease: 'linear' }}
-								>
-									<Image
-										alt=""
-										src="https://source.unsplash.com/random/320x426"
-										layout="intrinsic"
-										width={320}
-										height={426}
-									/>
-								</motion.div>
-								<motion.div
-									key="img9"
-									initial={{ opacity: 0 }}
-									animate={{ opacity: 1, x: mousePosition.centerX * 30, y: mousePosition.centerY * 30 + 50 }}
-									exit={{ opacity: 0 }}
-									transition={{ ease: 'linear' }}
-								>
-									<Image
-										alt=""
-										src="https://source.unsplash.com/random/320x426"
-										layout="intrinsic"
-										width={320}
-										height={426}
-									/>
-								</motion.div>
-							</>
-						)}
+						{links[active - 1]?.link_images.data.map((image, i) => (
+							<motion.div
+								key={`${active}-${image.attributes.id}-${i}`}
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1, x: mousePosition.centerX * (i === 1 ? 10 : 30), y: mousePosition.centerY * (i === 1 ? 10 : (30 + 50)) }}
+								exit={{ opacity: 0 }}
+								transition={{ ease: 'linear' }}
+							>
+								<Image
+									alt={image.attributes.alternativeText}
+									src={getStrapiMedia(image.attributes.url)}
+									layout="intrinsic"
+									width={320}
+									height={426}
+								/>
+							</motion.div>
+						))}
 					</AnimatePresence>
 				</div>
 				<div ref={hoverLinkRef} className={styles['hover-links']} onMouseMove={(e) => handleMouseMove(e)}>
-					<p>It starts with one sip.</p>
-					<Link href="/whiskey">
-						<a className="h3" onMouseEnter={() => setActive('store')} onMouseLeave={() => setActive('')}>
-							Find a Store
-						</a>
-					</Link>
-					<Link href="/whiskey">
-						<a className="h3" onMouseEnter={() => setActive('order')} onMouseLeave={() => setActive('')}>
-							Order Online
-						</a>
-					</Link>
-					<Link href="/whiskey">
-						<a className="h3" onMouseEnter={() => setActive('products')} onMouseLeave={() => setActive('')}>
-							View Products
-						</a>
-					</Link>
+					<p>{title}</p>
+					{links.map(({ link_content, link_url, link_images, id }) => (
+						<Link href={link_url} key={id}>
+							<a className="h3" onMouseEnter={() => setActive(id)} onMouseLeave={() => setActive('')}>
+								{link_content}
+							</a>
+						</Link>
+					))}
 				</div>
 			</div>
 		</div>
