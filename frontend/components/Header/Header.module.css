@@ -7,6 +7,7 @@
 
 	&.-is-open {
 		background-color: var(--c-white);
+		--c-fade: var(--c-black)!important; /* Overrides inline style on the home page and ensure the menu color is always dark when the menu is open. */
 	}
 
 	&::before {
