@@ -282,15 +282,13 @@ const Home = (props) => {
 	);
 };
 
-
 Home.propTypes = {
 	home: PropTypes.object.isRequired,
 };
 
-
 export async function getStaticProps() {
 	const { data: homepageRes } = await client.query({
-		query: QUERY_HOME
+		query: QUERY_HOME,
 	});
 
 	return {

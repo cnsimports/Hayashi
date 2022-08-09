@@ -54,5 +54,6 @@ Hero.propTypes = {
 	lightText: PropTypes.bool,
 	narrow: PropTypes.bool,
 	containerClasses: PropTypes.string,
+	className: PropTypes.string,
 	children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 };
