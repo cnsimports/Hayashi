@@ -60,10 +60,9 @@ const Home = (props) => {
 				.fromTo(
 					videoRef.current,
 					{ currentTime: 0 },
-					{ currentTime: videoRef.current.duration, duration: 2.75 },
+					{ currentTime: videoRef.current.duration - .25, duration: 2.75 },
 					0
-				)
-				.to(videoRef.current, { x: '-50%', y: 0, rotate: 0, delay: 1 }, 1);
+				);
 
 			ScrollTrigger.create({
 				trigger: slidesRef.current,
@@ -85,7 +84,7 @@ const Home = (props) => {
 
 			ScrollTrigger.create({
 				trigger: slidesRef.current,
-				start: 'bottom center',
+				start: 'bottom bottom',
 				animation: bottleWrapTlOut,
 				onLeave: () => {
 					bottleWrapTlIn
@@ -132,6 +131,19 @@ const Home = (props) => {
 				scrub: true,
 				animation: slideTl,
 			});
+
+			if (i === slides.length - 1) {
+				const bottleWrapTl = gsap.timeline();
+				bottleWrapTl.to(videoRef.current, { x: '-50%', rotate: 0 }, 1);
+
+				ScrollTrigger.create({
+					trigger: slide,
+					start: 'top top+=70',
+					end: '+=400%',
+					scrub: true,
+					animation: bottleWrapTl,
+				});
+			}
 		});
 
 		omegaTl
