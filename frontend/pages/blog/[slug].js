@@ -16,15 +16,13 @@ const Post = ({ post }) => {
 		<>
 			{Title && Content && (
 				<Hero className="blog" containerClasses="container -sm" HeroMain={Title} lightText>
-					{FeaturedImage.data && (
-						<div className="featured-image">
-							<Image
-								alt={FeaturedImage.data.attributes.alternativeText}
-								src={getStrapiMedia(FeaturedImage.data.attributes.url)}
-								layout="fill"
-							/>
-						</div>
-					)}
+					<div className="featured-image">
+						<Image
+							alt={FeaturedImage.data?.attributes.alternativeText || ''}
+							src={getStrapiMedia(FeaturedImage.data?.attributes.url || 'https://source.unsplash.com/random/?city,night')}
+							layout="fill"
+						/>
+					</div>
 				</Hero>
 			)}
 

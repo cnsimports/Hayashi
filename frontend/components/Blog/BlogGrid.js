@@ -23,11 +23,14 @@ export const BlogGrid = ({ tag }) => {
 			{data.posts.data.map((post, i) => (
 				<BlogGridItem
 					key={post.attributes.Title}
-					thumbnail={post.attributes.FeaturedImage}
+					thumbnail={
+						post.attributes.FeaturedImage.data
+							? post.attributes.FeaturedImage.data.attributes
+							: { alternativeText: '', url: 'https://source.unsplash.com/random/?whiskey' }
+					}
 					slug={post.attributes.slug}
 					count={`${i + 1}`}
 					title={post.attributes.Title}
-					featuredImage={post.attributes.FeaturedImage}
 				/>
 			))}
 		</div>

@@ -8,8 +8,7 @@ import { getStrapiMedia } from '@lib/media';
 
 export const BlogGridItem = ({ title, thumbnail, count, slug }) => {
 	const padCount = count.toString().padStart(3, '0');
-	const { url, alternativeText } = thumbnail.data.attributes;
-
+	console.log(thumbnail);
 	return (
 		<Link href={`/blog/${slug}`} passHref>
 			<motion.a
@@ -23,8 +22,8 @@ export const BlogGridItem = ({ title, thumbnail, count, slug }) => {
 				<div className="img">
 					<Image
 						priority
-						alt={alternativeText}
-						src={getStrapiMedia(url)}
+						alt={thumbnail.alternativeText}
+						src={getStrapiMedia(thumbnail.url)}
 						layout="responsive"
 						width={600}
 						height={656}

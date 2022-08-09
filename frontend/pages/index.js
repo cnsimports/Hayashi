@@ -205,9 +205,11 @@ const Home = (props) => {
 									<h2 className="title">{home_fields.slide_2_title}</h2>
 									<p className="content">{home_fields.slide_2_content}</p>
 								</div>
-								<div className="bottle-bg">
-									<Image alt={home_fields.slide_2_image.data.attributes.alternativeText} src={getStrapiMedia(home_fields.slide_2_image.data.attributes.url)} layout="intrinsic" width={396} height={634} />
-								</div>
+								{home_fields.slide_2_image.data && (
+									<div className="bottle-bg">
+										<Image alt={home_fields.slide_2_image.data.attributes.alternativeText} src={getStrapiMedia(home_fields.slide_2_image.data.attributes.url)} layout="intrinsic" width={396} height={634} />
+									</div>
+								)}
 							</div>
 						</Slide>
 
@@ -217,9 +219,11 @@ const Home = (props) => {
 									<h2 className="title">{home_fields.slide_3_title}</h2>
 									<p className="content">{home_fields.slide_3_content}</p>
 								</div>
-								<div className="bottle-bg">
-									<Image alt={home_fields.slide_3_image.data.attributes.alternativeText} src={getStrapiMedia(home_fields.slide_3_image.data.attributes.url)} layout="intrinsic" width={688} height={497} />
-								</div>
+								{home_fields.slide_3_image.data && (
+									<div className="bottle-bg">
+										<Image alt={home_fields.slide_3_image.data.attributes.alternativeText} src={getStrapiMedia(home_fields.slide_3_image.data.attributes.url)} layout="intrinsic" width={688} height={497} />
+									</div>
+								)}
 							</div>
 						</Slide>
 
@@ -247,7 +251,9 @@ const Home = (props) => {
 					</Slide>
 				</div>
 
-				<Image alt={home_fields.slide_7_image.data.attributes.alternativeText} src={getStrapiMedia(home_fields.slide_7_image.data.attributes.url)} layout="responsive" width={home_fields.slide_7_image.data.attributes.width} height={home_fields.slide_7_image.data.attributes.height} />
+				{home_fields.slide_7_image.data && (
+					<Image alt={home_fields.slide_7_image.data.attributes.alternativeText} src={getStrapiMedia(home_fields.slide_7_image.data.attributes.url)} layout="responsive" width={home_fields.slide_7_image.data.attributes.width} height={home_fields.slide_7_image.data.attributes.height} />
+				)}
 
 				<Slide bg="dark">
 					<div className="container -sm -center -pb-l">
@@ -262,7 +268,7 @@ const Home = (props) => {
 
 				<Slide bg="dark">
 					<div className={`${styles['img-grid']} container -sm -pb-l`}>
-						{home_fields.slide_9_image.data.map((image) => (
+						{home_fields.slide_9_image.data?.map((image) => (
 							<div key={image.id}>
 								<Image alt={image.attributes.alternativeText} src={getStrapiMedia(image.attributes.url)} layout="responsive" width={600} height={750} />
 							</div>

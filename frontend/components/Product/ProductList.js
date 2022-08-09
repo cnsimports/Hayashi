@@ -9,7 +9,11 @@ export const ProductList = ({ products }) =>
 				blurb={ProductBlurb}
 				desc={ProductDescription}
 				notes={product_notes}
-				image={ProductImage.data.attributes}
+				image={
+					ProductImage.data
+						? ProductImage.data.attributes
+						: { alternativeText: '', url: 'https://source.unsplash.com/random/?whiskey' }
+				}
 			/>
 		)
 	);
