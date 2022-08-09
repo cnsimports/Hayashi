@@ -64,12 +64,19 @@ export const Header = () => {
 		>
 			<div className="container">
 				<h1>
-					<Link href="/">
-						<a className={styles.logo}>
+					{router.asPath !== '/' ? (
+						<Link href="/">
+							<a className={styles.logo}>
+								<span className="screen-reader-text">Hayashi</span>
+								<Logo width={147} height={26} />
+							</a>
+						</Link>
+					) : (
+						<div className={styles.logo}>
 							<span className="screen-reader-text">Hayashi</span>
 							<Logo width={147} height={26} />
-						</a>
-					</Link>
+						</div>
+					)}
 				</h1>
 
 				<button
