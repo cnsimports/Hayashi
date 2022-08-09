@@ -31,7 +31,7 @@ export const HoverLinks = ({ title, links }) => {
 								animate={{
 									opacity: 1,
 									x: mousePosition.centerX * (i === 1 ? 10 : 30),
-									y: mousePosition.centerY * (i === 1 ? 10 : (30 + 50))
+									y: mousePosition.centerY * (i === 1 ? 10 : 30 + 50),
 								}}
 								exit={{ opacity: 0 }}
 								transition={{ ease: 'linear' }}
@@ -64,10 +64,5 @@ export const HoverLinks = ({ title, links }) => {
 
 HoverLinks.propTypes = {
 	title: PropTypes.string,
-	links: PropTypes.shape({
-		link_content: PropTypes.string,
-		link_rul: PropTypes.string,
-		link_images: PropTypes.object,
-		id: PropTypes.string,
-	}).isRequired
+	links: PropTypes.object.isRequired,
 };
