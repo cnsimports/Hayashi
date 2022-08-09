@@ -41,7 +41,7 @@ export async function getStaticProps({ params = {} } = {}) {
 		props: {
 			content: pageRes.pages.data[0].attributes.Content,
 		},
-		revalidate: 1,
+		revalidate: 10,
 	};
 }
 

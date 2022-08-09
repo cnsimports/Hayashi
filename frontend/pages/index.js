@@ -295,7 +295,7 @@ export async function getStaticProps() {
 		props: {
 			home: homepageRes.homepage.data,
 		},
-		revalidate: 1,
+		revalidate: 10,
 	};
 }
 
