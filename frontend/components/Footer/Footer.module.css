@@ -1,6 +1,6 @@
 .footer {
 	background-color: var(--c-white);
-	transition: 300ms ease opacity;
+	transition: 100ms ease opacity;
 
 	&:global(.hide) {
 		opacity: 0;

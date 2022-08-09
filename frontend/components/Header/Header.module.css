@@ -1,7 +1,7 @@
 .header {
 	position: sticky;
 	top: 0;
-	transition: background-color 300ms linear, opacity 300ms linear;
+	transition: background-color 300ms linear, opacity 100ms linear;
 	width: 100%;
 	z-index: 10;
 

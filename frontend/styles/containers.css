@@ -13,7 +13,7 @@
 
 body {
   & main {
-    transition: 300ms ease opacity;
+    transition: 100ms ease opacity;
 
     &.hide {
       opacity: 0;
