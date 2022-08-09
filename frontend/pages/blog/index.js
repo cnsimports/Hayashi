@@ -26,7 +26,7 @@ const Blog = ({ hero }) => {
 			<div className={`container -sm -py-2xl -center ${styles.filters}`}>
 				<div className="-granite -p-m">
 					<button onClick={() => setTag('All')}>All</button>
-					<button onClick={() => setTag('Blog')}>Japanese Whiskey Blog</button>
+					<button onClick={() => setTag('Blog')}>Japanese Whisky Blog</button>
 					<button onClick={() => setTag('News')}>News</button>
 				</div>
 			</div>

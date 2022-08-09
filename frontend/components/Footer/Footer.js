@@ -10,8 +10,8 @@ export const Footer = () => (
 		<div className="container">
 			<ul className={styles['foot-nav']}>
 				<li>
-					<Link href="/whiskey">
-						<a>Rykyu Whiskey</a>
+					<Link href="/whisky">
+						<a>Rykyu Whisky</a>
 					</Link>
 				</li>
 				<li>

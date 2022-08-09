@@ -12,7 +12,7 @@ export const ProductList = ({ products }) =>
 				image={
 					ProductImage.data
 						? ProductImage.data.attributes
-						: { alternativeText: '', url: 'https://source.unsplash.com/random/?whiskey' }
+						: { alternativeText: '', url: 'https://source.unsplash.com/random/?whisky' }
 				}
 			/>
 		)

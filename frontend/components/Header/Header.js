@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { AnimatePresence, motion, useTransform, useViewportScroll } from 'framer-motion';
 
-import shelfImg from '../../public/images/whiskey_shelf.jpeg';
+import shelfImg from '../../public/images/whisky_shelf.jpeg';
 import craftImg from '../../public/images/craft.jpeg';
 import blogImg from '../../public/images/blog.jpeg';
 
@@ -101,16 +101,16 @@ export const Header = () => {
 								className={styles['primary-nav']}
 							>
 								<motion.li variants={item}>
-									<Link href="/whiskey">
+									<Link href="/whisky">
 										<a
 											className="h1"
 											onMouseEnter={() => {
-												setHoverMenu('whiskey');
+												setHoverMenu('whisky');
 												setSrc(shelfImg);
 											}}
 											onMouseLeave={() => setHoverMenu('')}
 										>
-											Ryukyu Whiskey
+											Ryukyu Whisky
 										</a>
 									</Link>
 								</motion.li>

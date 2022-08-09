@@ -26,7 +26,7 @@ export const BlogGrid = ({ tag }) => {
 					thumbnail={
 						post.attributes.FeaturedImage.data
 							? post.attributes.FeaturedImage.data.attributes
-							: { alternativeText: '', url: 'https://source.unsplash.com/random/?whiskey' }
+							: { alternativeText: '', url: 'https://source.unsplash.com/random/?whisky' }
 					}
 					slug={post.attributes.slug}
 					count={`${i + 1}`}
