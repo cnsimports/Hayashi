@@ -12,11 +12,12 @@ export const Hero = ({
 	HeroBottomLine,
 	Button: Btn,
 	lightText,
+	className,
 	containerClasses = 'container -p-m',
 	narrow,
 	children,
 }) => (
-	<div className={`${styles.hero} ${narrow ? styles.narrow : ''} -center`}>
+	<div className={`${styles.hero} ${narrow ? styles.narrow : ''} ${className} -center`}>
 		<div className={containerClasses}>
 			{HeroTopLine && (
 				<motion.p variants={heroMotion} initial="hidden" animate="fade" className={`h5 ${lightText ? '-light' : ''}`}>

@@ -31,7 +31,7 @@ export const Header = () => {
 
 	const navAnim = router.pathname.includes('/blog/')
 		? useTransform(scrollYProgress, [0, 0.4, 0.44], ['#fff', '#000', '#000'])
-		: useTransform(scrollYProgress, [0.33, 0.4, 0.44], ['#000', '#fff', '#fff']);
+		: useTransform(scrollYProgress, [0.75, 0.8, 0.85], ['#000', '#fff', '#fff']);
 
 	Router.events.on('routeChangeStart', () => setMenuOpen(false));
 
@@ -56,7 +56,10 @@ export const Header = () => {
 	};
 
 	return (
-		<div className={`${styles.header} ${menuOpen ? styles['-is-open'] : ''}`}>
+		<motion.div
+			className={`${styles.header} ${menuOpen ? styles['-is-open'] : ''}`}
+			style={{ '--c-fade': navTransition ? navAnim : 'var(--c-black)' }}
+		>
 			<div className="container">
 				<h1>
 					<Link href="/">
@@ -174,6 +177,6 @@ export const Header = () => {
 					</motion.div>
 				)}
 			</AnimatePresence>
-		</div>
+		</motion.div>
 	);
 };

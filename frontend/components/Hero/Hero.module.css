@@ -10,7 +10,10 @@
 		min-height: 40vh;
 	}
 
-	&.blog {
+	&:global(.blog) {
+		position: relative;
+		top: -70px;
+
 		& h1 {
 			color: var(--c-white);
 		}
