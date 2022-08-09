@@ -15,10 +15,11 @@
     "Content": {
       "type": "dynamiczone",
       "components": [
+        "contact.contact-form",
         "hero.hero",
         "images.cover-image",
         "products.product-list",
-        "contact.contact-form"
+        "content.content"
       ]
     },
     "Title": {

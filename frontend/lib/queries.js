@@ -67,6 +67,9 @@ export const QUERY_PAGES_BY_SLUG = gql`
 								}
 							}
 						}
+						... on ComponentContentContent {
+							content
+						}
 					}
 				}
 			}
