@@ -15,7 +15,7 @@ const Post = ({ post }) => {
 	return (
 		<>
 			{Title && Content && (
-				<Hero containerClasses="container -sm" HeroMain={Title} lightText>
+				<Hero className="blog" containerClasses="container -sm" HeroMain={Title} lightText>
 					{FeaturedImage.data && (
 						<div className="featured-image">
 							<Image

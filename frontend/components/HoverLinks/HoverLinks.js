@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -27,7 +28,11 @@ export const HoverLinks = ({ title, links }) => {
 							<motion.div
 								key={`${active}-${image.attributes.id}-${i}`}
 								initial={{ opacity: 0 }}
-								animate={{ opacity: 1, x: mousePosition.centerX * (i === 1 ? 10 : 30), y: mousePosition.centerY * (i === 1 ? 10 : (30 + 50)) }}
+								animate={{
+									opacity: 1,
+									x: mousePosition.centerX * (i === 1 ? 10 : 30),
+									y: mousePosition.centerY * (i === 1 ? 10 : (30 + 50))
+								}}
 								exit={{ opacity: 0 }}
 								transition={{ ease: 'linear' }}
 							>
@@ -43,8 +48,8 @@ export const HoverLinks = ({ title, links }) => {
 					</AnimatePresence>
 				</div>
 				<div ref={hoverLinkRef} className={styles['hover-links']} onMouseMove={(e) => handleMouseMove(e)}>
-					<p>{title}</p>
-					{links.map(({ link_content, link_url, link_images, id }) => (
+					{title && <p>{title}</p>}
+					{links.map(({ link_content, link_url, id }) => (
 						<Link href={link_url} key={id}>
 							<a className="h3" onMouseEnter={() => setActive(id)} onMouseLeave={() => setActive('')}>
 								{link_content}
@@ -55,4 +60,14 @@ export const HoverLinks = ({ title, links }) => {
 			</div>
 		</div>
 	);
+};
+
+HoverLinks.propTypes = {
+	title: PropTypes.string,
+	links: PropTypes.shape({
+		link_content: PropTypes.string,
+		link_rul: PropTypes.string,
+		link_images: PropTypes.object,
+		id: PropTypes.string,
+	}).isRequired
 };

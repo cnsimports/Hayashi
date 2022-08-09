@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from '@gsap/business';
 import { ScrollTrigger } from '@gsap/business/dist/ScrollTrigger';
 import Image from 'next/image';
+import PropTypes from 'prop-types';
 
 import client from '@lib/apollo';
 import { QUERY_HOME } from '@lib/queries';
@@ -280,6 +281,12 @@ const Home = (props) => {
 		<HomeWithTransition {...props} />
 	);
 };
+
+
+Home.propTypes = {
+	home: PropTypes.object.isRequired,
+};
+
 
 export async function getStaticProps() {
 	const { data: homepageRes } = await client.query({
