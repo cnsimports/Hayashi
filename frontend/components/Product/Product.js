@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import styles from './Product.module.css';
 
 export const Product = ({ image, name, blurb, desc, notes }) => {
-	console.log(image);
 	return (
 		<div className={styles.product}>
 			<div className="container">

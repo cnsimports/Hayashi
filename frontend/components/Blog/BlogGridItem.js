@@ -8,7 +8,6 @@ import { getStrapiMedia } from '@lib/media';
 
 export const BlogGridItem = ({ title, thumbnail, count, slug }) => {
 	const padCount = count.toString().padStart(3, '0');
-	console.log(thumbnail);
 	return (
 		<Link href={`/blog/${slug}`} passHref>
 			<motion.a
