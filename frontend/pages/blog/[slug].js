@@ -19,9 +19,9 @@ const Post = ({ post }) => {
 					<div className="featured-image">
 						<Image
 							alt={FeaturedImage.data?.attributes.alternativeText || ''}
-							src={
-								getStrapiMedia(FeaturedImage.data?.attributes.url || 'https://source.unsplash.com/random/?city,night')
-							}
+							src={getStrapiMedia(
+								FeaturedImage.data?.attributes.url || 'https://source.unsplash.com/random/?city,night'
+							)}
 							layout="fill"
 						/>
 					</div>
