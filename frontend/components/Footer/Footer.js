@@ -6,7 +6,7 @@ import { CopySocial } from './CopySocial';
 import styles from './Footer.module.css';
 
 export const Footer = () => (
-	<footer className={styles.footer}>
+	<footer className={`${styles.footer} footer`}>
 		<div className="container">
 			<ul className={styles['foot-nav']}>
 				<li>

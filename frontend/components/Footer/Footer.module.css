@@ -1,5 +1,10 @@
 .footer {
 	background-color: var(--c-white);
+	transition: 300ms ease opacity;
+
+	&:global(.hide) {
+		opacity: 0;
+	}
 
 	& :global(.container) {
 		align-items: center;

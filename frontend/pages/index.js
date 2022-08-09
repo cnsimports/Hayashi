@@ -144,7 +144,7 @@ const Home = (props) => {
 			scrub: true,
 		});
 
-		bodyTl.to('body', { backgroundColor: '#231f20', ease: 'linear' });
+		// bodyTl.to('body', { backgroundColor: '#231f20', ease: 'linear' });
 
 		ScrollTrigger.create({
 			animation: bodyTl,

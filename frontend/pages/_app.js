@@ -61,7 +61,16 @@ function MyApp({ Component, pageProps, router }) {
 							animate={{ y: '100%' }}
 							exit={{ y: 0 }}
 							transition={{ duration: 1, ease: [0.87, 0, 0.13, 1] }}
-							onAnimationStart={() => document.body.classList.add('overflow-hidden')}
+							onAnimationStart={() => {
+								const header = document.querySelector('.header');
+								const footer = document.querySelector('.footer');
+								const main = document.querySelector('main');
+
+								document.body.classList.add('overflow-hidden');
+								header.classList.add('hide');
+								footer.classList.add('hide');
+								main.classList.add('hide');
+							}}
 						>
 							<Kanji width={0} height={0} />
 							<div className={styles.kanji}>
@@ -75,7 +84,16 @@ function MyApp({ Component, pageProps, router }) {
 							animate={{ opacity: 0 }}
 							exit={{ opacity: 0 }}
 							transition={{ duration: 1, delay: 1, ease: [0.87, 0, 0.13, 1] }}
-							onAnimationComplete={() => document.body.classList.remove('overflow-hidden')}
+							onAnimationComplete={() => {
+								const header = document.querySelector('.header');
+								const footer = document.querySelector('.footer');
+								const main = document.querySelector('main');
+
+								document.body.classList.remove('overflow-hidden');
+								header.classList.remove('hide');
+								footer.classList.remove('hide');
+								main.classList.remove('hide');
+							}}
 						>
 							<Kanji width={0} height={0} />
 							<div className={styles.kanji}>

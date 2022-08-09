@@ -11,6 +11,16 @@
   }
 }
 
+body {
+  & main {
+    transition: 300ms ease opacity;
+
+    &.hide {
+      opacity: 0;
+    }
+  }
+}
+
 .-sm {
   max-width: 1027px;
 }

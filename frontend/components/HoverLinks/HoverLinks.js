@@ -64,5 +64,5 @@ export const HoverLinks = ({ title, links }) => {
 
 HoverLinks.propTypes = {
 	title: PropTypes.string,
-	links: PropTypes.object.isRequired,
+	links: PropTypes.array.isRequired,
 };

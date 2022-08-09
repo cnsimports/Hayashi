@@ -1,9 +1,13 @@
 .header {
 	position: sticky;
 	top: 0;
-	transition: background-color 300ms linear;
+	transition: background-color 300ms linear, opacity 300ms linear;
 	width: 100%;
 	z-index: 10;
+
+	&:global(.hide) {
+		opacity: 0;
+	}
 
 	&.-is-open {
 		background-color: var(--c-white);

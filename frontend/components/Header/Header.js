@@ -33,7 +33,9 @@ export const Header = () => {
 		? useTransform(scrollYProgress, [0, 0.4, 0.44], ['#fff', '#000', '#000'])
 		: useTransform(scrollYProgress, [0.75, 0.8, 0.85], ['#000', '#fff', '#fff']);
 
-	Router.events.on('routeChangeStart', () => setMenuOpen(false));
+	Router.events.on('routeChangeStart', () => {
+		setMenuOpen(false);
+	});
 
 	Router.events.on('routeChangeComplete', (url) => {
 		if (url === '/' || router.pathname.includes('/blog/')) {
@@ -57,7 +59,7 @@ export const Header = () => {
 
 	return (
 		<motion.div
-			className={`${styles.header} ${menuOpen ? styles['-is-open'] : ''}`}
+			className={`${styles.header} ${menuOpen ? styles['-is-open'] : ''} header`}
 			style={{ '--c-fade': navTransition ? navAnim : 'var(--c-black)' }}
 		>
 			<div className="container">
