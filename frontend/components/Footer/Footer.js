@@ -33,13 +33,6 @@ export const Footer = () => (
 
 			<div className={styles.subscribe}>
 				<>
-					{/*Zoho Campaigns Web-Optin Form's Header Code Starts Here*/}
-					<style
-						dangerouslySetInnerHTML={{
-							__html:
-								'\n.quick_form_8_css * {\n    -webkit-box-sizing: border-box !important;\n    -moz-box-sizing: border-box !important;\n    box-sizing: border-box !important;\n    overflow-wrap: break-word\n}\n@media only screen and (max-width: 600px) {.quick_form_8_css[name="SIGNUP_BODY"] { width: 100% !important; min-width: 100% !important; margin: 0px auto !important; padding: 0px !important } .SIGNUP_FLD { width: 90% !important; margin: 10px 5% !important; padding: 0px !important } .SIGNUP_FLD input { margin: 0 !important; border-radius: 25px !important } }\n'
-						}}
-					/>
 					{/*Zoho Campaigns Web-Optin Form's Header Code Ends Here*/}
 					{/*Zoho Campaigns Web-Optin Form Starts Here*/}
 					<div
