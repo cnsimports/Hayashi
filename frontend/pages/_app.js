@@ -67,9 +67,9 @@ function MyApp({ Component, pageProps, router }) {
 								const main = document.querySelector('main');
 
 								document.body.classList.add('overflow-hidden');
-								header.classList.add('hide');
-								footer.classList.add('hide');
-								main.classList.add('hide');
+								header?.classList.add('hide');
+								footer?.classList.add('hide');
+								main?.classList.add('hide');
 							}}
 						>
 							<Kanji width={0} height={0} />
@@ -90,9 +90,9 @@ function MyApp({ Component, pageProps, router }) {
 								const main = document.querySelector('main');
 
 								document.body.classList.remove('overflow-hidden');
-								header.classList.remove('hide');
-								footer.classList.remove('hide');
-								main.classList.remove('hide');
+								header?.classList.remove('hide');
+								footer?.classList.remove('hide');
+								main?.classList.remove('hide');
 							}}
 						>
 							<Kanji width={0} height={0} />
