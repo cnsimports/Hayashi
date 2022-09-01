@@ -107,7 +107,7 @@
 
 		& :global(.title) {
 			align-self: flex-end;
-			margin-bottom: 4rem;
+			margin-bottom: 9rem;
 		}
 	}
 }

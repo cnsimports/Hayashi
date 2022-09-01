@@ -132,17 +132,21 @@ const Home = (props) => {
 				animation: slideTl,
 			});
 
-			if (i === slides.length - 1) {
+			if (i === slides.length - 2) {
 				const bottleWrapTl = gsap.timeline();
 				bottleWrapTl.to(videoRef.current, { x: '-50%', rotate: 0 }, 1);
 
 				ScrollTrigger.create({
 					trigger: slide,
-					start: 'top top+=70',
-					end: '+=400%',
+					start: 'bottom bottom-=105',
+					end: '+=300%',
 					scrub: true,
 					animation: bottleWrapTl,
 				});
+			}
+
+			if (i === slides.length - 1) {
+				slideTl.to(slide, { delay: 2 });
 			}
 		});
 
