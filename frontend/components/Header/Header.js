@@ -156,11 +156,6 @@ export const Header = () => {
 										<a>Contact</a>
 									</Link>
 								</motion.li>
-								<motion.li variants={item}>
-									<Link href="/">
-										<a>Order online</a>
-									</Link>
-								</motion.li>
 							</motion.ul>
 							<motion.div
 								initial={{ opacity: 0 }}

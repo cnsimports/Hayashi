@@ -8,13 +8,12 @@ import client from '@lib/apollo';
 import { QUERY_HOME } from '@lib/queries';
 import { getStrapiMedia } from '@lib/media';
 
-import { Slide } from '@components/Slide/Slide';
 import { Button } from '@components/Button/Button';
+import { Slide } from '@components/Slide/Slide';
 import { HoverLinks } from '@components/HoverLinks/HoverLinks';
+import { Progress } from '@components/Progress/Progress';
 
 import styles from '@styles/pages/Home.module.css';
-
-gsap.registerPlugin(ScrollTrigger);
 
 // prettier-ignore
 const Home = (props) => {
@@ -46,6 +45,7 @@ const Home = (props) => {
 		const slides = gsap.utils.toArray('.slide');
 		const darkSlides = gsap.utils.toArray('.ds');
 		const bodyTl = gsap.timeline();
+		const progressTl = gsap.timeline();
 		const cloudTl = gsap.timeline();
 		const bottleScrubTl = gsap.timeline();
 		const omegaTl = gsap.timeline();
@@ -67,7 +67,7 @@ const Home = (props) => {
 			ScrollTrigger.create({
 				trigger: slidesRef.current,
 				start: 'top top+=70',
-				end: 'bottom bottom-=10%',
+				end: 'bottom bottom+=150%',
 				pin: videoRef.current,
 				pinSpacing: false,
 				scrub: true,
@@ -164,6 +164,12 @@ const Home = (props) => {
 			start: 'top center',
 			end: 'center center',
 			scrub: true,
+			onEnter: () => {
+				progressTl.to('.progress-wrap', { '--c-fade': "#fff" })
+			},
+			onEnterBack: () => {
+				progressTl.to('.progress-wrap', { '--c-fade': "#000" })
+			}
 		});
 
 		darkSlides.forEach((darkSlide) => {
@@ -246,6 +252,33 @@ const Home = (props) => {
 								</div>
 							</div>
 						</Slide>
+
+						{home_fields.product_list[0].products && (
+								<div className={styles['product-grid']}>
+									<div className="container">
+										{home_fields.product_list[0].products.data.map((product) => {
+											const { ProductImage } = product.attributes;
+											return (
+												<div key={ProductImage.data?.attributes.url} className={styles['product-img']}>
+													{ProductImage.data && (
+														<Image
+															alt={ProductImage.data?.attributes.alternativeText}
+															src={getStrapiMedia(ProductImage.data?.attributes.url)}
+															priority
+															layout="fill"
+														/>
+													)}
+												</div>
+											);
+										})}
+										<Button href="/whisky">
+											<>
+												<span className="arrow">&rarr;</span> Explore Our Whiskies
+											</>
+										</Button>
+									</div>
+								</div>
+							)}
 					</div>
 				</div>
 
@@ -289,6 +322,8 @@ const Home = (props) => {
 				</Slide>
 
 				<HoverLinks title={link_hover.title} links={link_hover.link_hover_item} />
+
+				<Progress />
 			</main>
 		);
 	}

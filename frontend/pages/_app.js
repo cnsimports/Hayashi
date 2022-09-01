@@ -1,31 +1,33 @@
 import { createContext, useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import CookieConsent from 'react-cookie-consent';
+
 import App from 'next/app';
 import Image from 'next/image';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
+
+import { gsap } from '@gsap/business';
+import { ScrollTrigger } from '@gsap/business/dist/ScrollTrigger';
+import { DrawSVGPlugin } from '@gsap/business/dist/DrawSVGPlugin';
 
 import { Header } from '@components/Header/Header';
 import { Footer } from '@components/Footer/Footer';
 import Gate from '@components/Gate/Gate';
 import { Kanji } from '@components/SVG/Kanji';
 
-// import { getStrapiMedia } from '@lib/media';
-// import { fetchAPI } from '@lib/api';
-
 import styles from '@styles/pageTransition/pageTransition.module.css';
 
 import '@styles/globals.css';
 
 export const GlobalContext = createContext({});
-
 function MyApp({ Component, pageProps, router }) {
 	const { route } = router;
-	// const { global } = pageProps;
 	const [isLegal, setIsLegal] = useState('');
 
 	useEffect(() => {
 		setIsLegal(localStorage.getItem('ageVerified'));
+		gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
 	}, []);
 
 	useEffect(() => {
@@ -93,6 +95,37 @@ function MyApp({ Component, pageProps, router }) {
 								header?.classList.remove('hide');
 								footer?.classList.remove('hide');
 								main?.classList.remove('hide');
+
+								gsap.fromTo(
+									'.progress-wrap path',
+									{
+										drawSVG: 0,
+									},
+									{
+										drawSVG: '100%',
+										scrollTrigger: {
+											start: 0,
+											end: document.body.getBoundingClientRect().height,
+											scrub: true,
+										},
+									}
+								);
+
+								gsap.fromTo(
+									'.progress-wrap',
+									{
+										yPercent: 100,
+										autoAlpha: 0,
+									},
+									{
+										yPercent: 0,
+										autoAlpha: 1,
+										scrollTrigger: {
+											start: 5,
+											toggleActions: 'play none none reverse',
+										},
+									}
+								);
 							}}
 						>
 							<Kanji width={0} height={0} />
@@ -113,7 +146,12 @@ function MyApp({ Component, pageProps, router }) {
 					/>
 				)}
 				{isLegal === 'true' && (
-					<Footer initial={false} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }} />
+					<>
+						<Footer initial={false} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }} />
+						<CookieConsent style={{ backgroundColor: 'black' }}>
+							This website uses cookies to enhance the user experience.
+						</CookieConsent>
+					</>
 				)}
 			</GlobalContext.Provider>
 		</>

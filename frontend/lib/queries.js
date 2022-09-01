@@ -146,6 +146,23 @@ export const QUERY_HOME = gql`
 							}
 						}
 						slide_4_title
+						product_list {
+							products {
+								data {
+									attributes {
+										ProductImage {
+											data {
+												attributes {
+													url
+													alternativeText
+												}
+											}
+										}
+										ProductName
+									}
+								}
+							}
+						}
 						slide_5_title
 						slide_6_title
 						slide_7_image {

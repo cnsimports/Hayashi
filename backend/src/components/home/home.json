@@ -2,7 +2,8 @@
   "collectionName": "components_home_homes",
   "info": {
     "displayName": "Home",
-    "icon": "house-damage"
+    "icon": "house-damage",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -16,14 +17,15 @@
       "type": "richtext"
     },
     "slide_2_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "slide_3_title": {
       "type": "string"
@@ -32,14 +34,15 @@
       "type": "richtext"
     },
     "slide_3_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "slide_4_title": {
       "type": "string"
@@ -51,14 +54,15 @@
       "type": "string"
     },
     "slide_7_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "slide_8_title": {
       "type": "string"
@@ -69,12 +73,18 @@
       "component": "button.button"
     },
     "slide_9_image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "videos"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "product_list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "products.product-list"
     }
   }
 }
