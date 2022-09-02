@@ -19,7 +19,7 @@ export const QUERY_PAGES_BY_SLUG = gql`
 				attributes {
 					Content {
 						... on ComponentContactContactForm {
-							Recipient
+							__typename
 						}
 						... on ComponentProductsProductList {
 							products {
