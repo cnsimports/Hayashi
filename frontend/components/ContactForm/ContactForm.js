@@ -5,15 +5,33 @@ import { Button } from '@components/Button/Button';
 
 import styles from '@styles/pages/Contact.module.css';
 
-export const ContactForm = ({ Recipient }) => {
+export const ContactForm = () => {
 	// @TODO :: Hook this up to actually send. Log here for now to avoid lint error.
-	console.log(Recipient);
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
-	const onSubmit = (data) => console.log(data);
+	const onSubmit = async (data) => {
+		const res = await fetch('/api/sendgrid', {
+			body: JSON.stringify({
+				email: data.email,
+				name: data.name,
+				subject: data.subject,
+				message: data.message,
+			}),
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			method: 'POST',
+		});
+
+		const { error } = await res.json();
+		if (error) {
+			console.log(error);
+			return;
+		}
+	};
 
 	return (
 		<div className={styles.form}>

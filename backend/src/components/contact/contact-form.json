@@ -2,12 +2,9 @@
   "collectionName": "components_contact_contact_forms",
   "info": {
     "displayName": "Contact Form",
-    "icon": "phone-square"
+    "icon": "phone-square",
+    "description": ""
   },
   "options": {},
-  "attributes": {
-    "Recipient": {
-      "type": "email"
-    }
-  }
+  "attributes": {}
 }
