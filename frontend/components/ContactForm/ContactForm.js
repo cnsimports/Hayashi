@@ -50,7 +50,12 @@ export const ContactForm = () => {
 						{errors.email && <span>This field is required</span>}
 
 						<label htmlFor="subject">Subject</label>
-						<input id="subject" type="text" placeholder="How can we help?" {...register('subject', { required: true })} />
+						<input
+							id="subject"
+							type="text"
+							placeholder="How can we help?"
+							{...register('subject', { required: true })}
+						/>
 						{errors.subject && <span>This field is required</span>}
 
 						<label htmlFor="message">Message</label>
