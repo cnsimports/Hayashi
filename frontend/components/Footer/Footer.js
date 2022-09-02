@@ -211,13 +211,6 @@ export const Footer = () => (
 					</div>
 					{/*Zoho Campaigns Web-Optin Form Ends Here*/}
 				</>
-
-				{/* @TODO :: Hook this up to mailchimp, waiting on client to set this up */}
-				{/* <label htmlFor="newsletter">Hear more from Hayashi</label>
-				<form className={styles.mailchimp}>
-					<input id="newsletter" placeholder="Enter e-mail" type="email" / />
-					<button type="submit">&rarr;</button>
-				</form> /*/}
 			</div>
 
 			<Logo width={85} height={15} />
