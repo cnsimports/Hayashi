@@ -135,6 +135,7 @@ const Home = (props) => {
 			if (i === slides.length - 2) {
 				const bottleWrapTl = gsap.timeline();
 				bottleWrapTl.to(videoRef.current, { x: '-50%', rotate: 0 }, 1);
+				bottleWrapTl.to(bottleRef.current, { zIndex: 0 }, 1);
 
 				ScrollTrigger.create({
 					trigger: slide,
