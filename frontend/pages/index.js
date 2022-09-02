@@ -138,8 +138,8 @@ const Home = (props) => {
 
 				ScrollTrigger.create({
 					trigger: slide,
-					start: 'bottom bottom-=105',
-					end: '+=300%',
+					start: 'bottom bottom+=105',
+					end: '+=600%',
 					scrub: true,
 					animation: bottleWrapTl,
 				});
