@@ -33,7 +33,7 @@ export const Footer = () => (
 
 			<div className={styles.subscribe}>
 				<>
-					{/* /* eslint-disable */}
+					{/* eslint-disable */}
 					{/*Zoho Campaigns Web-Optin Form's Header Code Ends Here*/}
 					{/*Zoho Campaigns Web-Optin Form Starts Here*/}
 					<div
@@ -211,7 +211,7 @@ export const Footer = () => (
 						<div id="zcOptinSuccessPanel" />
 					</div>
 					{/*Zoho Campaigns Web-Optin Form Ends Here*/}
-					{/* /* eslint-enable */}
+					{/* eslint-enable */}
 				</>
 			</div>
 
