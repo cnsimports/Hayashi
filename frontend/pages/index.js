@@ -202,7 +202,7 @@ const Home = (props) => {
 
 				<div ref={omegawrapRef} className="omegawrap">
 					<div ref={bottleRef} className={`${styles['bottle-scrub']} bottle-scrub`}>
-						<video ref={videoRef} loop muted controls={false}>
+						<video ref={videoRef} loop muted controls={false} preload={true}>
 							{/* ffmpeg -i Transparent-Final_1.mov -c:v libvpx-vp9 -b:v 2M -crf 20 -g 1 -auto-alt-ref 0 output.webm */}
 							<source src="/images/bottle_spin.webm" />
 						</video>
