@@ -23,7 +23,7 @@ const Gate = forwardRef(({ isLegal, setIsLegal }, ref) => (
 			<Image alt="" className={styles.granite} priority src="/images/granite.jpeg" layout="fill" />
 		</div>
 		<div className={styles.bottle}>
-			<Image alt="" src="/images/bottle01.png" priority layout="fill" />
+			<Image alt="" src="https://res.cloudinary.com/hayashi-whisky/image/upload/v1663186177/Hayashi_24_Bottle_transparent_1_3603e64a65.png" priority layout="fill" />
 		</div>
 	</div>
 ));
