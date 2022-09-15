@@ -115,7 +115,7 @@ export const Header = () => {
 											className="h1"
 											onMouseEnter={() => {
 												setHoverMenu('whisky');
-												setSrc(shelfImg);
+												setSrc('https://res.cloudinary.com/hayashi-whisky/image/upload/v1663253359/Hayashit_24_Bottle_Top_96c2f7821b.jpg?updated_at=2022-09-15T14:49:24.936Z');
 											}}
 											onMouseLeave={() => setHoverMenu('')}
 										>
@@ -129,7 +129,7 @@ export const Header = () => {
 											className="h1"
 											onMouseEnter={() => {
 												setHoverMenu('craft');
-												setSrc(craftImg);
+												setSrc('https://res.cloudinary.com/hayashi-whisky/image/upload/v1663253288/Hayashi_8_Mess_Neat_60863cffa9.jpg?updated_at=2022-09-15T14:48:14.665Z');
 											}}
 											onMouseLeave={() => setHoverMenu('')}
 										>
@@ -143,7 +143,7 @@ export const Header = () => {
 											className="h1"
 											onMouseEnter={() => {
 												setHoverMenu('blog');
-												setSrc(blogImg);
+												setSrc('https://res.cloudinary.com/hayashi-whisky/image/upload/v1663253762/9_N7_A2245_3c2702e569.jpg?updated_at=2022-09-15T15:03:47.713Z');
 											}}
 											onMouseLeave={() => setHoverMenu('')}
 										>
