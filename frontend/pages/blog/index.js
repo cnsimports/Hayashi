@@ -18,7 +18,7 @@ const Blog = ({ hero }) => {
 		<main>
 			<NextSeo
 				title="Hayashi Japanese Whisky | Blog"
-				description="Within the evolving world of Japanese whisky, there’s always more to be learned. Welcome to the Japanese whisky blog. We invite you to pour yourself a glass and delve into some of the industries most interesting conversations."
+				description="Within the evolving world of Japanese whisky, there&lsquo;s always more to be learned. Welcome to the Japanese whisky blog. We invite you to pour yourself a glass and delve into some of the industries most interesting conversations."
 			/>
 			<Hero
 				narrow
