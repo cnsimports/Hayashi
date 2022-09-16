@@ -35,6 +35,7 @@ export const QUERY_PAGES_BY_SLUG = gql`
 												}
 											}
 										}
+										ProductDescription
 										product_notes {
 											data {
 												attributes {
