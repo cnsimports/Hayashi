@@ -5,22 +5,26 @@ import PropTypes from 'prop-types';
 import styles from './CoverImage.module.css';
 
 export const CoverImage = ({ Parallax, CoverImage }) => {
-	const { alternativeText, url, mime } = CoverImage.data.attributes;
-	return (
-		<div
-			className={`${styles['cover-image']}${Parallax ? ` ${styles['-parallax']}` : ''}`}
-			style={{ backgroundImage: Parallax ? `url(${getStrapiMedia(url)})` : '' }}
-		>
-			{mime.includes('video') && (
-				<video muted={true} controls={false} autoPlay={true} loop={true}>
-					<source src={getStrapiMedia(url)} />
-				</video>
-			)}
-			{mime.includes('image') && !Parallax && (
-				<Image priority alt={alternativeText} src={getStrapiMedia(url)} layout="fill" />
-			)}
-		</div>
-	);
+	if (CoverImage.data) {
+		const { alternativeText, url, mime } = CoverImage.data.attributes;
+		return (
+			<div
+				className={`${styles['cover-image']}${Parallax ? ` ${styles['-parallax']}` : ''}`}
+				style={{ backgroundImage: Parallax ? `url(${getStrapiMedia(url)})` : '' }}
+			>
+				{mime.includes('video') && (
+					<video muted={true} controls={false} autoPlay={true} loop={true}>
+						<source src={getStrapiMedia(url)} />
+					</video>
+				)}
+				{mime.includes('image') && !Parallax && (
+					<Image priority alt={alternativeText} src={getStrapiMedia(url)} layout="fill" />
+				)}
+			</div>
+		);
+	} else {
+		return false;
+	}
 };
 
 CoverImage.propTypes = {

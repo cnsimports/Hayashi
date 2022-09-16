@@ -17,6 +17,7 @@ export const QUERY_PAGES_BY_SLUG = gql`
 		pages(filters: { slug: { eq: $slug } }) {
 			data {
 				attributes {
+					Title
 					Content {
 						... on ComponentContactContactForm {
 							__typename
