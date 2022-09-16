@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { NextSeo } from 'next-seo';
 
 import client from '@lib/apollo';
 
@@ -15,6 +16,10 @@ const Blog = ({ hero }) => {
 
 	return (
 		<main>
+			<NextSeo
+				title="Hayashi Japanese Whisky | Blog"
+				description="Within the evolving world of Japanese whisky, there’s always more to be learned. Welcome to the Japanese whisky blog. We invite you to pour yourself a glass and delve into some of the industries most interesting conversations."
+			/>
 			<Hero
 				narrow
 				className="-pt-m"
