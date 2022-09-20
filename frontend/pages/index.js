@@ -18,14 +18,14 @@ import styles from '@styles/pages/Home.module.css';
 
 // prettier-ignore
 const Home = (props) => {
-	const omegawrapRef = useRef();
-	const bottleRef = useRef();
-	const videoRef = useRef();
-	const slidesRef = useRef();
-	const slideOneRef = useRef();
-	const oneBgRef = useRef();
-	const oneTitleRef = useRef();
-	const oneCloudsRef= useRef();
+	const omegawrapRef = useRef(null);
+	const bottleRef = useRef(null);
+	const videoRef = useRef(null);
+	const slidesRef = useRef(null);
+	const slideOneRef = useRef(null);
+	const oneBgRef = useRef(null);
+	const oneTitleRef = useRef(null);
+	const oneCloudsRef= useRef(null);
 
 	const once = (el, event, fn, opts) => {
 		const onceFn = () => {
@@ -166,7 +166,7 @@ const Home = (props) => {
 
 		ScrollTrigger.create({
 			animation: bodyTl,
-			trigger: '.first',
+			trigger: '.home .first',
 			start: 'top center',
 			end: 'center center',
 			scrub: true,
@@ -198,7 +198,7 @@ const Home = (props) => {
 	const HomeContent = ({ home }) => {
 		const { home_fields, link_hover } = home.attributes;
 		return (
-			<main>
+			<main className="home">
 				<NextSeo
 					title="Hayashi Japanese Whisky"
 					description="An exemplary whisky of the Ryukyu Islands, Hayashi embodies both the quiet intrigue of Okinawa island life and the rich tradition of Japanese patience and perfection."
@@ -207,7 +207,7 @@ const Home = (props) => {
 
 				<div ref={omegawrapRef} className="omegawrap">
 					<div ref={bottleRef} className={`${styles['bottle-scrub']} bottle-scrub`}>
-						<video ref={videoRef} loop muted controls={false} preload={true}>
+						<video ref={videoRef} loop muted controls={false} preload="true">
 							{/* ffmpeg -i Transparent-Final_1.mov -c:v libvpx-vp9 -b:v 2M -crf 20 -g 1 -auto-alt-ref 0 output.webm */}
 							<source src="https://res.cloudinary.com/hayashi-whisky/video/upload/v1663189424/bottle_spin_fuazr8.webm" />
 						</video>
