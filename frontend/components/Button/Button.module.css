@@ -25,6 +25,12 @@
 		&:focus {
 			background-color: var(--c-dark);
 		}
+
+		&[disabled]:hover,
+		&[disabled]:focus, {
+			cursor: not-allowed;
+			background-color: var(--c-dark);
+		}
 	}
 
 	& :global(.arrow) {
