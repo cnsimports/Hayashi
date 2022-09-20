@@ -69,7 +69,9 @@ export const ContactForm = () => {
 						></textarea>
 						{errors.message && <span>This field is required</span>}
 
-						<Button type="submit" disabled={isSending}>{isSending ? 'Sending...' : 'Send Message'}</Button>
+						<Button type="submit" disabled={isSending}>
+							{isSending ? 'Sending...' : 'Send Message'}
+						</Button>
 					</form>
 				) : (
 					<h2>Your form was submitted successfully, thank you!</h2>
