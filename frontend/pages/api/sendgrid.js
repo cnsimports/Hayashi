@@ -6,7 +6,7 @@ async function sendEmail(req, res) {
 	const { body } = req;
 	try {
 		await sendgrid.send({
-			from: body.email,
+			from: 'info@hayashiwhisky.com',
 			to: 'info@hayashiwhisky.com',
 			subject: `Hayashi :: Contact`,
 			html: `<p>You have a new contact form submission</p><br>
