@@ -26,6 +26,7 @@ function MyApp({ Component, pageProps, router }) {
 	const [isLegal, setIsLegal] = useState('');
 
 	useEffect(() => {
+		document.body.classList.add('loaded')
 		setIsLegal(localStorage.getItem('ageVerified'));
 		gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
 	}, []);
@@ -39,7 +40,6 @@ function MyApp({ Component, pageProps, router }) {
 	return (
 		<>
 			<Head>
-				{/* <link rel="shortcut icon" href={getStrapiMedia(global.attributes.favicon.data.attributes.url)} /> */}
 				<link rel="stylesheet" href="https://use.typekit.net/wzt1kkc.css" />
 			</Head>
 			<GlobalContext.Provider value={pageProps}>
@@ -68,7 +68,7 @@ function MyApp({ Component, pageProps, router }) {
 								const footer = document.querySelector('.footer');
 								const main = document.querySelector('main');
 
-								document.body.classList.add('overflow-hidden');
+								document.body.classList.add('hide');
 								header?.classList.add('hide');
 								footer?.classList.add('hide');
 								main?.classList.add('hide');
@@ -91,7 +91,7 @@ function MyApp({ Component, pageProps, router }) {
 								const footer = document.querySelector('.footer');
 								const main = document.querySelector('main');
 
-								document.body.classList.remove('overflow-hidden');
+								document.body.classList.remove('hide');
 								header?.classList.remove('hide');
 								footer?.classList.remove('hide');
 								main?.classList.remove('hide');
