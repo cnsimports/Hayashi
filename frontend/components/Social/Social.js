@@ -12,7 +12,7 @@ export const Social = () => (
 			</a>
 		</li>
 		<li>
-			<a href="https://twitter.com/CNS_Imports" target="_blank" rel="noopener noreferrer">
+			<a href="https://twitter.com/HayashiWhisky" target="_blank" rel="noopener noreferrer">
 				<Twitter width={16} fill="var(--c-gold)" />
 			</a>
 		</li>
