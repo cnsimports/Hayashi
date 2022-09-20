@@ -8,12 +8,14 @@ import { useState } from 'react';
 
 export const ContactForm = () => {
 	const [resetForm, setResetForm] = useState(false);
+	const [isSending, setIsSending] = useState(false);
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
 	const onSubmit = async (data) => {
+		setIsSending(true);
 		const res = await fetch('/api/sendgrid', {
 			body: JSON.stringify({
 				email: data.email,
@@ -67,7 +69,7 @@ export const ContactForm = () => {
 						></textarea>
 						{errors.message && <span>This field is required</span>}
 
-						<Button type="submit">Send Message</Button>
+						<Button type="submit" disabled={isSending}>{isSending ? 'Sending...' : 'Send Message'}</Button>
 					</form>
 				) : (
 					<h2>Your form was submitted successfully, thank you!</h2>
