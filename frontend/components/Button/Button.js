@@ -20,6 +20,7 @@ export const Button = ({ children, href, className = '', onClick, type, disabled
 Button.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
 	href: PropTypes.string,
+	disabled: PropTypes.bool,
 	className: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
 	onClick: PropTypes.func,
 	type: PropTypes.string,
