@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps, router }) {
 	const [isLegal, setIsLegal] = useState('');
 
 	useEffect(() => {
-		document.body.classList.add('loaded')
+		document.body.classList.add('loaded');
 		setIsLegal(localStorage.getItem('ageVerified'));
 		gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
 	}, []);
