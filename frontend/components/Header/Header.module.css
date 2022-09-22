@@ -209,6 +209,7 @@
 	position: fixed;
 	height: 100vh;
 	width: 100vw;
+	top: 0;
 
 	&::after {
 		background-image: url('https://res.cloudinary.com/hayashi-whisky/image/upload/v1663860327/text2_fntdaz.jpg');
