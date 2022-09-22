@@ -62,9 +62,9 @@ export const Header = () => {
 				{menuOpen && (
 					<motion.div
 						className={styles['nav-bg']}
-						initial={{opacity: 0}}
-						animate={{opacity: 1}}
-						exit={{opacity: 0}}
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
 					/>
 				)}
 			</AnimatePresence>
