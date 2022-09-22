@@ -58,6 +58,16 @@ export const Header = () => {
 			className={`${styles.header} ${menuOpen ? styles['-is-open'] : ''} header`}
 			style={{ '--c-fade': navTransition ? navAnim : 'var(--c-black)' }}
 		>
+			<AnimatePresence exitBeforeEnter>
+				{menuOpen && (
+					<motion.div
+						className={styles['nav-bg']}
+						initial={{opacity: 0}}
+						animate={{opacity: 1}}
+						exit={{opacity: 0}}
+					/>
+				)}
+			</AnimatePresence>
 			<div className="container">
 				<h1>
 					{router.asPath !== '/' ? (
