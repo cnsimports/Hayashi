@@ -95,7 +95,7 @@ export const Footer = () => (
 										method="POST"
 										id="zcampaignOptinForm"
 										style={{ margin: 0, width: '100%' }}
-										action="https://hqepw-zglp.maillist-manage.com/weboptin.zc"
+										action="https://hqepw-cmpzourl.maillist-manage.com/weboptin.zc"
 										target="_zcSignup"
 										className={styles.mailchimp}
 									>
