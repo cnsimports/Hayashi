@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
-import { gsap } from '@gsap/business';
-import { ScrollTrigger } from '@gsap/business/dist/ScrollTrigger';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import Image from 'next/image';
 import { NextSeo } from 'next-seo';
 import PropTypes from 'prop-types';
