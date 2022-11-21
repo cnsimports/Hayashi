@@ -163,11 +163,6 @@ export const Header = () => {
 										</a>
 									</Link>
 								</motion.li>
-								<motion.li variants={item}>
-									<Link href="/contact">
-										<a>Contact</a>
-									</Link>
-								</motion.li>
 							</motion.ul>
 							<motion.div
 								initial={{ opacity: 0 }}
