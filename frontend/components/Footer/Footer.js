@@ -4,16 +4,41 @@ import { Logo } from '@svg/Logo';
 import { CopySocial } from './CopySocial';
 
 import styles from './Footer.module.css';
+import Image from 'next/image';
 
 export const Footer = () => (
 	<footer className={`${styles.footer} footer`}>
 		<div className="container">
 			<div className={styles['foot-nav-container']}>
+				<Image
+					alt="The Modern Expression Of An Ancient Spirit"
+					src='/images/footer-text.svg'
+					width={316}
+					height={52}
+					className={styles['foot-img']}
+				/>
 				<ul className={styles['foot-nav']}>
 					<li>
 						<Link href="/whisky">
-							<a>Ryukyu Whisky</a>
+							<a>Hayashi Products</a>
 						</Link>
+						<ul className={styles['foot-subnav']}>
+							<li>
+								<Link href="#">
+									<a>24 Yr</a>
+								</Link>
+							</li>
+							<li>
+								<Link href="#">
+									<a>8 Yr</a>
+								</Link>
+							</li>
+							<li>
+								<Link href="#">
+									<a>Koyo</a>
+								</Link>
+							</li>
+						</ul>
 					</li>
 					<li>
 						<Link href="/craft">
