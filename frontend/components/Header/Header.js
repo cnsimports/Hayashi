@@ -127,7 +127,7 @@ export const Header = () => {
 											}}
 											onMouseLeave={() => setHoverMenu('')}
 										>
-											Ryukyu Whisky
+											Our Whisky
 										</a>
 									</Link>
 								</motion.li>
