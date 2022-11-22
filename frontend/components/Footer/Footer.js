@@ -8,29 +8,30 @@ import styles from './Footer.module.css';
 export const Footer = () => (
 	<footer className={`${styles.footer} footer`}>
 		<div className="container">
-			<ul className={styles['foot-nav']}>
-				<li>
-					<Link href="/whisky">
-						<a>Ryukyu Whisky</a>
-					</Link>
-				</li>
-				<li>
-					<Link href="/craft">
-						<a>Our Craft</a>
-					</Link>
-				</li>
-				<li>
-					<Link href="/blog">
-						<a>Blog</a>
-					</Link>
-				</li>
-				<li>
-					<Link href="/contact">
-						<a>Contact</a>
-					</Link>
-				</li>
-			</ul>
-
+			<div className={styles['foot-nav-container']}>
+				<ul className={styles['foot-nav']}>
+					<li>
+						<Link href="/whisky">
+							<a>Ryukyu Whisky</a>
+						</Link>
+					</li>
+					<li>
+						<Link href="/craft">
+							<a>Our Craft</a>
+						</Link>
+					</li>
+					<li>
+						<Link href="/blog">
+							<a>Blog</a>
+						</Link>
+					</li>
+					<li>
+						<Link href="/contact">
+							<a>Contact</a>
+						</Link>
+					</li>
+				</ul>
+			</div>
 			<div className={styles.subscribe}>
 				<>
 					{/* eslint-disable */}
@@ -42,11 +43,11 @@ export const Footer = () => (
 					{/* eslint-enable */}
 				</>
 			</div>
-
-			<Logo width={85} height={15} />
-
-			<div className={styles['copy-social']}>
-				<CopySocial />
+			<div className={styles['foot-group']}>
+				<Logo width={85} height={15} />
+				<div className={styles['copy-social']}>
+					<CopySocial />
+				</div>
 			</div>
 		</div>
 	</footer>

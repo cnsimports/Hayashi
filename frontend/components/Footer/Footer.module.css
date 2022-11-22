@@ -10,18 +10,11 @@
 
 	& :global(.container) {
 		align-items: center;
-		display: grid;
 		font-family: var(--f-heading);
-		gap: 2rem;
+		display: flex;
+		flex-wrap: wrap;
 		justify-content: space-between;
-		padding-bottom: 2rem;
-		padding-top: 6rem;
-		
-		@media (min-width: 768px) {
-			column-gap: 4rem;
-			grid-template-columns: repeat(2, 1fr);
-			row-gap: 8em;
-		}
+		padding: 0 5.4rem 2.19rem 0;
 
 		& a {
 			&:hover {
@@ -31,18 +24,26 @@
 	}
 }
 
+.foot-nav-container {
+	width: 51vw;
+	margin-right: 3rem;
+	padding: 6.25rem 6.25rem 7rem;
+	background-image: url('/images/background-menu.svg');
+	font-size: 0.87rem;
+}
+
 .foot-nav {
 	align-self: start;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-	gap: 2rem;
 	list-style: none;
 	margin: 0;
 	padding: 0;
 
 	@media (min-width: 480px) {
 		flex-direction: row;
+		justify-content: space-between;
 	}
 
 	& ul {
@@ -56,10 +57,25 @@
 	}
 }
 
+.foot-group {
+	width: 100%;	
+	padding: 2.37rem 0.8rem 0 6.25rem;
+	display: flex;
+	justify-content: space-between;
+}
+
 .subscribe {
+	width: 33.88vw;
+
 	& .mailchimp {
 		padding-top: 1rem;
 		position: relative;
+	}
+
+	& label {
+		font-size: 0.875rem;
+		font-weight: 300;
+		margin-bottom: 1.5rem;
 	}
 
 	& input {
@@ -92,11 +108,17 @@
 }
 
 .copy-social {
+	width: 33.88vw;
 	align-items: center;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	gap: 1rem;
+	font-size: 0.75rem;
+
+	& p {
+		margin: 0;
+	}
 
 	& a {
 		text-decoration: underline;

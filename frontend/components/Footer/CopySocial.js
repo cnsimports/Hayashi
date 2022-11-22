@@ -4,8 +4,9 @@ import { Social } from '@components/Social/Social';
 
 export const CopySocial = () => (
 	<>
-		<Link href="/contact">
-			<a>Contact</a>
+		<p>&copy; {new Date().getFullYear()} Hayashi</p>
+		<Link href="/privacy-policy">
+			<a>Privacy Policy</a>
 		</Link>
 		<Social />
 	</>
