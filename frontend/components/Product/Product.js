@@ -35,16 +35,16 @@ export const Product = ({ image, name, blurb, desc, notes }) => {
 						<a href="#" className={styles.button}><i>Purchase Online</i></a>
 					</div>
 				</div>
-			</div>
-			<div className={styles.image}>
-				<Image
-					alt={image.alternativeText}
-					src={getStrapiMedia(image.url)}
-					priority
-					layout="responsive"
-					width={502}
-					height={800}
-				/>
+				<div className={styles.image}>
+					<Image
+						alt={image.alternativeText}
+						src={getStrapiMedia(image.url)}
+						priority
+						layout="responsive"
+						width={502}
+						height={800}
+					/>
+				</div>
 			</div>
 		</div>
 	);
