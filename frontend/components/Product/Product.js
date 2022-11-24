@@ -9,7 +9,8 @@ export const Product = ({ image, name, blurb, desc, notes }) => {
 		<div className={styles.product}>
 			<div className="container">
 				<div className={styles.content}>
-					<div className="kanji">
+					<h2 className="-uppercase">{name}</h2>
+					<div className={styles.kanji}>
 						<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 230">
 							<path
 								fill="#B2AEA8"
@@ -18,25 +19,20 @@ export const Product = ({ image, name, blurb, desc, notes }) => {
 						</svg>
 					</div>
 					<div>
-						<h2>{name}</h2>
+						<p className={styles.featured}>{blurb}</p>
 						<p>
-							<strong>
-								<i>{blurb}</i>
-							</strong>
+							<strong className={`${styles.subtitle} -uppercase`}>Description:</strong>
 						</p>
+						<p>{desc}</p>
 						<p>
-							<strong>Description:</strong>
-							<br />
-							{desc}
-						</p>
-						<p>
-							<strong>Notes:</strong>
+							<strong className={`${styles.subtitle} -uppercase`}>Notes:</strong>
 						</p>
 						<ul className={styles.notes}>
 							{notes.data.map(({ attributes }) => (
 								<li key={attributes.ProductNote}>{attributes.ProductNote}</li>
 							))}
 						</ul>
+						<a href="#" className={styles.button}><i>Purchase Online</i></a>
 					</div>
 				</div>
 			</div>

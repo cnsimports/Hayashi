@@ -40,13 +40,39 @@
 		}
 	}
 
+	& :global(.container)  {
+		&:after {
+			content: '';
+			background-image: url('/images/hero-decoration.svg');
+			background-repeat: no-repeat;
+			display: flex;
+			justify-content: center;
+			width: 17rem;
+			height: 1.625rem;
+			margin: 5.5rem auto 0;
+		}
+	}
+
 	& p {
 		margin: 0;
 	}
 
 	& h1 {
-		font-weight: 100;
+		font-size: 2.375rem;
+		font-weight: 300;
 		margin-bottom: 1rem;
 		margin-top: 0;
 	}
+}
+
+.hero-pretitle {
+	color: var(--c-gold);
+	font-weight: 600;
+	margin-bottom: 1rem;
+	display: block;
+}
+
+.hero-text {
+	font-size: 1.25rem;
+	line-height: 1.7rem;
 }

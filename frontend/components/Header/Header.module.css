@@ -127,7 +127,7 @@
 		max-width: 80%;
 		list-style: none;
 		margin: 0;
-		background-image: url('/images/background-menu.svg');
+		background-image: url('/images/background--gray.svg');
 		padding: 1.5rem;
 
 		@media (min-width: 768px) {

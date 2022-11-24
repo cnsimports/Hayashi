@@ -13,24 +13,24 @@ export const Hero = ({
 	Button: Btn,
 	lightText,
 	className,
-	containerClasses = 'container -p-m',
+	containerClasses = 'container',
 	narrow,
 	children,
 }) => (
 	<div className={`${styles.hero} ${narrow ? styles.narrow : ''} ${className} -center`}>
 		<div className={containerClasses}>
 			{HeroTopLine && (
-				<motion.p variants={heroMotion} initial="hidden" animate="fade" className={`h5 ${lightText ? '-light' : ''}`}>
+				<motion.p variants={heroMotion} initial="hidden" animate="fade" className={`${styles['hero-pretitle']} -uppercase -text-md  ${lightText ? '-light' : ''}`}>
 					{HeroTopLine}
 				</motion.p>
 			)}
 			{HeroMain && (
-				<motion.h1 variants={heroMotion} initial="hidden" animate="fade" className={`h2 ${lightText ? '-light' : ''}`}>
+				<motion.h1 variants={heroMotion} initial="hidden" animate="fade" className={`${lightText ? '-light' : ''}`}>
 					{HeroMain}
 				</motion.h1>
 			)}
 			{HeroBottomLine && (
-				<motion.p variants={heroMotion} initial="hidden" animate="fade" className={`h5 ${lightText ? '-light' : ''}`}>
+				<motion.p variants={heroMotion} initial="hidden" animate="fade" className={`${styles['hero-text']} ${lightText ? '-light' : ''}`}>
 					{HeroBottomLine}
 				</motion.p>
 			)}
