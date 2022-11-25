@@ -28,8 +28,8 @@ const Blog = ({ hero }) => {
 				HeroBottomLine={hero?.HeroBottomLine}
 			/>
 
-			<div className={`container -sm -py-2xl -center ${styles.filters}`}>
-				<div className="-granite -p-m">
+			<div className={`container -sm -center ${styles.filters}`}>
+				<div className="-granite">
 					<button onClick={() => setTag('All')}>All</button>
 					<button onClick={() => setTag('Blog')}>Japanese Whisky Blog</button>
 					<button onClick={() => setTag('News')}>News</button>

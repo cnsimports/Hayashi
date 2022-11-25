@@ -5,6 +5,11 @@
 	font-weight: 100;
 	justify-content: center;
 	min-height: 60vh;
+	padding-bottom: 4rem;
+
+	@media(min-width: 1025px) {
+		padding: 10rem 24vw 5rem;
+	}
 
 	&.narrow {
 		min-height: 40vh;

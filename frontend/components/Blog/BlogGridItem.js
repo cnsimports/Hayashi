@@ -6,8 +6,7 @@ import Link from 'next/link';
 import styles from './BlogGrid.module.css';
 import { getStrapiMedia } from '@lib/media';
 
-export const BlogGridItem = ({ title, thumbnail, count, slug }) => {
-	const padCount = count.toString().padStart(3, '0');
+export const BlogGridItem = ({ title, thumbnail, slug }) => {
 	return (
 		<Link href={`/blog/${slug}`} passHref>
 			<motion.a
@@ -17,15 +16,14 @@ export const BlogGridItem = ({ title, thumbnail, count, slug }) => {
 				exit={{ opacity: 0 }}
 				className={styles['blog-grid-item']}
 			>
-				<p>{padCount}</p>
 				<div className="img">
 					<Image
 						priority
 						alt={thumbnail.alternativeText}
 						src={getStrapiMedia(thumbnail.url)}
 						layout="responsive"
-						width={600}
-						height={656}
+						width={410}
+						height={493}
 					/>
 				</div>
 				<h4>{title}</h4>

@@ -37,10 +37,6 @@ body {
   padding: 2rem;
 }
 
-.-py-2xl {
-  padding: 6rem 0;
-}
-
 .-granite {
   background-image: url('/images/granite.jpeg');
 }
