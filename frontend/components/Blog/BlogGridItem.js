@@ -22,8 +22,8 @@ export const BlogGridItem = ({ title, thumbnail, slug }) => {
 						alt={thumbnail.alternativeText}
 						src={getStrapiMedia(thumbnail.url)}
 						layout="responsive"
-						width={410}
-						height={493}
+						width={411}
+						height={550}
 					/>
 				</div>
 				<h4>{title}</h4>

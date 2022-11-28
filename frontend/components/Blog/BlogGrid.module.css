@@ -1,6 +1,6 @@
 .blog-grid {
 	display: grid;
-	gap: 1rem;
+	gap: 2rem;
 	padding-bottom: 5rem;
 
 	@media (min-width: 768px) {
@@ -10,11 +10,18 @@
 	@media (min-width: 1025px) {
 		grid-template-columns: repeat(3, 1fr);
 		padding: 0 3.125rem 7.3rem;
-		gap: 2rem;
+		column-gap: 2rem;
+		row-gap: 0;
 	}
 }
 
 .blog-grid-item {
+	@media (min-width: 1025px) {
+		&:nth-child(3n+2) {
+			margin-top: 3.87rem;
+		}
+	}
+
 	& h2,
 	& h3,
 	& h4 {
@@ -27,6 +34,7 @@
 		font-size: 1.125rem;
 		text-align: end;
 		margin-left: auto;
+		margin-bottom: 0;
 	}
 
 	& img {
