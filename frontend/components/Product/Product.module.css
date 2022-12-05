@@ -39,7 +39,7 @@
 
 .content {
 	width: 100%;
-	background-image: url('/images/background--gray.svg');
+	background-image: url('/images/background-texture.svg');
 	background-size: cover;
 	display: grid;
 	padding: 2rem;

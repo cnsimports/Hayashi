@@ -61,7 +61,7 @@ const Home = (props) => {
 				.fromTo(
 					videoRef.current,
 					{ currentTime: 0 },
-					{ currentTime: videoRef.current.duration - .25, duration: 2.75 },
+					{ currentTime: videoRef.current.duration, duration: 2.75 },
 					0
 				);
 
