@@ -4,6 +4,7 @@
 	justify-content: center;
 	overflow: clip;
 	position: relative;
+	padding-bottom: 3rem;
 	
 	@media (min-width: 1025px) {
 		min-height: 80vh;
@@ -28,12 +29,15 @@
 	& :global(.container) {
 		width: auto;
 		display: flex;
-		flex-wrap: wrap;
 		align-items: flex-start;
 		justify-content: space-between;
 		padding: 0;
 		margin: 0;
 		height: 100%;
+
+		@media (max-width: 1024px) {
+			flex-direction: column;
+		}
 	}
 }
 
@@ -86,9 +90,15 @@
 	& .kanji {
 		width: 1.125rem;
 		margin: 0.4rem 2.9rem 0 0;
+
+		@media (max-width: 767px) {
+			margin-right: 1.5rem;
+		}
 	}
 
 	& .featured {
+		font-size: 1.125rem;
+		line-height: 1.7rem;
 		font-weight: 500;
 	}
 
