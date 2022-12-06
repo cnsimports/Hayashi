@@ -19,9 +19,12 @@ import { Kanji } from '@components/SVG/Kanji';
 import styles from '@styles/pageTransition/pageTransition.module.css';
 
 import '@styles/globals.css';
+import { QUERY_PRODUCTS } from '@lib/queries';
+import client from '@lib/apollo';
 
 export const GlobalContext = createContext({});
-function MyApp({ Component, pageProps, router }) {
+function MyApp({ Component, pageProps, router, products }) {
+	console.log(products);
 	const { route } = router;
 	const [isLegal, setIsLegal] = useState('');
 
@@ -149,7 +152,12 @@ function MyApp({ Component, pageProps, router }) {
 				)}
 				{isLegal === 'true' && (
 					<>
-						<Footer initial={false} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }} />
+						<Footer
+							initial={false}
+							animate={{ opacity: 1 }}
+							transition={{ delay: 1, duration: 1 }}
+							products={products}
+						/>
 						<CookieConsent style={{ backgroundColor: 'black' }}>
 							This website uses cookies to enhance the user experience.
 						</CookieConsent>
@@ -167,14 +175,18 @@ MyApp.getInitialProps = async (appContext) => {
 	// 		favicon: '*',
 	// 	},
 	// });
+	const { data: productRes } = await client.query({
+		query: QUERY_PRODUCTS,
+	});
 
-	return { ...appProps };
+	return { ...appProps, products: productRes.products.data };
 };
 
 MyApp.propTypes = {
 	Component: PropTypes.func,
 	pageProps: PropTypes.object,
 	router: PropTypes.object,
+	products: PropTypes.array,
 };
 
 export default MyApp;

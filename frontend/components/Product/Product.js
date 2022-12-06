@@ -6,7 +6,7 @@ import styles from './Product.module.css';
 
 export const Product = ({ image, name, blurb, desc, notes }) => {
 	return (
-		<div className={styles.product}>
+		<div className={styles.product} id={name.replaceAll(' ', '-').toLowerCase()}>
 			<div className="container">
 				<div className={styles.content}>
 					<h2 className="-uppercase">{name}</h2>
@@ -32,7 +32,9 @@ export const Product = ({ image, name, blurb, desc, notes }) => {
 								<li key={attributes.ProductNote}>{attributes.ProductNote}</li>
 							))}
 						</ul>
-						<a href="#" className={styles.button}><i>Purchase Online</i></a>
+						<a href="#" className={styles.button}>
+							<i>Purchase Online</i>
+						</a>
 					</div>
 				</div>
 				<div className={styles.image}>

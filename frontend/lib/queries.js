@@ -246,3 +246,15 @@ export const QUERY_ALL_POSTS = gql`
 		}
 	}
 `;
+
+export const QUERY_PRODUCTS = gql`
+	query {
+		products {
+			data {
+				attributes {
+					ProductName
+				}
+			}
+		}
+	}
+`;

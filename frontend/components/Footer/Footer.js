@@ -6,13 +6,15 @@ import { CopySocial } from './CopySocial';
 import styles from './Footer.module.css';
 import Image from 'next/image';
 
-export const Footer = () => (
+import PropTypes from 'prop-types';
+
+export const Footer = ({ products }) => (
 	<footer className={`${styles.footer} footer`}>
 		<div className="container">
 			<div className={styles['foot-nav-container']}>
 				<Image
 					alt="The Modern Expression Of An Ancient Spirit"
-					src='/images/footer-text.svg'
+					src="/images/footer-text.svg"
 					width={316}
 					height={52}
 					className={styles['foot-img']}
@@ -23,21 +25,13 @@ export const Footer = () => (
 							<a>Hayashi Products</a>
 						</Link>
 						<ul className={styles['foot-subnav']}>
-							<li>
-								<Link href="#">
-									<a>24 Yr</a>
-								</Link>
-							</li>
-							<li>
-								<Link href="#">
-									<a>8 Yr</a>
-								</Link>
-							</li>
-							<li>
-								<Link href="#">
-									<a>Koyo</a>
-								</Link>
-							</li>
+							{products.map((product, index) => (
+								<li key={`product-${index}`}>
+									<Link href={`/whisky#${product.attributes.ProductName.replaceAll(' ', '-').toLowerCase()}`}>
+										<a>{product.attributes.ProductName}</a>
+									</Link>
+								</li>
+							))}
 						</ul>
 					</li>
 					<li>
@@ -82,3 +76,7 @@ export const Footer = () => (
 		</div>
 	</footer>
 );
+
+Footer.propTypes = {
+	products: PropTypes.array,
+};
