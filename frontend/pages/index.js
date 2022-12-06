@@ -310,7 +310,7 @@ const Home = (props) => {
 					<Image alt={home_fields.slide_7_image.data.attributes.alternativeText} src={getStrapiMedia(home_fields.slide_7_image.data.attributes.url)} layout="responsive" width={home_fields.slide_7_image.data.attributes.width} height={home_fields.slide_7_image.data.attributes.height} />
 				)}
 
-				<Slide bg="dark">
+				<div bg="dark" className={`${styles['dark-heading']}`}>
 					<div className="container -sm -center -pb-l">
 						<h3>{home_fields.slide_8_title}</h3>
 						<Button href={home_fields.slide_8_button.URL}>
@@ -319,17 +319,17 @@ const Home = (props) => {
 							</>
 						</Button>
 					</div>
-				</Slide>
+				</div>
 
-				<Slide bg="dark">
-					<div className={`${styles['img-grid']} container -sm -pb-l`}>
+				<div bg="dark">
+					<div className={`${styles['img-grid']} container -pb-l`}>
 						{home_fields.slide_9_image.data?.map((image) => (
-							<div key={image.id}>
+							<div  className={`${styles['img-grid-item']}`} key={image.id}>
 								<Image alt={image.attributes.alternativeText} src={getStrapiMedia(image.attributes.url)} layout="responsive" width={600} height={750} />
 							</div>
 						))}
 					</div>
-				</Slide>
+				</div>
 
 				<HoverLinks title={link_hover.title} links={link_hover.link_hover_item} />
 

@@ -60,3 +60,9 @@
 .dark {
 	color: var(--c-white);
 }
+
+
+.dark-slide-sm {
+	height: auto;
+	min-height: auto;
+}
