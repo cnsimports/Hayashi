@@ -34,6 +34,13 @@
       ],
       "type": "media",
       "multiple": false
+    },
+    "ProductPhoto": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

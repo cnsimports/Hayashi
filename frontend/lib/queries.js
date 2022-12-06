@@ -36,6 +36,14 @@ export const QUERY_PAGES_BY_SLUG = gql`
 												}
 											}
 										}
+										ProductPhoto {
+											data {
+												attributes {
+													url
+													alternativeText
+												}
+											}
+										}
 										ProductDescription
 										product_notes {
 											data {
