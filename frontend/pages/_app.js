@@ -7,9 +7,11 @@ import Image from 'next/image';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 
-import { gsap } from '@gsap/business';
+/*import { gsap } from '@gsap/business';
 import { ScrollTrigger } from '@gsap/business/dist/ScrollTrigger';
-import { DrawSVGPlugin } from '@gsap/business/dist/DrawSVGPlugin';
+import { DrawSVGPlugin } from '@gsap/business/dist/DrawSVGPlugin';*/
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 import { Header } from '@components/Header/Header';
 import { Footer } from '@components/Footer/Footer';
@@ -30,7 +32,8 @@ function MyApp({ Component, pageProps, router }) {
 	useEffect(() => {
 		document.body.classList.add('loaded');
 		setIsLegal(localStorage.getItem('ageVerified'));
-		gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
+		//gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
+		gsap.registerPlugin(ScrollTrigger);
 	}, []);
 
 	useEffect(() => {
@@ -100,7 +103,7 @@ function MyApp({ Component, pageProps, router }) {
 									footer?.classList.remove('hide');
 									main?.classList.remove('hide');
 
-									gsap.fromTo(
+									/*gsap.fromTo(
 										'.progress-wrap path',
 										{
 											drawSVG: 0,
@@ -113,7 +116,7 @@ function MyApp({ Component, pageProps, router }) {
 												scrub: true,
 											},
 										}
-									);
+									);*/
 
 									gsap.fromTo(
 										'.progress-wrap',

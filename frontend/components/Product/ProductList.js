@@ -2,7 +2,7 @@ import { Product } from './Product';
 
 export const ProductList = ({ products }) =>
 	products.data.map(
-		({ attributes: { ProductImage, ProductName, ProductBlurb, ProductDescription, product_notes } }) => (
+		({ attributes: { ProductImage, ProductName, ProductBlurb, ProductDescription, product_notes, ShopifyID } }) => (
 			<Product
 				key={ProductName}
 				name={ProductName}
@@ -14,6 +14,7 @@ export const ProductList = ({ products }) =>
 						? ProductImage.data.attributes
 						: { alternativeText: '', url: 'https://source.unsplash.com/random/?whisky' }
 				}
+				shopifyId={ShopifyID}
 			/>
 		)
 	);

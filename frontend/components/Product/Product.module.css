@@ -36,6 +36,17 @@
 	& h2 {
 		margin: 0;
 	}
+	
+	& .button {
+		font-weight: 500;
+		margin-top: 2rem;
+		display: flex;
+		align-items: center;
+		background: transparent;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+	}
 }
 
 .image {

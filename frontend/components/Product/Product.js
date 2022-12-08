@@ -3,8 +3,11 @@ import Image from 'next/image';
 import PropTypes from 'prop-types';
 
 import styles from './Product.module.css';
+import { useShopifyBuyButton } from '@lib/purchase-button';
 
-export const Product = ({ image, name, blurb, desc, notes }) => {
+export const Product = ({ image, name, blurb, desc, notes, shopifyId }) => {
+	useShopifyBuyButton(shopifyId);
+
 	return (
 		<div className={styles.product}>
 			<div className="container">
@@ -37,6 +40,14 @@ export const Product = ({ image, name, blurb, desc, notes }) => {
 								<li key={attributes.ProductNote}>{attributes.ProductNote}</li>
 							))}
 						</ul>
+						{shopifyId && shopifyId.length > 0 && (
+							<>
+								{/*<button className={styles.button}>
+									<i>Purchase Online</i>
+								</button>*/}
+								<div id={shopifyId} className={styles.button}></div>
+							</>
+						)}
 					</div>
 				</div>
 			</div>
@@ -60,4 +71,5 @@ Product.propTypes = {
 	desc: PropTypes.string,
 	notes: PropTypes.object,
 	image: PropTypes.object,
+	shopifyId: PropTypes.string,
 };
