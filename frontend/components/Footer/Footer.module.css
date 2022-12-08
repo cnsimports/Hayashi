@@ -1,6 +1,7 @@
 .footer {
 	background-color: var(--c-white);
 	position: relative;
+	margin-top: 2.94rem;
 	transition: 100ms ease opacity;
 	z-index: 15;
 

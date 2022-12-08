@@ -64,6 +64,15 @@ export const QUERY_PAGES_BY_SLUG = gql`
 								Text
 								URL
 							}
+							Image {
+								data {
+									attributes {
+										mime
+										alternativeText
+										url
+									}
+								}
+							}
 						}
 						... on ComponentImagesCoverImage {
 							Parallax

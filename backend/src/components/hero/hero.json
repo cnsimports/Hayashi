@@ -21,6 +21,13 @@
       "type": "component",
       "repeatable": false,
       "component": "button.button"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
