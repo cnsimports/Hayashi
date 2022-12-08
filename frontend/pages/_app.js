@@ -19,11 +19,13 @@ import { Kanji } from '@components/SVG/Kanji';
 import styles from '@styles/pageTransition/pageTransition.module.css';
 
 import '@styles/globals.css';
+import { NextSeo } from 'next-seo';
 
 export const GlobalContext = createContext({});
 function MyApp({ Component, pageProps, router }) {
 	const { route } = router;
 	const [isLegal, setIsLegal] = useState('');
+	const { seoData = [] } = pageProps;
 
 	useEffect(() => {
 		document.body.classList.add('loaded');
@@ -39,6 +41,7 @@ function MyApp({ Component, pageProps, router }) {
 
 	return (
 		<>
+			<NextSeo {...seoData} />
 			<Head>
 				<link rel="stylesheet" href="https://use.typekit.net/wzt1kkc.css" />
 			</Head>
