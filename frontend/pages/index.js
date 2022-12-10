@@ -270,7 +270,7 @@ const Home = (props) => {
 							</div>
 						</Slide>
 
-						<Slide full className="slide">
+						<Slide full className="slide over">
 							<div className="container">
 								<div className={`${styles['content']} ${styles['-bottle-land']}`}>
 									<h2 className="title">{home_fields.slide_4_title}</h2>

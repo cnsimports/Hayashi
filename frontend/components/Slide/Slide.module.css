@@ -31,6 +31,10 @@
 				grid-template-columns: 1fr;
 			}
 		}
+
+		&:global(.over) {
+			z-index: 100;
+		}
 	}
 
 	&:global(.first) {
