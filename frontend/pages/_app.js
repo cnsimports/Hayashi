@@ -53,6 +53,7 @@ function MyApp({ Component, pageProps, router, products }) {
 					<AnimatePresence exitBeforeEnter>
 						<>
 							<motion.div
+								className="main-wrapper"
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
 								transition={{ delay: 1.5 }}
