@@ -32,7 +32,7 @@
 	}
 	
 	& :global .h1 {
-		font-size: var(--fs-4);
+		font-size: 4.44vw;
 		margin: 0;
 		padding: 0;
 	}
@@ -109,7 +109,7 @@
 	position: absolute;
 	top: 100%;
 	z-index: 5;
-	margin-top: 4.8rem;
+	margin-top: 8.5vh;
 
 	@media (max-width: 767px) {
 		margin-top: 2rem;
@@ -132,7 +132,7 @@
 
 		@media (min-width: 768px) {
 			width: 56.7vw;
-			padding: 4.5rem 0 3.7rem 10.97vw;
+			padding: 8vh 0 6.65vh 10.97vw;
 		}
 
 		& li {
@@ -153,11 +153,7 @@
 			transition: color 300ms ease;
 			width: 100%;
 			font-weight: 300;
-			line-height: 4rem;
-
-			@media (min-width: 768px) {
-				line-height: 7.8rem;
-			}
+			line-height: max(1em, 14vh);
 
 			@media (max-width: 767px) {
 				z-index: 10;
@@ -194,7 +190,7 @@
 	padding: 4rem 2.5rem 4rem 1.5rem;
 	
 	@media (min-width: 768px) {
-		padding: 2.25rem 10vw 0 10.97vw;
+		padding: 4vh 10vw 0 10.97vw;
 		max-width: 80%;
 	}
 
