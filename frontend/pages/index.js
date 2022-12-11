@@ -75,13 +75,15 @@ const Home = (props) => {
 				scrub: true,
 				animation: bottleScrubTl,
 				onUpdate: (st) => {
-					const videoTop = videoRef.current.getBoundingClientRect().top;
-					const bgTop = bottleRef.current.getBoundingClientRect().top;
-					bottleBgRef.current.style.top = `${videoTop - bgTop}px`;
-					if (st.progress > 0.92) {
-						bottleBgRef.current.style.opacity = 1;
-					} else {
-						bottleBgRef.current.style.opacity = 0;
+					if (videoRef.current && bottleBgRef.current && bottleRef.current) {
+						const videoTop = videoRef.current.getBoundingClientRect().top;
+						const bgTop = bottleRef.current.getBoundingClientRect().top;
+						bottleBgRef.current.style.top = `${videoTop - bgTop}px`;
+						if (st.progress > 0.92) {
+							bottleBgRef.current.style.opacity = 1;
+						} else {
+							bottleBgRef.current.style.opacity = 0;
+						}
 					}
 				},
 			});
