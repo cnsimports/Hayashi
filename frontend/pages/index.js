@@ -20,6 +20,7 @@ import styles from '@styles/pages/Home.module.css';
 const Home = (props) => {
 	const omegawrapRef = useRef(null);
 	const bottleRef = useRef(null);
+	const bottleBgRef = useRef(null);
 	const videoRef = useRef(null);
 	const slidesRef = useRef(null);
 	const slideOneRef = useRef(null);
@@ -69,10 +70,20 @@ const Home = (props) => {
 				trigger: slidesRef.current,
 				start: 'top top+=70',
 				end: 'bottom bottom+=150%',
-				pin: videoRef.current,
+				pin: bottleRef.current,
 				pinSpacing: false,
 				scrub: true,
-				animation: bottleScrubTl
+				animation: bottleScrubTl,
+				onUpdate: (st) => {
+					const videoTop = videoRef.current.getBoundingClientRect().top;
+					const bgTop = bottleRef.current.getBoundingClientRect().top;
+					bottleBgRef.current.style.top = `${videoTop - bgTop}px`;
+					if (st.progress > 0.92) {
+						bottleBgRef.current.style.opacity = 1;
+					} else {
+						bottleBgRef.current.style.opacity = 0;
+					}
+				},
 			});
 		});
 
@@ -211,6 +222,10 @@ const Home = (props) => {
 							{/* ffmpeg -i Transparent-Final_1.mov -c:v libvpx-vp9 -b:v 2M -crf 20 -g 1 -auto-alt-ref 0 output.webm */}
 							<source src="https://res.cloudinary.com/hayashi-whisky/video/upload/v1663189424/bottle_spin_fuazr8.webm" />
 						</video>
+						<div ref={bottleBgRef} className={styles['bottle-background']}>
+							<img className={styles['bottle-background-decoration']} src="/images/home-bottle-text-decoration.svg" alt="" />
+							<img className={`${styles['bottle-background-decoration']} ${styles['bottle-background-decoration-2']}`} src="/images/home-bottle-text-decoration-2.svg" alt="" />
+						</div>
 					</div>
 
 					<div className={styles['slides']} ref={slidesRef}>
@@ -255,7 +270,7 @@ const Home = (props) => {
 							</div>
 						</Slide>
 
-						<Slide full className="slide">
+						<Slide full className="slide over">
 							<div className="container">
 								<div className={`${styles['content']} ${styles['-bottle-land']}`}>
 									<h2 className="title">{home_fields.slide_4_title}</h2>
