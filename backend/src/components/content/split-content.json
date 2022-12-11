@@ -10,9 +10,6 @@
     "content": {
       "type": "richtext"
     },
-    "title": {
-      "type": "string"
-    },
     "image": {
       "type": "media",
       "multiple": false,
@@ -31,6 +28,10 @@
         "text-box-over-image"
       ],
       "default": "side-by-side"
+    },
+    "title": {
+      "type": "richtext",
+      "maxLength": 200
     }
   }
 }
