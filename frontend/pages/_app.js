@@ -9,7 +9,6 @@ import PropTypes from 'prop-types';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-// import { DrawSVGPlugin } from '@gsap/business/dist/DrawSVGPlugin';
 
 import { Header } from '@components/Header/Header';
 import { Footer } from '@components/Footer/Footer';
@@ -21,12 +20,14 @@ import styles from '@styles/pageTransition/pageTransition.module.css';
 import '@styles/globals.css';
 import { QUERY_PRODUCTS } from '@lib/queries';
 import client from '@lib/apollo';
+import { NextSeo } from 'next-seo';
 
 export const GlobalContext = createContext({});
 function MyApp({ Component, pageProps, router, products }) {
 	console.log(products);
 	const { route } = router;
 	const [isLegal, setIsLegal] = useState('');
+	const { seoData = [] } = pageProps;
 
 	useEffect(() => {
 		document.body.classList.add('loaded');
@@ -42,6 +43,7 @@ function MyApp({ Component, pageProps, router, products }) {
 
 	return (
 		<>
+			<NextSeo {...seoData} />
 			<Head>
 				<link rel="stylesheet" href="https://use.typekit.net/wzt1kkc.css" />
 			</Head>

@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import Image from 'next/image';
-import { NextSeo } from 'next-seo';
 import PropTypes from 'prop-types';
 
 import client from '@lib/apollo';
@@ -212,10 +211,6 @@ const Home = (props) => {
 		const { home_fields, link_hover } = home.attributes;
 		return (
 			<main className="home">
-				<NextSeo
-					title="Hayashi Japanese Whisky"
-					description="An exemplary whisky of the Ryukyu Islands, Hayashi embodies both the quiet intrigue of Okinawa island life and the rich tradition of Japanese patience and perfection."
-				/>
 				<div ref={oneCloudsRef} className={styles['cloud']}></div>
 
 				<div ref={omegawrapRef} className="omegawrap">
@@ -371,9 +366,16 @@ export async function getStaticProps() {
 		query: QUERY_HOME,
 	});
 
+	const seoData = {
+		title: 'Hayashi Japanese Whisky',
+		description:
+			'An exemplary whisky of the Ryukyu Islands, Hayashi embodies both the quiet intrigue of Okinawa island life and the rich tradition of Japanese patience and perfection.',
+	};
+
 	return {
 		props: {
 			home: homepageRes.homepage.data,
+			seoData,
 		},
 		revalidate: 10,
 	};

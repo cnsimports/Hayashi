@@ -1,20 +1,11 @@
 import PropTypes from 'prop-types';
 import client from '@lib/apollo';
-import { NextSeo } from 'next-seo';
 
 import { QUERY_PAGES_BY_SLUG, QUERY_PAGE_SLUGS } from '@lib/queries';
 
 import BlockManager from '@components/shared/BlockManager';
 
-const Page = ({ content, title }) => (
-	<main>
-		<NextSeo
-			title={`Hayashi Japanese Whisky | ${title}`}
-			description="Earned excellence in every expression. Discover the Hayashi family of Ryukyu whisky made from pure indica rice."
-		/>
-		{content && <BlockManager blocks={content} />}
-	</main>
-);
+const Page = ({ content }) => <main>{content && <BlockManager blocks={content} />}</main>;
 
 Page.propTypes = {
 	content: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -45,10 +36,16 @@ export async function getStaticProps({ params = {} } = {}) {
 		query: QUERY_PAGES_BY_SLUG,
 	});
 
+	const seoData = {
+		title: `Hayashi Japanese Whisky | ${pageRes.pages.data[0].attributes.Title}`,
+		description:
+			'Earned excellence in every expression. Discover the Hayashi family of Ryukyu whisky made from pure indica rice.',
+	};
+
 	return {
 		props: {
 			content: pageRes.pages.data[0].attributes.Content,
-			title: pageRes.pages.data[0].attributes.Title,
+			seoData,
 		},
 		revalidate: 10,
 	};

@@ -52,6 +52,7 @@ export const QUERY_PAGES_BY_SLUG = gql`
 												}
 											}
 										}
+										ShopifyID
 									}
 								}
 							}
