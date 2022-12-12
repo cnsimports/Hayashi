@@ -19,11 +19,10 @@ export const Hero = ({
 	narrow,
 	children,
 }) => {
-	console.log('Img', Image);
 	return (
 		<div
 			className={`${styles.hero} ${narrow ? styles.narrow : ''} ${className} -center ${
-				Image.data ? styles['hero-with-image'] : ''
+				Image?.data ? styles['hero-with-image'] : ''
 			}`}
 		>
 			<div className={containerClasses}>
@@ -61,7 +60,7 @@ export const Hero = ({
 					</Button>
 				)}
 			</div>
-			{Image.data && <CoverImage CoverImage={Image} className={`${styles['hero-image']}`} />}
+			{Image?.data && <CoverImage CoverImage={Image} className={`${styles['hero-image']}`} />}
 		</div>
 	);
 };

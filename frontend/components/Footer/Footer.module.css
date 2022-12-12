@@ -10,6 +10,7 @@
 	}
 
 	& :global(.container) {
+		max-width: none;
 		align-items: center;
 		font-family: var(--f-heading);
 		display: flex;
