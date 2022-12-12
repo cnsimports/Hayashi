@@ -5,10 +5,10 @@ import { Hero } from '@components/Hero/Hero';
 import { ProductList } from '@components/Product/ProductList';
 import { ContactForm } from '@components/ContactForm/ContactForm';
 import { Content } from '@components/Content/Content';
+import { SplitContent } from '@components/SplitContent/SplitContent';
 
 const getBlockComponent = ({ __typename, ...rest }, index) => {
 	let Block;
-
 	switch (__typename) {
 		case 'ComponentHeroHero':
 			Block = Hero;
@@ -24,6 +24,9 @@ const getBlockComponent = ({ __typename, ...rest }, index) => {
 			break;
 		case 'ComponentContentContent':
 			Block = Content;
+			break;
+		case 'ComponentContentSplitContent':
+			Block = SplitContent;
 			break;
 	}
 

@@ -89,6 +89,21 @@ export const QUERY_PAGES_BY_SLUG = gql`
 						... on ComponentContentContent {
 							content
 						}
+						... on ComponentContentSplitContent {
+							topic
+							title
+							content
+							image {
+								data {
+									attributes {
+										mime
+										alternativeText
+										url
+									}
+								}
+							}
+							variant
+						}
 					}
 				}
 			}
