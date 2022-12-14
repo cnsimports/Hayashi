@@ -4,12 +4,15 @@ import PropTypes from 'prop-types';
 import { Button } from '@components/Button/Button';
 import { CoverImage } from '@components/CoverImage/CoverImage';
 import { heroMotion } from '@components/Hero/Hero.motion';
+import ReactMarkdown from 'react-markdown';
 
 import styles from './Hero.module.css';
 
 export const Hero = ({
 	HeroTopLine,
 	HeroMain,
+	StylizedText,
+	SecondLineIndented,
 	HeroBottomLine,
 	Button: Btn,
 	Image,
@@ -37,8 +40,15 @@ export const Hero = ({
 					</motion.p>
 				)}
 				{HeroMain && (
-					<motion.h1 variants={heroMotion} initial="hidden" animate="fade" className={`${lightText ? '-light' : ''}`}>
-						{HeroMain}
+					<motion.h1
+						variants={heroMotion}
+						initial="hidden"
+						animate="fade"
+						className={`${lightText ? '-light' : ''} ${StylizedText ? styles['stylized-text'] : ''} ${
+							SecondLineIndented ? styles['second-line-indented'] : ''
+						}`}
+					>
+						<ReactMarkdown>{HeroMain}</ReactMarkdown>
 					</motion.h1>
 				)}
 				{HeroBottomLine && (
@@ -68,6 +78,8 @@ export const Hero = ({
 Hero.propTypes = {
 	HeroTopLine: PropTypes.string,
 	HeroMain: PropTypes.string.isRequired,
+	StylizedText: PropTypes.bool,
+	SecondLineIndented: PropTypes.bool,
 	HeroBottomLine: PropTypes.string,
 	Button: PropTypes.object,
 	Image: PropTypes.shape({

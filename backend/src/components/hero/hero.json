@@ -10,9 +10,6 @@
     "HeroTopLine": {
       "type": "text"
     },
-    "HeroMain": {
-      "type": "text"
-    },
     "HeroBottomLine": {
       "type": "text"
     },
@@ -23,11 +20,23 @@
       "component": "button.button"
     },
     "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "HeroMain": {
+      "type": "richtext"
+    },
+    "SecondLineIndented": {
+      "type": "boolean",
+      "default": false
+    },
+    "StylizedText": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

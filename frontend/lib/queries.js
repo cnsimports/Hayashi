@@ -60,6 +60,8 @@ export const QUERY_PAGES_BY_SLUG = gql`
 						... on ComponentHeroHero {
 							HeroTopLine
 							HeroMain
+							StylizedText
+							SecondLineIndented
 							HeroBottomLine
 							Button {
 								Text

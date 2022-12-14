@@ -121,3 +121,31 @@
 	font-size: 1.25rem;
 	line-height: 1.7rem;
 }
+
+@media(min-width: 1025px) {
+	.stylized-text {
+		font-weight: 500 !important;
+		letter-spacing: 0.1em;
+		margin-top: 1.5rem !important;
+		white-space: nowrap;
+
+		p {
+			display: inline-block;			
+		}
+
+		em {
+			font-weight: 400;
+		}
+	}
+
+	.second-line-indented {
+		p {
+			transform: translateX(-27.5%);
+		}
+
+		br + * {
+			display: inline-block;
+			margin-left: 55%;
+		}
+	}
+}
