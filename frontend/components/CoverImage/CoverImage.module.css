@@ -1,4 +1,5 @@
 .cover-image {
+  width: 100%;
   position: relative;
   max-height: 880px;
   min-height: 330px;
