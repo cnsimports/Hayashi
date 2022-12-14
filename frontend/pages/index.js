@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import Image from 'next/image';
+import FutureImage from 'next/future/image';
 import PropTypes from 'prop-types';
 
 import client from '@lib/apollo';
@@ -23,6 +24,8 @@ const Home = (props) => {
 	const videoRef = useRef(null);
 	const slidesRef = useRef(null);
 	const slideOneRef = useRef(null);
+	const darkSlidesRef = useRef(null);
+	const darkSlidesBgRef = useRef(null);
 	const oneBgRef = useRef(null);
 	const oneTitleRef = useRef(null);
 	const oneCloudsRef= useRef(null);
@@ -190,6 +193,16 @@ const Home = (props) => {
 			}
 		});
 
+		const darkSlidesBgTl = gsap.timeline();
+
+		console.log('dark slide bg: ', darkSlidesBgRef.current)
+		ScrollTrigger.create({
+			trigger: darkSlidesRef.current,
+			pin: darkSlidesBgRef.current,
+			scrub: true,
+			animation: darkSlidesBgTl,
+		});
+
 		darkSlides.forEach((darkSlide) => {
 			const title = darkSlide.querySelector('.title');
 			const darkSlideTl = gsap.timeline();
@@ -304,7 +317,13 @@ const Home = (props) => {
 					</div>
 				</div>
 
-				<div className={`${styles['dark-slides']} js-dark-slides`}>
+				<div ref={darkSlidesRef} className={`${styles['dark-slides']} js-dark-slides`}>
+					{home_fields.slide_7_image.data && (
+						<div ref={darkSlidesBgRef} className={styles['ds-bg']}>
+							<FutureImage alt={home_fields.slide_7_image.data.attributes.alternativeText} src={getStrapiMedia(home_fields.slide_7_image.data.attributes.url)} layout="responsive" width={home_fields.slide_7_image.data.attributes.width} height={home_fields.slide_7_image.data.attributes.height} />
+						</div>
+					)}
+
 					<Slide bg="dark" className="first ds">
 						<div className="container -sm">
 							<h3 className="-center title">{home_fields.slide_5_title}</h3>
@@ -318,9 +337,6 @@ const Home = (props) => {
 					</Slide>
 				</div>
 
-				{home_fields.slide_7_image.data && (
-					<Image alt={home_fields.slide_7_image.data.attributes.alternativeText} src={getStrapiMedia(home_fields.slide_7_image.data.attributes.url)} layout="responsive" width={home_fields.slide_7_image.data.attributes.width} height={home_fields.slide_7_image.data.attributes.height} />
-				)}
 
 				<div bg="dark" className={`${styles['dark-heading']}`}>
 					<div className="container -sm -center -pb-l">
