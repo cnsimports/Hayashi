@@ -66,6 +66,11 @@
 			transform: rotate(25deg) translate(10vw, 5vw);
 		}
 	}
+
+	@media (max-width: 767px) {
+		width: 100%;
+		overflow: hidden;
+	}
 }
 
 .bottle-background {
