@@ -7,22 +7,14 @@
 	
 	@media (min-width: 1025px) {
 		min-height: 80vh;
-		padding: 0 0 6.69rem 6.75rem;
-
-		&:nth-of-type(2) {
-			padding-left: 0;
-		}
-
-		&:nth-of-type(even) {
-			& .content {
-				margin-right: 2.8rem;
-			}
-		}
+		padding: 0 0 6.69rem 0;
 
 		&:nth-of-type(odd) {
+			width: calc(100% - 6.75rem);
+			margin-left: auto;
+
 			& .content {
 				order: 2;
-				margin-left: 2.8rem;
 	
 				&:after {
 					right: auto;
@@ -153,5 +145,24 @@
 
 	& li {
 		list-style: none;
+	}
+}
+
+.container {
+	max-width: 100%;
+	gap: 3.125rem;
+}
+
+.image {
+	position: relative;
+	aspect-ratio: 492 / 784;
+
+	> img {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 }

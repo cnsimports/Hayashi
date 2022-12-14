@@ -1,5 +1,5 @@
 import { getStrapiMedia } from '@lib/media';
-import Image from 'next/image';
+import Image from 'next/future/image';
 import PropTypes from 'prop-types';
 
 import styles from './Product.module.css';
@@ -10,7 +10,7 @@ export const Product = ({ image, name, blurb, desc, notes, shopifyId }) => {
 
 	return (
 		<div className={styles.product} id={name.replaceAll(' ', '-').toLowerCase()}>
-			<div className="container">
+			<div className={`${styles.container} container`}>
 				<div className={styles.content}>
 					<h2 className="-uppercase">{name}</h2>
 					<div className={styles.kanji}>
