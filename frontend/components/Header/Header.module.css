@@ -217,7 +217,7 @@
 	aspect-ratio: 12 / 16;
 	inset: 0;
 	top: 2.5rem;
-	left: 53.75vw;
+	left: 54vw;
 	max-height: 621px;
 	pointer-events: none;
 	position: absolute; 
@@ -231,6 +231,10 @@
 	& img {
 		object-fit: cover;
 	}
+}
+
+.container {
+	position: relative;
 }
 
 .nav-bg {

@@ -107,7 +107,7 @@ export const Header = () => {
 						id="menu"
 						className={styles['menu-container']}
 					>
-						<div className="container">
+						<div className={`${styles.container} container`}>
 							<motion.ul
 								variants={container}
 								initial="hidden"
