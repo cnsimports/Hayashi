@@ -26,7 +26,7 @@
 
 			&::before {
 				content: '';
-				height: calc(100% + 1em);
+				height: calc(100% + 3em + var(--height-diff));
 				width: 1px;
 				position: absolute;
 				left: calc(7.1vw / 2);
