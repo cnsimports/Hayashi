@@ -32,9 +32,12 @@
 	}
 	
 	& :global .h1 {
-		font-size: var(--fs-4);
 		margin: 0;
 		padding: 0;
+
+		@media (min-width: 1025px) {
+			font-size: 4.44vw;
+		}
 	}
 	
 	& > :global(.container) {
@@ -42,9 +45,16 @@
 		border-top: 12px solid var(--c-gold);
 		display: flex;
 		justify-content: space-between;
-		padding-top: 2rem;
+		padding-left: 2.3rem;
+		padding-right: 2.875rem;
+		padding-top: 1.75rem;
 		position: relative;
 		z-index: 5;
+
+		@media (max-width: 767px) {
+			padding: 1.5rem 1.5rem 0;
+		}
+
 	}
 
 	& .logo {
@@ -67,6 +77,9 @@
 	font-family: var(--f-heading);
 	letter-spacing: 0.13rem;
 	line-height: 1;
+	font-size: 1.125rem;
+	position: relative;
+
 
 	& svg {
 		margin-left: 0.8rem;
@@ -99,23 +112,30 @@
 	position: absolute;
 	top: 100%;
 	z-index: 5;
+	margin-top: 8.5vh;
 
-	@media (min-width: 1024px) {
-		padding: 2.5rem 6rem;
+	@media (max-width: 767px) {
+		margin-top: 2rem;
 	}
+
 
 	& :global(.container) {
 		display: flex;
 		flex-direction: column;
+		padding-right: 13.68vw;
+		padding-left: 0;
 	}
 
 	& .primary-nav {
+		max-width: 80%;
 		list-style: none;
 		margin: 0;
-		padding: 2rem 0 0 0;
+		background-image: url('/images/background-texture.svg');
+		padding: 1.5rem;
 
 		@media (min-width: 768px) {
-			padding: 0;
+			width: 56.7vw;
+			padding: 8vh 0 6.65vh 10.97vw;
 		}
 
 		& li {
@@ -135,6 +155,13 @@
 			display: block;
 			transition: color 300ms ease;
 			width: 100%;
+			font-weight: 300;
+			line-height: max(1em, 14vh);
+
+			@media (max-width: 767px) {
+				z-index: 10;
+				position: relative;
+			}
 
 			&:hover {
 				color: var(--c-gold);
@@ -157,18 +184,22 @@
 }
 
 .menu-footer {
+	width: 56.7vw;
 	align-items: center;
+	justify-content: space-between;
 	display: flex;
 	flex-wrap: wrap;
 	gap: 1rem;
-	padding: 4rem 0;
+	padding: 4vh 2.5rem 4rem 1.5rem;
 	
 	@media (min-width: 768px) {
-		padding: 2.1875rem 0;
+		padding: 4vh 10vw 0 10.97vw;
+		max-width: 80%;
 	}
 
-	& p {
-		margin: 0;
+	& a {
+		font-size: 1.5rem;
+		font-weight: 300;
 	}
 
 	& > *:not(:last-child) {
@@ -188,11 +219,12 @@
 .image-float {
 	aspect-ratio: 12 / 16;
 	inset: 0;
-	left: 50%;
-	max-height: 600px;
+	top: 2.5rem;
+	left: 54vw;
+	max-height: 621px;
 	pointer-events: none;
 	position: absolute; 
-	z-index: -1;
+	z-index: 1;
 
 	& > div {
 		max-height: 600px;
@@ -202,6 +234,14 @@
 	& img {
 		object-fit: cover;
 	}
+
+	@media (max-width: 1024px) {
+		display: none;
+	}
+}
+
+.container {
+	position: relative;
 }
 
 .nav-bg {
@@ -210,13 +250,4 @@
 	height: 100vh;
 	width: 100vw;
 	top: 0;
-
-	&::after {
-		background-image: url('https://res.cloudinary.com/hayashi-whisky/image/upload/v1663860327/text2_fntdaz.jpg');
-		background-size: cover;
-		content: "";
-		display: block;
-		position: absolute;
-		inset: 0;
-	}
 }

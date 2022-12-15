@@ -1,0 +1,170 @@
+.split-content {
+	display: flex;
+	margin-left: 7.6vw;
+	gap: 3vw;
+
+	@media (max-width: 1024px) {
+		flex-direction: column;
+		gap: 7.6vw;
+		margin-bottom: 10vh;
+	}	
+
+	&.side-by-side {
+		@media (max-width: 1024px) {
+			margin-right: 7.6vw;
+		}
+
+		.content {
+			@media (max-width: 1024px) {
+				padding: 5vh 5vw;
+			}
+		}
+
+		.text {
+			padding-left: 7.1vw;
+			margin-top: 3em;
+
+			&::before {
+				content: '';
+				height: calc(100% + 3em + var(--height-diff));
+				width: 1px;
+				position: absolute;
+				left: calc(7.1vw / 2);
+				top: -1em;
+				background-color: var(--c-gold);
+			}
+		}
+	}
+
+	&.text-box-over-image {
+		align-items: flex-start;
+		margin: 0 7.6vw 10vh 7.6vw;
+
+		@media (min-width: 1025px) {
+			margin-left: 0;
+			margin-right: 4.5vw;
+		}
+		
+		.content {
+			padding: 13vh 5vw;
+
+			@media (max-width: 1024px) {
+				padding: 5vh 5vw;
+			}
+		}
+
+		.content-wrapper {
+			&::before {
+				filter: contrast(0.05);
+			}
+		}
+
+		.title {
+			margin: 1em 0;
+		}
+
+		.text {
+			font-size: 1.38vw;
+
+			@media (max-width: 1024px) {
+				font-size: var(--fs-2);
+			}
+		}
+
+		.image {
+			width: 100%;
+
+			@media (min-width: 1025px) {
+				aspect-ratio: 872 / 609;
+				order: -1;
+				align-self: flex-end;
+				width: 60vw;
+				margin-right: -24.16vw;
+				margin-top: 19vh;
+				z-index: -1;
+			}
+		}
+	}
+}
+
+.content {
+	display: flex;
+	align-items: center;
+	flex-basis: 0;
+	flex-grow: 1;
+	background-image: url('/images/background-texture.svg');
+	background-size: cover;
+	padding: 0 5vw;
+	position: relative;	
+}
+
+.content-wrapper {
+	position: relative;
+	padding-left: 4.5vw;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 1.5vw;
+		aspect-ratio: 22 / 144;
+		background: url('/images/our-craft-decoration.svg');
+
+		@media (max-width: 1024px) {
+			width: 3vw;
+			left: -1.5vw;
+		}
+	}
+}
+
+.topic {
+	font-family: var(--f-body);
+	font-size: 1.25vw;
+	font-weight: 600;
+	color: var(--c-gold);
+	margin-top: 0.2em;
+	margin-bottom: 0.4em;
+
+	@media (max-width: 1024px) {
+		font-size: var(--fs-0);
+	}
+}
+
+.title {
+	font-family: var(--f-heading);
+	font-size: 2.63vw;
+	font-weight: 300;
+	line-height: 1.052em;
+
+	p {
+		margin: 0 0 0.2em;
+	}
+
+	@media (max-width: 1024px) {
+		font-size: var(--fs-4);
+	}
+}
+
+.text {
+	position: relative;
+	font-size: 1.6vw;
+	font-weight: 300;
+	line-height: 1.375em;
+
+	@media (max-width: 1024px) {
+		font-size: var(--fs-1);
+	}
+}
+
+.image {
+	width: 34vw;
+	height: auto;
+	aspect-ratio: 488 / 784;
+	object-fit: cover;
+
+	@media (max-width: 1024px) {
+		width: 100%;
+		aspect-ratio: 1 / 1;
+	}
+}

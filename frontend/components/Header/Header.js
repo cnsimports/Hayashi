@@ -9,7 +9,7 @@ import { getRelativeCoordinates } from '@util/getRelativeCoordinates';
 import { Logo } from '@svg/Logo';
 import { Menu } from '@svg/Menu';
 
-import { CopySocial } from '@components/Footer/CopySocial';
+import { Social } from '@components/Social/Social';
 
 import styles from './Header.module.css';
 import { container, item, navContainer } from './Header.motion';
@@ -107,7 +107,7 @@ export const Header = () => {
 						id="menu"
 						className={styles['menu-container']}
 					>
-						<div className="container">
+						<div className={`${styles.container} container`}>
 							<motion.ul
 								variants={container}
 								initial="hidden"
@@ -127,7 +127,7 @@ export const Header = () => {
 											}}
 											onMouseLeave={() => setHoverMenu('')}
 										>
-											Ryukyu Whisky
+											Our Whisky
 										</a>
 									</Link>
 								</motion.li>
@@ -163,11 +163,6 @@ export const Header = () => {
 										</a>
 									</Link>
 								</motion.li>
-								<motion.li variants={item}>
-									<Link href="/contact">
-										<a>Contact</a>
-									</Link>
-								</motion.li>
 							</motion.ul>
 							<motion.div
 								initial={{ opacity: 0 }}
@@ -175,7 +170,10 @@ export const Header = () => {
 								transition={{ delay: 1 }}
 								className={styles['menu-footer']}
 							>
-								<CopySocial />
+								<Link href="/contact">
+									<a>Contact</a>
+								</Link>
+								<Social />
 							</motion.div>
 							<AnimatePresence>
 								{hoverMenu !== '' && (

@@ -4,33 +4,58 @@ import { Logo } from '@svg/Logo';
 import { CopySocial } from './CopySocial';
 
 import styles from './Footer.module.css';
+import Image from 'next/image';
 
-export const Footer = () => (
+import PropTypes from 'prop-types';
+
+export const Footer = ({ products }) => (
 	<footer className={`${styles.footer} footer`}>
 		<div className="container">
-			<ul className={styles['foot-nav']}>
-				<li>
-					<Link href="/whisky">
-						<a>Ryukyu Whisky</a>
-					</Link>
-				</li>
-				<li>
-					<Link href="/craft">
-						<a>Our Craft</a>
-					</Link>
-				</li>
-				<li>
-					<Link href="/blog">
-						<a>Blog</a>
-					</Link>
-				</li>
-				<li>
-					<Link href="/contact">
-						<a>Contact</a>
-					</Link>
-				</li>
-			</ul>
-
+			<div className={styles['foot-nav-container']}>
+				<Image
+					alt="The Modern Expression Of An Ancient Spirit"
+					src="/images/footer-text.svg"
+					width={316}
+					height={52}
+					className={styles['foot-img']}
+				/>
+				<ul className={styles['foot-nav']}>
+					<li>
+						<Link href="/whisky">
+							<a>Hayashi Products</a>
+						</Link>
+						<ul className={styles['foot-subnav']}>
+							{products.map((product, index) => (
+								<li key={`product-${index}`}>
+									<Link href={`/whisky#${product.attributes.ProductName.replaceAll(' ', '-').toLowerCase()}`}>
+										<a>{product.attributes.ProductName}</a>
+									</Link>
+								</li>
+							))}
+						</ul>
+					</li>
+					<li>
+						<Link href="#">
+							<a>Our Story</a>
+						</Link>
+					</li>
+					<li>
+						<Link href="/craft">
+							<a>Our Craft</a>
+						</Link>
+					</li>
+					<li>
+						<Link href="/blog">
+							<a>Blog</a>
+						</Link>
+					</li>
+					<li>
+						<Link href="/contact">
+							<a>Contact</a>
+						</Link>
+					</li>
+				</ul>
+			</div>
 			<div className={styles.subscribe}>
 				<>
 					{/* eslint-disable */}
@@ -42,12 +67,16 @@ export const Footer = () => (
 					{/* eslint-enable */}
 				</>
 			</div>
-
-			<Logo width={85} height={15} />
-
-			<div className={styles['copy-social']}>
-				<CopySocial />
+			<div className={styles['foot-group']}>
+				<Logo width={85} height={15} />
+				<div className={styles['copy-social']}>
+					<CopySocial />
+				</div>
 			</div>
 		</div>
 	</footer>
 );
+
+Footer.propTypes = {
+	products: PropTypes.array,
+};

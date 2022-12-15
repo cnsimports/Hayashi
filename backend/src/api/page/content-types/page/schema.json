@@ -16,10 +16,11 @@
       "type": "dynamiczone",
       "components": [
         "contact.contact-form",
+        "content.content",
         "hero.hero",
         "images.cover-image",
         "products.product-list",
-        "content.content"
+        "content.split-content"
       ]
     },
     "Title": {

@@ -1,15 +1,19 @@
 import { getStrapiMedia } from '@lib/media';
-import Image from 'next/image';
+import Image from 'next/future/image';
 import PropTypes from 'prop-types';
 
 import styles from './Product.module.css';
+import { useShopifyBuyButton } from '@lib/purchase-button';
 
-export const Product = ({ image, name, blurb, desc, notes }) => {
+export const Product = ({ image, name, blurb, desc, notes, shopifyId }) => {
+	useShopifyBuyButton(shopifyId);
+
 	return (
-		<div className={styles.product}>
-			<div className="container">
+		<div className={styles.product} id={name.replaceAll(' ', '-').toLowerCase()}>
+			<div className={`${styles.container} container`}>
 				<div className={styles.content}>
-					<div className="kanji">
+					<h2 className="-uppercase">{name}</h2>
+					<div className={styles.kanji}>
 						<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 230">
 							<path
 								fill="#B2AEA8"
@@ -18,37 +22,39 @@ export const Product = ({ image, name, blurb, desc, notes }) => {
 						</svg>
 					</div>
 					<div>
-						<h2>{name}</h2>
+						<p className={styles.featured}>{blurb}</p>
 						<p>
-							<strong>
-								<i>{blurb}</i>
-							</strong>
+							<strong className={`${styles.subtitle} -uppercase`}>Description:</strong>
 						</p>
+						<p>{desc}</p>
 						<p>
-							<strong>Description:</strong>
-							<br />
-							{desc}
-						</p>
-						<p>
-							<strong>Notes:</strong>
+							<strong className={`${styles.subtitle} -uppercase`}>Notes:</strong>
 						</p>
 						<ul className={styles.notes}>
 							{notes.data.map(({ attributes }) => (
 								<li key={attributes.ProductNote}>{attributes.ProductNote}</li>
 							))}
 						</ul>
+						{shopifyId && shopifyId.length > 0 && (
+							<>
+								{/*<button className={styles.button}>
+									<i>Purchase Online</i>
+								</button>*/}
+								<div id={shopifyId} className={styles.button}></div>
+							</>
+						)}
 					</div>
 				</div>
-			</div>
-			<div className={styles.image}>
-				<Image
-					alt={image.alternativeText}
-					src={getStrapiMedia(image.url)}
-					priority
-					layout="responsive"
-					width={502}
-					height={800}
-				/>
+				<div className={styles.image}>
+					<Image
+						alt={image.alternativeText}
+						src={getStrapiMedia(image.url)}
+						priority
+						layout="responsive"
+						width={502}
+						height={800}
+					/>
+				</div>
 			</div>
 		</div>
 	);
@@ -60,4 +66,5 @@ Product.propTypes = {
 	desc: PropTypes.string,
 	notes: PropTypes.object,
 	image: PropTypes.object,
+	shopifyId: PropTypes.string,
 };

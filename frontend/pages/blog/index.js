@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { NextSeo } from 'next-seo';
 
 import client from '@lib/apollo';
 
@@ -16,10 +15,6 @@ const Blog = ({ hero }) => {
 
 	return (
 		<main>
-			<NextSeo
-				title="Hayashi Japanese Whisky | Blog"
-				description="Within the evolving world of Japanese whisky, there&lsquo;s always more to be learned. Welcome to the Japanese whisky blog. We invite you to pour yourself a glass and delve into some of the industries most interesting conversations."
-			/>
 			<Hero
 				narrow
 				className="-pt-m"
@@ -28,8 +23,8 @@ const Blog = ({ hero }) => {
 				HeroBottomLine={hero?.HeroBottomLine}
 			/>
 
-			<div className={`container -sm -py-2xl -center ${styles.filters}`}>
-				<div className="-granite -p-m">
+			<div className={`container -sm -center ${styles.filters}`}>
+				<div className="-granite">
 					<button onClick={() => setTag('All')}>All</button>
 					<button onClick={() => setTag('Blog')}>Japanese Whisky Blog</button>
 					<button onClick={() => setTag('News')}>News</button>
@@ -52,9 +47,16 @@ export async function getStaticProps() {
 		query: QUERY_BLOG,
 	});
 
+	const seoData = {
+		title: 'Hayashi Japanese Whisky | Blog',
+		description:
+			'Within the evolving world of Japanese whisky, there&lsquo;s always more to be learned. Welcome to the Japanese whisky blog. We invite you to pour yourself a glass and delve into some of the industries most interesting conversations.',
+	};
+
 	return {
 		props: {
 			hero: blogRes.blog.data.attributes.Hero,
+			seoData,
 		},
 		revalidate: 10,
 	};

@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_content_split",
+  "info": {
+    "displayName": "Split Content",
+    "icon": "pencil-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "topic": {
+      "type": "string"
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": [
+        "side-by-side",
+        "text-box-over-image"
+      ],
+      "default": "side-by-side"
+    },
+    "title": {
+      "type": "richtext",
+      "maxLength": 200
+    }
+  }
+}

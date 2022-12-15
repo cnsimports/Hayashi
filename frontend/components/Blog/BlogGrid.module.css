@@ -1,22 +1,24 @@
 .blog-grid {
 	display: grid;
-	gap: 4rem;
-	
+	gap: 2rem;
+	padding-bottom: 5rem;
+
 	@media (min-width: 768px) {
 		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media (min-width: 1025px) {
+		grid-template-columns: repeat(3, 1fr);
+		padding: 0 3.125rem 7.3rem;
+		column-gap: 2rem;
+		row-gap: 0;
 	}
 }
 
 .blog-grid-item {
-	&:first-child {
-		@media (min-width: 768px) {
-			grid-column-start: 2;
-		}
-	}
-
-	&:nth-child(2n + 2) {
-		@media (min-width: 768px) {
-			margin-top: -100%;
+	@media (min-width: 1025px) {
+		&:nth-child(3n+2) {
+			margin-top: 3.87rem;
 		}
 	}
 
@@ -25,6 +27,14 @@
 	& h4 {
 		font-weight: 100;
 		margin-top: 1rem;
+	}
+
+	& h4 {
+		width: 75%;
+		font-size: 1.125rem;
+		text-align: end;
+		margin-left: auto;
+		margin-bottom: 0;
 	}
 
 	& img {

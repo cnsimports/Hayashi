@@ -36,6 +36,14 @@ export const QUERY_PAGES_BY_SLUG = gql`
 												}
 											}
 										}
+										ProductPhoto {
+											data {
+												attributes {
+													url
+													alternativeText
+												}
+											}
+										}
 										ProductDescription
 										product_notes {
 											data {
@@ -44,6 +52,7 @@ export const QUERY_PAGES_BY_SLUG = gql`
 												}
 											}
 										}
+										ShopifyID
 									}
 								}
 							}
@@ -51,10 +60,21 @@ export const QUERY_PAGES_BY_SLUG = gql`
 						... on ComponentHeroHero {
 							HeroTopLine
 							HeroMain
+							StylizedText
+							SecondLineIndented
 							HeroBottomLine
 							Button {
 								Text
 								URL
+							}
+							Image {
+								data {
+									attributes {
+										mime
+										alternativeText
+										url
+									}
+								}
 							}
 						}
 						... on ComponentImagesCoverImage {
@@ -71,6 +91,21 @@ export const QUERY_PAGES_BY_SLUG = gql`
 						}
 						... on ComponentContentContent {
 							content
+						}
+						... on ComponentContentSplitContent {
+							topic
+							title
+							content
+							image {
+								data {
+									attributes {
+										mime
+										alternativeText
+										url
+									}
+								}
+							}
+							variant
 						}
 					}
 				}
@@ -241,6 +276,18 @@ export const QUERY_ALL_POSTS = gql`
 							}
 						}
 					}
+				}
+			}
+		}
+	}
+`;
+
+export const QUERY_PRODUCTS = gql`
+	query {
+		products {
+			data {
+				attributes {
+					ProductName
 				}
 			}
 		}

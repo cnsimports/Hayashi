@@ -29,11 +29,23 @@
       "target": "api::product-note.product-note"
     },
     "ProductImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "ProductPhoto": {
       "allowedTypes": [
         "images"
       ],
       "type": "media",
       "multiple": false
+    },
+    "ShopifyID": {
+      "type": "string",
+      "unique": true
     }
   }
 }

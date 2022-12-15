@@ -7,9 +7,8 @@ import Image from 'next/image';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 
-import { gsap } from '@gsap/business';
-import { ScrollTrigger } from '@gsap/business/dist/ScrollTrigger';
-import { DrawSVGPlugin } from '@gsap/business/dist/DrawSVGPlugin';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 import { Header } from '@components/Header/Header';
 import { Footer } from '@components/Footer/Footer';
@@ -19,16 +18,20 @@ import { Kanji } from '@components/SVG/Kanji';
 import styles from '@styles/pageTransition/pageTransition.module.css';
 
 import '@styles/globals.css';
+import { QUERY_PRODUCTS } from '@lib/queries';
+import client from '@lib/apollo';
+import { NextSeo } from 'next-seo';
 
 export const GlobalContext = createContext({});
-function MyApp({ Component, pageProps, router }) {
+function MyApp({ Component, pageProps, router, products }) {
 	const { route } = router;
 	const [isLegal, setIsLegal] = useState('');
+	const { seoData = [] } = pageProps;
 
 	useEffect(() => {
 		document.body.classList.add('loaded');
 		setIsLegal(localStorage.getItem('ageVerified'));
-		gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
+		gsap.registerPlugin(ScrollTrigger);
 	}, []);
 
 	useEffect(() => {
@@ -39,6 +42,7 @@ function MyApp({ Component, pageProps, router }) {
 
 	return (
 		<>
+			<NextSeo {...seoData} />
 			<Head>
 				<link rel="stylesheet" href="https://use.typekit.net/wzt1kkc.css" />
 			</Head>
@@ -50,6 +54,7 @@ function MyApp({ Component, pageProps, router }) {
 					<AnimatePresence exitBeforeEnter>
 						<>
 							<motion.div
+								className="main-wrapper"
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
 								transition={{ delay: 1.5 }}
@@ -97,20 +102,20 @@ function MyApp({ Component, pageProps, router }) {
 									footer?.classList.remove('hide');
 									main?.classList.remove('hide');
 
-									gsap.fromTo(
-										'.progress-wrap path',
-										{
-											drawSVG: 0,
-										},
-										{
-											drawSVG: '100%',
-											scrollTrigger: {
-												start: 0,
-												end: document.body.getBoundingClientRect().height,
-												scrub: true,
-											},
-										}
-									);
+									// gsap.fromTo(
+									// 	'.progress-wrap path',
+									// 	{
+									// 		drawSVG: 0,
+									// 	},
+									// 	{
+									// 		drawSVG: '100%',
+									// 		scrollTrigger: {
+									// 			start: 0,
+									// 			end: document.body.getBoundingClientRect().height,
+									// 			scrub: true,
+									// 		},
+									// 	}
+									// );
 
 									gsap.fromTo(
 										'.progress-wrap',
@@ -149,7 +154,12 @@ function MyApp({ Component, pageProps, router }) {
 				)}
 				{isLegal === 'true' && (
 					<>
-						<Footer initial={false} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }} />
+						<Footer
+							initial={false}
+							animate={{ opacity: 1 }}
+							transition={{ delay: 1, duration: 1 }}
+							products={products}
+						/>
 						<CookieConsent style={{ backgroundColor: 'black' }}>
 							This website uses cookies to enhance the user experience.
 						</CookieConsent>
@@ -167,14 +177,18 @@ MyApp.getInitialProps = async (appContext) => {
 	// 		favicon: '*',
 	// 	},
 	// });
+	const { data: productRes } = await client.query({
+		query: QUERY_PRODUCTS,
+	});
 
-	return { ...appProps };
+	return { ...appProps, products: productRes.products.data };
 };
 
 MyApp.propTypes = {
 	Component: PropTypes.func,
 	pageProps: PropTypes.object,
 	router: PropTypes.object,
+	products: PropTypes.array,
 };
 
 export default MyApp;

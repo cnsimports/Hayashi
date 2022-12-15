@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
-import { gsap } from '@gsap/business';
-import { ScrollTrigger } from '@gsap/business/dist/ScrollTrigger';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import Image from 'next/image';
-import { NextSeo } from 'next-seo';
+import FutureImage from 'next/future/image';
 import PropTypes from 'prop-types';
 
 import client from '@lib/apollo';
@@ -20,9 +20,12 @@ import styles from '@styles/pages/Home.module.css';
 const Home = (props) => {
 	const omegawrapRef = useRef(null);
 	const bottleRef = useRef(null);
+	const bottleBgRef = useRef(null);
 	const videoRef = useRef(null);
 	const slidesRef = useRef(null);
 	const slideOneRef = useRef(null);
+	const darkSlidesRef = useRef(null);
+	const darkSlidesBgRef = useRef(null);
 	const oneBgRef = useRef(null);
 	const oneTitleRef = useRef(null);
 	const oneCloudsRef= useRef(null);
@@ -61,7 +64,7 @@ const Home = (props) => {
 				.fromTo(
 					videoRef.current,
 					{ currentTime: 0 },
-					{ currentTime: videoRef.current.duration - .25, duration: 2.75 },
+					{ currentTime: videoRef.current.duration, duration: 2.75 },
 					0
 				);
 
@@ -69,10 +72,22 @@ const Home = (props) => {
 				trigger: slidesRef.current,
 				start: 'top top+=70',
 				end: 'bottom bottom+=150%',
-				pin: videoRef.current,
+				pin: bottleRef.current,
 				pinSpacing: false,
 				scrub: true,
-				animation: bottleScrubTl
+				animation: bottleScrubTl,
+				onUpdate: (st) => {
+					if (videoRef.current && bottleBgRef.current && bottleRef.current) {
+						const videoTop = videoRef.current.getBoundingClientRect().top;
+						const bgTop = bottleRef.current.getBoundingClientRect().top;
+						bottleBgRef.current.style.top = `${videoTop - bgTop}px`;
+						if (st.progress > 0.92) {
+							bottleBgRef.current.style.opacity = 1;
+						} else {
+							bottleBgRef.current.style.opacity = 0;
+						}
+					}
+				},
 			});
 		});
 
@@ -178,6 +193,15 @@ const Home = (props) => {
 			}
 		});
 
+		const darkSlidesBgTl = gsap.timeline();
+
+		ScrollTrigger.create({
+			trigger: darkSlidesRef.current,
+			pin: darkSlidesBgRef.current,
+			scrub: true,
+			animation: darkSlidesBgTl,
+		});
+
 		darkSlides.forEach((darkSlide) => {
 			const title = darkSlide.querySelector('.title');
 			const darkSlideTl = gsap.timeline();
@@ -199,10 +223,6 @@ const Home = (props) => {
 		const { home_fields, link_hover } = home.attributes;
 		return (
 			<main className="home">
-				<NextSeo
-					title="Hayashi Japanese Whisky"
-					description="An exemplary whisky of the Ryukyu Islands, Hayashi embodies both the quiet intrigue of Okinawa island life and the rich tradition of Japanese patience and perfection."
-				/>
 				<div ref={oneCloudsRef} className={styles['cloud']}></div>
 
 				<div ref={omegawrapRef} className="omegawrap">
@@ -211,6 +231,10 @@ const Home = (props) => {
 							{/* ffmpeg -i Transparent-Final_1.mov -c:v libvpx-vp9 -b:v 2M -crf 20 -g 1 -auto-alt-ref 0 output.webm */}
 							<source src="https://res.cloudinary.com/hayashi-whisky/video/upload/v1663189424/bottle_spin_fuazr8.webm" />
 						</video>
+						<div ref={bottleBgRef} className={styles['bottle-background']}>
+							<img className={styles['bottle-background-decoration']} src="/images/home-bottle-text-decoration.svg" alt="" />
+							<img className={`${styles['bottle-background-decoration']} ${styles['bottle-background-decoration-2']}`} src="/images/home-bottle-text-decoration-2.svg" alt="" />
+						</div>
 					</div>
 
 					<div className={styles['slides']} ref={slidesRef}>
@@ -255,7 +279,7 @@ const Home = (props) => {
 							</div>
 						</Slide>
 
-						<Slide full className="slide">
+						<Slide full className="slide over">
 							<div className="container">
 								<div className={`${styles['content']} ${styles['-bottle-land']}`}>
 									<h2 className="title">{home_fields.slide_4_title}</h2>
@@ -292,7 +316,13 @@ const Home = (props) => {
 					</div>
 				</div>
 
-				<div className={`${styles['dark-slides']} js-dark-slides`}>
+				<div ref={darkSlidesRef} className={`${styles['dark-slides']} js-dark-slides`}>
+					{home_fields.slide_7_image.data && (
+						<div ref={darkSlidesBgRef} className={styles['ds-bg']}>
+							<FutureImage alt={home_fields.slide_7_image.data.attributes.alternativeText} src={getStrapiMedia(home_fields.slide_7_image.data.attributes.url)} layout="responsive" width={home_fields.slide_7_image.data.attributes.width} height={home_fields.slide_7_image.data.attributes.height} />
+						</div>
+					)}
+
 					<Slide bg="dark" className="first ds">
 						<div className="container -sm">
 							<h3 className="-center title">{home_fields.slide_5_title}</h3>
@@ -306,11 +336,8 @@ const Home = (props) => {
 					</Slide>
 				</div>
 
-				{home_fields.slide_7_image.data && (
-					<Image alt={home_fields.slide_7_image.data.attributes.alternativeText} src={getStrapiMedia(home_fields.slide_7_image.data.attributes.url)} layout="responsive" width={home_fields.slide_7_image.data.attributes.width} height={home_fields.slide_7_image.data.attributes.height} />
-				)}
 
-				<Slide bg="dark">
+				<div bg="dark" className={`${styles['dark-heading']}`}>
 					<div className="container -sm -center -pb-l">
 						<h3>{home_fields.slide_8_title}</h3>
 						<Button href={home_fields.slide_8_button.URL}>
@@ -319,17 +346,17 @@ const Home = (props) => {
 							</>
 						</Button>
 					</div>
-				</Slide>
+				</div>
 
-				<Slide bg="dark">
-					<div className={`${styles['img-grid']} container -sm -pb-l`}>
+				<div bg="dark">
+					<div className={`${styles['img-grid']} container -pb-l`}>
 						{home_fields.slide_9_image.data?.map((image) => (
-							<div key={image.id}>
+							<div  className={`${styles['img-grid-item']}`} key={image.id}>
 								<Image alt={image.attributes.alternativeText} src={getStrapiMedia(image.attributes.url)} layout="responsive" width={600} height={750} />
 							</div>
 						))}
 					</div>
-				</Slide>
+				</div>
 
 				<HoverLinks title={link_hover.title} links={link_hover.link_hover_item} />
 
@@ -354,9 +381,16 @@ export async function getStaticProps() {
 		query: QUERY_HOME,
 	});
 
+	const seoData = {
+		title: 'Hayashi Japanese Whisky',
+		description:
+			'An exemplary whisky of the Ryukyu Islands, Hayashi embodies both the quiet intrigue of Okinawa island life and the rich tradition of Japanese patience and perfection.',
+	};
+
 	return {
 		props: {
 			home: homepageRes.homepage.data,
+			seoData,
 		},
 		revalidate: 10,
 	};

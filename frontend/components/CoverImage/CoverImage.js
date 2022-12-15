@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 
 import styles from './CoverImage.module.css';
 
-export const CoverImage = ({ Parallax, CoverImage }) => {
+export const CoverImage = ({ Parallax, CoverImage, className }) => {
 	if (CoverImage.data) {
 		const { alternativeText, url, mime } = CoverImage.data.attributes;
 		return (
 			<div
-				className={`${styles['cover-image']}${Parallax ? ` ${styles['-parallax']}` : ''}`}
+				className={`${styles['cover-image']}${Parallax ? ` ${styles['-parallax']}` : ''} ${className}`}
 				style={{ backgroundImage: Parallax ? `url(${getStrapiMedia(url)})` : '' }}
 			>
 				{mime.includes('video') && (
@@ -39,4 +39,5 @@ CoverImage.propTypes = {
 			}),
 		}),
 	}).isRequired,
+	className: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
 };
