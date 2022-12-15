@@ -24,7 +24,6 @@ import { NextSeo } from 'next-seo';
 
 export const GlobalContext = createContext({});
 function MyApp({ Component, pageProps, router, products }) {
-	console.log(products);
 	const { route } = router;
 	const [isLegal, setIsLegal] = useState('');
 	const { seoData = [] } = pageProps;

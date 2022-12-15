@@ -195,7 +195,6 @@ const Home = (props) => {
 
 		const darkSlidesBgTl = gsap.timeline();
 
-		console.log('dark slide bg: ', darkSlidesBgRef.current)
 		ScrollTrigger.create({
 			trigger: darkSlidesRef.current,
 			pin: darkSlidesBgRef.current,
