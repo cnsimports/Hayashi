@@ -337,7 +337,7 @@ const Home = (props) => {
 				</div>
 
 
-				<div bg="dark" className={`${styles['dark-heading']}`}>
+				<div className={`${styles['dark-heading']}`}>
 					<div className="container -sm -center -pb-l">
 						<h3>{home_fields.slide_8_title}</h3>
 						<Button href={home_fields.slide_8_button.URL}>
@@ -348,7 +348,7 @@ const Home = (props) => {
 					</div>
 				</div>
 
-				<div bg="dark">
+				<div>
 					<div className={`${styles['img-grid']} container -pb-l`}>
 						{home_fields.slide_9_image.data?.map((image) => (
 							<div  className={`${styles['img-grid-item']}`} key={image.id}>
