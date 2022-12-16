@@ -8,7 +8,8 @@ export function useShopifyBuyButton(shopifyId) {
 		var randomValue = new Date().getTime();
 		scriptURL = scriptURL + '?ver=' + randomValue;
 
-		if (window.bcInit) {
+		/* eslint-disable-next-line */
+		if (typeof window != "undefined" && window.bcInit) {
 			BarcartBuyInit();
 		} else {
 			loadScript();
@@ -19,7 +20,7 @@ export function useShopifyBuyButton(shopifyId) {
 			script.async = true;
 			script.src = scriptURL;
 			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-			script.onload = function (url, callback) {
+			script.onload = function () {
 				BarcartBuyInit();
 			};
 		}
@@ -34,7 +35,7 @@ export function useShopifyBuyButton(shopifyId) {
 			var productWrapperId = shopifyId;
 			document.getElementById(productWrapperId).append(component);
 
-			bcInit.bcCreateComponent('product', {
+			window.bcInit.bcCreateComponent('product', {
 				id: product_id,
 				barcart_product_id: barcart_product_id,
 				button_id: 3580,

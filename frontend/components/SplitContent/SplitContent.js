@@ -44,4 +44,5 @@ SplitContent.propTypes = {
 	title: PropTypes.string.isRequired,
 	content: PropTypes.string,
 	image: PropTypes.object,
+	variant: PropTypes.string,
 };
