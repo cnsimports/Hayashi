@@ -57,15 +57,12 @@ export const Footer = ({ products }) => (
 				</ul>
 			</div>
 			<div className={styles.subscribe}>
-				<>
-					{/* eslint-disable */}
-						<label>
-							Hear more from Hayashi
-						</label>
-						<script type="text/javascript" src="https://campaigns.zoho.com/js/zc.iframe.js"></script>
-						<iframe frameborder="0" id="iframewin" width="100%" height="100%" src="https://hqepw-cmpzourl.maillist-manage.com/ua/Optin?od=11287ecbe47557&zx=12e1ad3ac&tD=1cfb060ce15fe411&sD=1cfb060ce16235e3"></iframe>
-					{/* eslint-enable */}
-				</>
+				<form className={styles['subscribe-form']} action="https://hayashiwhisky.us11.list-manage.com/subscribe/post?u=6f22322ce2a7148fef6f15f36&amp;id=df4c0a42d1&amp;f_id=0077aae0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" noValidate>
+					<label className={styles['subscribe-title']}>Hear more from Hayashi</label>
+					<input className={styles['subscribe-input']} placeholder="Enter e-mail" type="email" name="EMAIL" id="mce-EMAIL" required />
+					<div style={{position: "absolute", left: "-5000px"}} aria-hidden="true"><input type="text" name="b_6f22322ce2a7148fef6f15f36_df4c0a42d1" tabIndex="-1" /></div>
+					<button className={styles['subscribe-button']} type="submit" name="subscribe"></button>
+				</form>
 			</div>
 			<div className={styles['foot-group']}>
 				<Logo width={85} height={15} />
