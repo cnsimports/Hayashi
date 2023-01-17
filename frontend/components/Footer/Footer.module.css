@@ -186,6 +186,10 @@
 	&-form {
 		position: relative;
 	}
+
+	&-message {
+		position: absolute;
+	}
 }
 
 .copy-social {
